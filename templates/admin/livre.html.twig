@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Liste des LIVRES
+{% endblock %}
+
+{% block body %}
+{% block h1 %} 
+LISTE DE MES  LIVRES: 
+{% endblock %}
+
+
+{{ LesTitresDeMesLivres_name    }}
+
+<br/><br/>
+<ul>
+<li> {{liste_titre[0]}} </li>
+<li> {{liste_titre [1]}} </li>
+<li> {{liste_titre [2]}} </li>
+<li> {{liste_titre [3]}} </li>
+<li> {{liste_titre [4]}} </li>
+<li> {{liste_titre [5]}} </li>
+<li> {{liste_titre [6]}} </li>
+<li> {{liste_titre [7]}} </li>
+<li> {{liste_titre [8]}} </li>
+<li> {{liste_titre [9]}} </li>
+</ul>
+{% endblock %}

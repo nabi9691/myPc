@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+<hr>
+
+<h3>
+<ul>
+<li> <a href="{{ path('index_categorie') }}">LA LISTE DES CATEGORIE </a> </li>
+<li> <a href="{{ path('index_livre') }}">LA LISTE DES LIVRES</a> </li>
+<li> <a href="{{ path('index_utilisateur') }}">LA LISTE DES UTILISATEURS</a> </li>
+<li> <a href="{{ path('index_location') }}">LA LISTE DES LOCATIONS </a> </li>
+</ul>
+</h3>
+
+
+{% endblock %}

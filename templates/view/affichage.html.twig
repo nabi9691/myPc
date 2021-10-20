@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Test affichage
+{% endblock %}
+
+{% block body %}
+    <h1>{% block h1 %}Affichage de de mon nom :{% endblock %}</h1>
+    <br/><br/>
+    <ul>
+     {{ nom }} {{ prenom }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,38 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+index:
+    path: /home
+    controller: App\Controller\DefaultController::home
+
+calculer:
+    path: /calculer
+    controller: App\Controller\DefaultController::calculer
+
+view:
+    path: /view
+    controller: App\Controller\DefaultController::view
+
+
+contacter:
+    path: /contacter
+    controller: App\Controller\DefaultController::contacter
+
+personne:
+    path: /personne
+    controller: App\Controller\ViewController::personne
+
+
+utilisateur:
+    path: /utilisateur
+    controller: App\Controller\BiblioController::utilisateur
+
+categorie:
+    path: /categorie
+    controller: App\Controller\Bibli    oController::categorie
+
+location:
+    path: /location
+    controller: App\Controller\BiblioController::location
+

@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+{% block title %}Liste des utilisateurs {% endblock %}
+{% block body %}
+{% block h1 %} Liste des utilisateurs : {% endblock %}
+<br/><br/>
+
+{{ UTILISATEUR_name  }}
+
+<ul>
+<li> {{utilisateur[0]}} </li>
+<li> {{utilisateur[1]}} </li>
+<li> {{utilisateur[2]}} </li>
+<li> {{utilisateur[3]}} </li>
+<li> {{utilisateur[4]}} </li>
+<li> {{utilisateur[5]}} </li>
+<li> {{utilisateur[6]}} </li>
+<li> {{utilisateur[7]}} </li>
+</ul>
+{% endblock %}

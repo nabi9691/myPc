@@ -1,0 +1,22 @@
+    {% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+<hr>
+
+<h3>
+<ul>
+<li> <a href="{{ path('index_liste') }}"> Liste des stagiaires de DWWM2 </a> </li>
+<li> <a href="{{ path('contacter') }}"> Nous contacter </a> </li>
+<li> <a href="{{ path('index_apropos') }}"> à propos </a> </li>
+<li> <a href="{{ path('index_actualite') }}"> L'actualité </a> </li>
+<li> <a href="{{ path('index') }}"> L'accueil</a> </li>
+<li> <a href="{{ path('index_programme') }}"> Programme </a> </li>
+<li> <a href="{{ path('view_affiche') }}"> Affichage de mon nom et prénom </a> </li>
+</ul>
+</h3>
+
+
+{% endblock %}
