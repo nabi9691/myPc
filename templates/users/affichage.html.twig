@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+ Affichage d'un utilisateur ! 
+ {% endblock %}
+
+{% block body %}
+
+<h1> Nouveau utilisateur </h1>
+
+<br/><br/>
+<hr/>
+<br/><br/>
+
+<table class="table border=1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>nom</th>
+<th>prenom</th>
+<th>datenaissance</th>
+<th>adresse</th>
+<th>login</th>
+<th>password</th>
+<th>photo</th>
+<th>email</th>
+<th>role</th>
+<th>locataire</th>
+<th>proprietaire</th>
+<th>gestionnaire</th>
+<th>administrateur</th>
+</tr>
+</thead>
+
+
+<td>{{ users.id }}</td>
+<td>{{ users.nom }}</td>
+<td>{{ users.prenom }}</td>
+
+<td>{{ users. }}</td>
+
+<td>{{ users.datenaissance }}</td>
+<td>{{ users.adresse }}</td>
+<td>{{ users.login }}</td>
+<td>{{ users.password }}</td>
+<td>{{ users.photo }}</td>
+<td>{{ users.email }}</td>
+<td>{{ users.role }}</td>
+<td>{{ users.locataire }}</td>
+<td>{{ users.proprietaire }}</td>
+<td>{{ users.gestionnaire }}</td>
+<td>{{ users.administrateur }}</td>
+
+<tr>
+<td>{{ users.id }}</td>
+</tr>
+</tbody>
+</table>
+{% endblock %}

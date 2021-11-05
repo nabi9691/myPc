@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}
-    Bienvenu(e) dans ma page Admin !
-    {% endblock %}
+{% block title %}
+	Gestion des locations!
+{% endblock %}
 
 {% block body %}
 	<style>
@@ -20,7 +20,7 @@
 
 	<div class="example-wrapper">
 		<h1>
-			Bienvenu(e) dans la page de mon admin ! ✅</h1>
+			Bienvenu(e) dans la page de la gestion de mes locations ! ✅</h1>
 <br/><br/>
 <hr/>
 <br/>
@@ -31,21 +31,27 @@
 </div>
 		<table class="table">
 			<tbody>
-				{% for admin in admin %}
+				{% for location in locations %}
 					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
 					<tr>
-<td>{{ admin.id }}</td>
-<td>{{ admin.nom }}</td>
-<td>{{ admin.prenom. }}</td>
-<td>{{ admin.login }}</td>
-<td>{{ admin.password }}</td>
-                </tr>
-                {% else %}
+
+<td>{{ location.id }}</td>
+<td>{{ location.date }}</td>
+<td>{{ location.titre }}</td>
+<td>{{ location.categories }}</td>
+<td>{{ location.image }}</td>
+<td>{{ location.description }}</td>
+<td>{{ location.valeur }}</td>
+<td>{{ location.adresse }}</td>
+<td>{{ location.accessibility }}</td>
+<td>{{ location.statuts }}</td>
+<td>{{ location.alaune }}</td>
+
+{% else %}
 					<tr>
-					<td colspan="5">Vous n'avez pas d'enregistrement!
+						<td colspan="5">Vous n'avez pas d'enregistrement!
 						</td>
 						<td></td>
-					
 					</tr>
 				{% endfor %}}
 			</tbody>

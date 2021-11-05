@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}
-    Bienvenu(e) dans ma page Admin !
-    {% endblock %}
+{% block title %}
+	Gestion des articles!
+{% endblock %}
 
 {% block body %}
 	<style>
@@ -20,7 +20,7 @@
 
 	<div class="example-wrapper">
 		<h1>
-			Bienvenu(e) dans la page de mon admin ! ✅</h1>
+			Bienvenu(e) dans la page de la gestion de mes articles! ✅</h1>
 <br/><br/>
 <hr/>
 <br/>
@@ -31,17 +31,54 @@
 </div>
 		<table class="table">
 			<tbody>
-				{% for admin in admin %}
+				{% for article in articles %}
 					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
 					<tr>
-<td>{{ admin.id }}</td>
-<td>{{ admin.nom }}</td>
-<td>{{ admin.prenom. }}</td>
-<td>{{ admin.login }}</td>
-<td>{{ admin.password }}</td>
-                </tr>
-                {% else %}
+						<td>{{ article.id }}
+						</td>
+						<td>{{ article.titre }}
+						</td>
+						<td>{{ article.contenu }}
+						</td>
+					</tr>
+				{% else %}
 					<tr>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 					<td colspan="5">Vous n'avez pas d'enregistrement!
 						</td>
 						<td></td>

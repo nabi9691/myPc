@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+
+{% block title %} 
+Nouvel utilisateur {% endblock %}
+
+{% block body %}
+<h1> Nouvel utilisateur </h1>
+
+<br/><br/>
+
+<hr>
+
+<br/>
+
+<div id="table" class="table">
+<table border="1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>nom</th>
+<th>prenom</th>
+<th>datedenaissance</th>
+<th>adresse</th>
+<th>login</th>
+<th>password</th>
+<th>photo</th>
+<th>email</th>
+<th>role</th>
+<th>locataire</th>
+<th>proprietaire</th>
+<th>gestionnaire</th>
+<th>administrateur</th>
+
+</thead>
+</tr>
+<tr>
+{% for user in users %}
+					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
+				
+<tr>
+<td>{{ user.id }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+<td>{{ user. }}</td>
+
+
+</tr>
+</div>
+{% endfor %}}
+			</tbody>
+		</table>
+        
+	</div>
+
+{% endblock %}

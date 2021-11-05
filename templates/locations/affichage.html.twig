@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Affichage d'd'une location ! {% endblock %}
+
+{% block body %}
+
+<h1> Nouvelle location </h1>
+
+<br/><br/>
+<hr/>
+<br/><br/>
+
+<table class="table border=1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>titre</th>
+<th>categories</th>
+<th>image</th>
+<th>description</th>
+<th>valeur</th>
+<th>adresse</th>
+<th>accessibility</th>
+<th>statuts</th>
+<th>alaune</th>
+
+</tr>
+</thead>
+
+<tr>
+<td>{{ location.id }}</td>
+<td>{{ location.date }}</td>
+<td>{{ location.titre }}</td>
+<td>{{ location.categories }}</td>
+<td>{{ location.image }}</td>
+<td>{{ location.description }}</td>
+<td>{{ location.valeur }}</td>
+<td>{{ location.adresse }}</td>
+<td>{{ location.accessibility }}</td>
+<td>{{ location.statuts }}</td>
+<td>{{ location.alaune }}</td>
+
+
+</tr>
+</tbody>
+</table>
+{% endblock %}

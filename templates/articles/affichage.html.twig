@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Affichage d'un article! {% endblock %}
+
+{% block body %}
+
+<h1> Nouvel article </h1>
+
+<br/><br/>
+<hr/>
+<br/><br/>
+
+<table class="table border=1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>contenu</th>
+<th>images</th>
+<th>résumé</th>
+<th>date</th>
+</tr>
+</thead>
+
+<tr>
+<td>{{ articles.id }}</td>
+<td>{{ articles.titre }}</td>
+<td>{{ articles.contenu }}</td>
+<td>{{ articles.image }}</td>
+<td>{{ articles.resume }}</td>
+<td>{{ articles.date|date("d/m/Y") }}</td>
+</tr>
+</tbody>
+</table>
+{% endblock %}

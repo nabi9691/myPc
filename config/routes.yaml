@@ -2,37 +2,34 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-index:
-    path: /home
-    controller: App\Controller\DefaultController::home
 
-calculer:
-    path: /calculer
-    controller: App\Controller\DefaultController::calculer
-
-view:
-    path: /view
-    controller: App\Controller\DefaultController::view
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::admin
 
 
-contacter:
-    path: /contacter
-    controller: App\Controller\DefaultController::contacter
-
-personne:
-    path: /personne
-    controller: App\Controller\ViewController::personne
+articles:
+    path: /articles
+    controller: App\Controller\ArticlesController::articles
 
 
-utilisateur:
-    path: /utilisateur
-    controller: App\Controller\BiblioController::utilisateur
+categories:
+    path: /categories
+    controller: App\Controller\CategoriesController::categories
 
-categorie:
-    path: /categorie
-    controller: App\Controller\Bibli    oController::categorie
 
-location:
-    path: /location
-    controller: App\Controller\BiblioController::location
+livres:
+    path: /livres
+    controller: App\Controller\LivresController::livres
+
+
+locations:
+    path: /locations
+    controller: App\Controller\LocationsController::locations
+
+
+users:
+    path: /users
+    controller: App\Controller\UsersController::users
+
 

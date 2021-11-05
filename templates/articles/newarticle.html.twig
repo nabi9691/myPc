@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Nouvel article {% endblock %}
+
+{% block body %}
+<h1> Nouvel article </h1>
+
+<br/><br/>
+
+<hr>
+
+<br/>
+
+<div id="table" class="table">
+<table border="1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>contenu</th>
+<th>resume</th>
+<th>date</th>
+<th>image</th>
+
+</thead>
+</tr>
+<tr>
+{% for article in articles %}
+					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
+				
+<tr>
+<td>{{ article.id }}</td>
+<td>{{ article.titre }}</td>
+<td>{{ article.contenu }}</td>
+
+<td>{{ article.resume }}</td>
+<td>{{ article.date|date(d/m/Y) }}</td>
+<td>{{ article.image }}</td>
+
+
+<td></td>
+</tr>
+</div>
+{% endfor %}}
+			</tbody>
+		</table>
+        
+	</div>
+
+{% endblock %}

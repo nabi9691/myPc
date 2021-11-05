@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+ Nouvelle categorie
+ {% endblock %}
+
+{% block body %}
+<h1>
+ Nouvelle categorie 
+ </h1>
+
+<br/><br/>
+
+<hr>
+
+<br/>
+
+<div id="table" class="table">
+<table border="1">
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>resume</th>
+<th>date</th>
+</tr>
+</thead>
+<tbody>
+{% for categorie in categories %}
+					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
+				
+<tr>
+<td>{{ categorie.id }}</td>
+<td>{{ categorie.titre }}</td>
+<td>{{ categorie.resume }}</td>
+<td>{{ categorie.date|date(d/m/Y) }}</td>
+
+
+<td></td>
+</tr>
+</div>
+{% endfor %}}
+			</tbody>
+		</table>
+        
+	</div>
+
+{% endblock %}
