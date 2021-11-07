@@ -15,7 +15,6 @@ use App\Form\CategoriesType;
 use App\Repository\CategoriesRepository;
 
 
-
         /**
                      * @Route("categories")
                      */
@@ -40,9 +39,9 @@ class CategoriesController extends AbstractController
      
     
     /**
-     * @Route("/new", name="categories_nouvelle", methods={"GET", "POST"})
+     * @Route("/new", name="new_categorie", methods={"GET", "POST"})
      */
-     public function nouvelle(Request $request, EntityManagerInterface $em): Response
+     public function new(Request $request, EntityManagerInterface $em): Response
      {
 
         $categories = new Categories();
@@ -54,10 +53,10 @@ class CategoriesController extends AbstractController
         $em->persist($categories);
         $em->flush();
 
-        return $this->render('categories/newcategorie.html.twig', [
-            'controller_name' => 'CategoriesController',
+        return $this->render('categories/newCategorie.html.twig', [
+            'newCategorie_name' => 'CategoriesController',
             
-            'categories' => $categories,
+            'categorie' => $categories,
         ]);
 }
 
@@ -73,28 +72,5 @@ class CategoriesController extends AbstractController
     }
 
     
-
-/**
-     * @Route("/action", name="categories_afficher", methods={"GET", "POST"})
-     */
-    public function action(Request $request, EntityManagerInterface $em): Response
-    {
-
-       $action = new Action();
-
-       $categories->setTitre(" Titre de  ma categorie ");
-       $categories->setAction(" Titre de ma categorie  ");
-
-       $em->persist($categories);
-       $em->flush();
-
-       return $this->render('categories/index.html.twig', [
-           'categorie' => $categories,
-       ]);
-}
-
-
-
-
 
 }

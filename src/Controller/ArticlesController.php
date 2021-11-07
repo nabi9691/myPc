@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Articles;
-use App\Form\ArticlesType;
 use App\Repository\ArticlesRepository;
+use App\Form\CategoriesType;
+
+use App\Repository\CategoriesRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManager;
@@ -15,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
     /**
-     * @Route("/articles")
+     * @Route("articles")
      */
     
      class ArticlesController extends AbstractController
@@ -24,8 +26,6 @@ use Symfony\Component\Routing\Annotation\Route;
      * @Route("/", name="articles_index")
      */
 
-    // 1e Methode
-    
     public function index(): Response
     {   
         $repo= $this->getDoctrine()->getRepository(Articles::class);
@@ -35,13 +35,11 @@ use Symfony\Component\Routing\Annotation\Route;
             'articles' => $articles,
         ]);
     }
-    
 
-
-    /**
-     * @Route("/new", name="articles_nouveau", methods={"GET", "POST"})
+        /**
+     * @Route("/new", name="new_article", methods={"GET", "POST"})
      */
-    public function nouveau(Request $request, EntityManagerInterface $em): Response
+    public function new(Request $request, EntityManagerInterface $em): Response
     {
 
        $articles = new Articles();
@@ -55,45 +53,14 @@ use Symfony\Component\Routing\Annotation\Route;
        $em->persist($articles);
            $em->flush();
 
-       return $this->render('articles/newarticle.html.twig', [
+       return $this->render('articles/newArticle.html.twig', [
            'articles' => $articles,
        ]);
 }
 
     
 
-    
-    /**
-     * @Route("/{id}", name="articles_affichage", methods={"GET"})
-     */
-    public function show(Articles $articles, ArticlesRepository $articlesRepository, Request $request, EntityManagerInterface $manager ): Response
-    {
-        return $this->render('articles/affichage.html.twig', [
-            'id'=>$articles->getId(),
-            'articles' => $articles,
-        ]);
+
+
+
     }
-
-    
-/**
-     * @Route("/action", name="articles_afficher", methods={"GET", "POST"})
-     */
-    public function action(Request $request, EntityManagerInterface $em): Response
-    {
-
-       $action = new Action();
-
-       $articles->setTitre(" Titre de mon Article");
-       $articles->setImage(" photo de mon Article");
-       $articles->setResume(" Titre de mon Article");
-       $articles->setDate(new  \DateTime());
-       $articles->setContenu(" Contenu de mon Article Contenu de mon ArticleContenu de mon ArticleContenu de mon ArticleContenu de mon Article");
-        
-       $em->persist($articles);
-       $em->flush();
-
-       return $this->render('articles/index.html.twig', [
-           'articles' => $articles,
-       ]);
-}
-}

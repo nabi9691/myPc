@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Gestion des locations!
+	Une nouvelle location !
 {% endblock %}
 
 {% block body %}
@@ -20,22 +20,35 @@
 
 	<div class="example-wrapper">
 		<h1>
-			Bienvenu(e) dans la page de la gestion de mes locations ! ✅</h1>
+			Veuillez enregistrer une nouvelle location ! ✅</h1>
 <br/><br/>
 <hr/>
 <br/>
 <div id="menu" class="menu">
 <ul>
-<li> <a href="{{ path('new_location') }}">Veuillez ajouter une nouvelle location !</a></li> 
 
 </ul>
-
-
-
 </div>
 		<table class="table">
-			<tbody>
-				{% for location in locations %}
+
+<thead>
+<tr>
+<th>id</th>
+<th>Date</th>
+<th>Titre</th>
+<th>categories</th>
+<th>image</th>
+<th>description</th>
+<th>valeur</th>
+<th>adresse</th>
+<th>accessibility</th>
+<th>statuts</th>
+<th>à la une</th>
+</tr>
+</thead>
+
+            <tbody>
+				{% for location in location %}
 					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
 					<tr>
 
@@ -51,11 +64,6 @@
 <td>{{ location.statuts }}</td>
 <td>{{ location.alaune }}</td>
 
-{% else %}
-					<tr>
-						<td colspan="5">Vous n'avez pas d'enregistrement!
-						</td>
-						<td></td>
 					</tr>
 				{% endfor %}}
 			</tbody>

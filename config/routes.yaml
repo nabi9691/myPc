@@ -2,34 +2,47 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+accueil:
+    path: /
+    controller: App\Controller\AccueilController::index
+
 
 admin:
     path: /admin
     controller: App\Controller\AdminController::admin
 
-
 articles:
     path: /articles
     controller: App\Controller\ArticlesController::articles
-
 
 categories:
     path: /categories
     controller: App\Controller\CategoriesController::categories
 
+locations:
+    path: /locations
+    controller: App\Controller\LocationsController::locations
 
 livres:
     path: /livres
     controller: App\Controller\LivresController::livres
 
-
-locations:
-    path: /locations
-    controller: App\Controller\LocationsController::locations
-
-
 users:
     path: /users
     controller: App\Controller\UsersController::users
+
+new01:
+    path: /new01
+    controller: App\Controller\ArticlesController::new01
+
+new02:
+    path: /new02
+    controller: App\Controller\ArticlesController::new02
+
+
+
+#:
+    #path: /
+    #controller: App\Controller\Controller::
 
 

@@ -26,7 +26,6 @@ class Articles
      * @ORM\Column(type="string", length=255)
      */
     private $contenu;
-
     
     /**
      * @ORM\Column(type="string", length=255)
@@ -37,8 +36,6 @@ class Articles
      * @ORM\Column(type="date", nullable=false)
      */
     private $date;
-
-    
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -74,18 +71,6 @@ class Articles
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(?\DateTimeInterface $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
     public function getResume(): ?string
     {
         return $this->resume;
@@ -94,6 +79,18 @@ class Articles
     public function setResume(string $resume): self
     {
         $this->resume = $resume;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

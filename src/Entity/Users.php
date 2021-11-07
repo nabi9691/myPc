@@ -80,12 +80,6 @@ class Users
      */
     private $gestionnaire;
 
-/**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $administrateurs;
-
-
     public function getId(): ?int
     {
         return $this->id;
@@ -139,9 +133,6 @@ class Users
 
         return $this;
     }
-
-
-
     public function getLogin(): ?string
     {
         return $this->login;
@@ -238,19 +229,7 @@ class Users
         return $this;
     }
 
-    public function getAdministrateur(): ?string
-    {
-        return $this->administrateur;
-    }
-
-    public function setAdministrateur(string $administrateur): self
-    {
-        $this->administrateur = $administrateur;
-
-        return $this;
-    }
-
-
+    
 
 
 }

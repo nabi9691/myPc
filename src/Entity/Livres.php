@@ -17,6 +17,12 @@ class Livres
      */
     private $id;
 
+        /**
+     * @ORM\Column(type="date", nullable=false)
+     */
+    private $date;
+
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -27,10 +33,6 @@ class Livres
      */
     private $hauteur;
 
-    /**
-     * @ORM\Column(type="date", nullable=false)
-     */
-    private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -53,6 +55,19 @@ class Livres
         return $this->id;
     }
 
+    
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
     public function getTitre(): ?string
     {
         return $this->titre;
@@ -65,17 +80,18 @@ class Livres
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getHauteur(): ?string
     {
-        return $this->date;
+        return $this->hauteur;
     }
 
-    public function setDate(?\DateTimeInterface $date): self
-    {
-        $this->date = $date;
 
-        return $this;
-    }
+public function setHauteur(string $hauteur): self
+{
+    $this->hauteur = $hauteur;
+
+    return $this;
+}
 
     public function getResume(): ?string
     {

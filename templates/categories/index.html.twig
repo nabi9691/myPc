@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Gestion des catégories!
+	Bien venu à la page de gestion des catégories!
 {% endblock %}
 
 {% block body %}
@@ -27,7 +27,10 @@
 <div id="menu" class="menu">
 <ul>
 
+<li> <a href="{{ path('new_categorie') }}">Veuillez ajouter une nouveelle categorie !</a></li> 
+
 </ul>
+
 </div>
 		<table class="table">
 			<tbody>
@@ -39,7 +42,7 @@
 						<td>{{ categorie.titre }}
 						</td>
 						<td>{{ categorie.resume }}</td>
-<td>{{ categorie.date | date("d/m/Y") }}</td>
+<td>{{ categorie.date|date("d/m/Y") }}</td>
 
 </tr>
 				{% else %}

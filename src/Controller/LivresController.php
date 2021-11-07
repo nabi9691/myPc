@@ -33,6 +33,53 @@ class LivresController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/new", name="new_livre", methods={"GET", "POST"})
+     */
+    public function new(Request $request, EntityManagerInterface $em): Response
+    {
+$livres = new Livres();
+
+$livres->setDate(new  \DateTime());
+ $livres->setTitre(" Le titre de mon livre");
+        $livres->setHauteur("  l'auteur de mon livre");
+ $livres->setResume("  Le résumé de mon livre");
+ $livres->setContenu("  Le contenu de mon livre");
+ $livres->setCommentaires("  Les commentaires de mon livre"); 
+
+       $em->persist($livres);
+           $em->flush();
+
+       return $this->render('livres/newLivre.html.twig', [
+           'livre' => $livres,
+       ]);
+}    
+
+
+/**
+     * @Route("/action", name="livres_afficher", methods={"GET", "POST"})
+     */
+    public function action(Request $request, EntityManagerInterface $em): Response
+    {
+
+       $action = new Action();
+
+       $livres->setTitre(" Le titre de mon livre");
+       $livres->setHauteur("  l'auteur de mon livre");
+$livres->setDate("  La date de sortie de mon livre");
+$livres->setResume("  Le résumé de mon livre");
+$livres->setContenu("  Le contenu de mon livre");
+$livres->setCommentaires("  Les commentaires de mon livre");
+
+       $em->persist($livres);
+       $em->flush();
+
+       return $this->render('livres/index.html.twig', [
+           'livres' => $livres,
+       ]);
+
+
+    }
 
 /**
      * @Route("/{id}", name="livres_affichage", methods={"GET"})
@@ -69,30 +116,11 @@ class LivresController extends AbstractController
 }
 
 
-/**
-     * @Route("/action", name="livres_afficher", methods={"GET", "POST"})
-     */
-    public function action(Request $request, EntityManagerInterface $em): Response
-    {
-
-       $action = new Action();
-
-       $livres->setTitre(" Le titre de mon livre");
-       $livres->setHauteur("  l'auteur de mon livre");
-$livres->setDate("  La date de sortie de mon livre");
-$livres->setResume("  Le résumé de mon livre");
-$livres->setContenu("  Le contenu de mon livre");
-$livres->setCommentaires("  Les commentaires de mon livre");
-
-       $em->persist($livres);
-       $em->flush();
-
-       return $this->render('livres/index.html.twig', [
-           'livres' => $livres,
-       ]);
 
 
-    }
+
+
+
 }
 
 

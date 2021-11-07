@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %} 
+Affichage de mon article! 
+{% endblock %}
+
+{% block body %}
+
+<h1> Nouvel article </h1>
+
+<br/><br/>
+<hr/>
+<br/><br/>
+
+<a href="{{ path('afficher_article', { id: article.id })  }}">mon article</a>
+
+<table class="table border=1">
+<tbody>
+<thead>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>contenu</th>
+<th>résumé</th>
+<th>date</th>
+<th>image</th>
+</tr>
+</thead>
+
+<tr>
+<td>{{ articles.id }}</td>
+<td>{{ articles.titre }}</td>
+<td>{{ articles.contenu }}</td>
+<td>{{ articles.resume }}</td>
+<td>{{ articles.date|date("d/m/Y") }}</td>
+<td>{{ articles.image }}</td>
+</tr>
+</tbody>
+</table>
+{% endblock %}

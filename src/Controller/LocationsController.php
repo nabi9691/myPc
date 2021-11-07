@@ -36,6 +36,33 @@ class LocationsController extends AbstractController
 
 
     /**
+     * @Route("/new", name="new_location", methods={"GET", "POST"})
+     */
+     public function new(Request $request, EntityManagerInterface $em): Response
+     {
+
+        $locations = new Locations();
+
+        $locations->setDate(new  \DateTime());
+        $locations->setTitre(" Titre de ma location");
+        $locations->setCategories(" Categorie de ma location");
+        $locations->setImage(" L'image de ma location");
+        $locations->setDescription(" Description de ma location");
+        $locations->setValeur(" La valeur de ma location");
+        $locations->setAdresse(" L'adresse de ma location");
+        $locations->setAccessibility(" L'accessibilité de ma location");
+        $locations->setStatuts(" Statuts de ma location");
+        $locations->setAlaune(" à la une de ma location");
+        
+        $em->persist($locations);
+        $em->flush();
+
+        return $this->render('locations/newLocation.html.twig', [
+            'location' => $locations,
+        ]);
+}
+
+/**
      * @Route("/{id}", name="locations_affichage", methods={"GET"})
      */
     public function show(Locations $locations, LocationsRepository $locationsRepository, Request $request, EntityManagerInterface $manager ): Response
@@ -46,32 +73,7 @@ class LocationsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="locations_nouvelle", methods={"GET", "POST"})
-     */
-     public function nouvelle(Request $request, EntityManagerInterface $em): Response
-     {
-
-        $locations = new Locations();
-
-        $locations->setDate(" Date de ma location");
-        $locations->setTitre(" Titre de ma location");
-        $locations->setCategorie(" Categorie de ma location");
-        $locations->setImage(" L'image de ma location");
-        $locations->setDescription(" Description de ma location");
-        $locations->setValeur(" La valeur de ma location");
-        $locations->setAdresse(" L'adresse de ma location");
-        $locations->setAccessibility(" L'accessibilité de ma location");
-        $locations->setStatuts(" Statuts de ma location");
-        $locations->setAlaUne(" à la une de ma location");
-        
-        $em->persist($locations);
-        $em->flush();
-
-        return $this->render('locations/nouveau.html.twig', [
-            'locations' => $locations,
-        ]);
-}
+    
 
 /**
      * @Route("/action", name="locations_afficher", methods={"GET", "POST"})

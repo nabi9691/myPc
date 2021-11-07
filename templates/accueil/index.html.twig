@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Mon admin
+Bien venu à la Page d'accueil de ma bibliothèque Guinot !
 {% endblock %}
 
 {% block body %}
@@ -12,18 +12,9 @@ Mon admin
 
 <div class="example-wrapper">
     <h1>
+    {{ accueil_name }}! ✅</h1>
 
-ESPACE ADMINISTRATEUR 
-</h1>
-
-<h2>
-{{ admin_name      }}
-</h2>
-
-
-
-{% include 'menu_admin.html.twig' %}
-
+{% include 'menu_bibliotheque.html.twig'   %}
 
 
 

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Gestion des livres !
+	nouveau Livre !
 {% endblock %}
 
 {% block body %}
@@ -20,19 +20,28 @@
 
 	<div class="example-wrapper">
 		<h1>
-			Bienvenu(e) dans la page de la gestion de mes livres ! ✅</h1>
-<br/><br/>
+Veuillez ajouter un nouveau livre !
 <hr/>
 <br/>
 <div id="menu" class="menu">
 <ul>
-<li> <a href="{{ path('new_livre') }}">Veuillez ajouter un nouveau livre !</a></li> 
 
 </ul>
 </div>
 		<table class="table">
-			<tbody>
-				{% for livre in livres %}
+
+<thead>
+<tr>
+<th>id</th>
+<th>date</th>
+<th>titre</th>
+<th>resume</th>
+<th>contenu</th>
+<th>commentaires</th>
+</tr>
+</thead>
+                        <tbody>
+				{% for livre in livre %}
 					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
 					<tr>
 <td>{{ livre.id }}</td>
@@ -41,13 +50,8 @@
 <td>{{ livre.hauteur }}</td>
 <td>{{ livre.resume }}</td>
 <td>{{ livre.contenu }}</td>
-                    <td>{{ livre.commentaires }}</td></tr>
-				{% else %}
-					<tr>
-						<td colspan="5">Vous n'avez pas d'enregistrement!
-						</td>
-						<td></td>
-					</tr>
+                    <td>{{ livre.commentaires }}</td>
+                    </tr>
 				{% endfor %}}
 			</tbody>
 		</table>

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Nouveau utilisateurs !
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>
+			Veuillez ajouter un nouveau utilisateurs ! ✅</h1>
+<br/><br/>
+<hr/>
+<br/>
+<div id="menu" class="menu">
+<ul>
+
+</ul>
+</div>
+		<table class="table">
+
+<thead>
+<tr>
+<th>id</th>
+<th>Nom</th>
+<th>Prénom</th>
+<th>Date de naissance</th>
+<th>Adresse</th>
+<th>Login</th>
+<th>Password</th>
+<th>Photo</th>
+<th></th>
+<th>Email</th>
+<th>Role</th>
+<th>Locataire</th>
+<th>Proprietaire</th>
+<th>Gestionnaire</th>
+
+
+<th></th>
+</tr>
+            
+            
+            <tbody>
+				{% for users in users %}
+					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
+					<tr>
+
+<td>{{ users.id }}</td>
+<td>{{ users.nom }}</td>
+<td>{{ users.prenom }}</td>
+<td>{{ users.datenaissance }}</td>
+<td>{{ users.adresse }}</td>
+<td>{{ users.login }}</td>
+<td>{{ users.password }}</td>
+<td>{{ users.photo }}</td>
+<td>{{ users.email }}</td>
+<td>{{ users.role }}</td>
+<td>{{ users.locataire }}</td>
+<td>{{ users.proprietaire }}</td>
+<td>{{ users.gestionnaire }}</td>
+					</tr>
+				{% endfor %}}
+			</tbody>
+		</table>
+        
+	</div>
+{% endblock %}
+    

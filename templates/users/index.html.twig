@@ -25,30 +25,33 @@
 <hr/>
 <br/>
 <div id="menu" class="menu">
+
 <ul>
+<li> <a href="{{ path('new_utilisateur') }}">Veuillez ajouter un nouveau utilisateur !</a></li> 
 
 </ul>
+
+
 </div>
 		<table class="table">
 			<tbody>
-				{% for users in users %}
+				{% for user in user %}
 					{# https://twig.symfony.com/doc/3.x/tags/for.html #}
 					<tr>
 
-<td>{{ users.id }}</td>
-<td>{{ users.nom }}</td>
-<td>{{ users.prenom }}</td>
-<td>{{ users.datenaissance }}</td>
-<td>{{ users.adresse }}</td>
-<td>{{ users.login }}</td>
-<td>{{ users.password }}</td>
-<td>{{ users.photo }}</td>
-<td>{{ users.email }}</td>
-<td>{{ users.role }}</td>
-<td>{{ users.locataire }}</td>
-<td>{{ users.proprietaire }}</td>
-<td>{{ users.gestionnaire }}</td>
-<td>{{ users.administrateur }}</td>
+<td>{{ user.id }}</td>
+<td>{{ user.nom }}</td>
+<td>{{ user.prenom }}</td>
+<td>{{ user.datedenaissance }}</td>
+<td>{{ user.adresse }}</td>
+<td>{{ user.login }}</td>
+<td>{{ user.password }}</td>
+<td>{{ user.photo }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.role }}</td>
+<td>{{ user.locataire }}</td>
+<td>{{ user.proprietaire }}</td>
+<td>{{ user.gestionnaire }}</td>
 {% else %}
 					<tr>
 						<td colspan="5">Vous n'avez pas d'enregistrement!</td>

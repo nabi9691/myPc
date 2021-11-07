@@ -7,18 +7,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
-     * @Route("/admin")
+     * @Route("/accueil")
      */
     
-class AdminController extends AbstractController
+class AccueilController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_index")
+     * @Route("/", name="accueil_index")
      */
     public function index(): Response
     {
-        return $this->render('admin/index.html.twig', [
-            'admin_name' => 'AdminController',
+        return $this->render('accueil/index.html.twig', [
+            'accueil_name' => 'BIEN VENU DANS MA PAGE D ACCUEIL !!!',
         ]);
     }
 }

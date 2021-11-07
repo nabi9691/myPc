@@ -1,0 +1,20 @@
+    {% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{ form_start(formArticle) }}
+
+
+
+Titre : {{ form_widget(formArticle.titre) }}<br>
+Resumé: {{ form_widget(formArticle.resume) }} <br>
+Contenu: {{ form_widget(formArticle.contenu) }} <br>
+Image: {{ form_widget(formArticle.image) }} <br>
+Date Creation : {{ form_widget(formArticle.createdAt) }} <br>
+
+      
+    utton type="submit" class="btn btn-success">envoyer</button>
+
+{{ form_end() }}
+{% endblock %}
+
