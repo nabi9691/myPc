@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste des auteurs :
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Liste des auteurs :</h1>
+
+<lu>
+<li><a href=" {{ path('nouvelAuteur_index') }}"> Nouvel auteur : </a></li>
+</lu>
+
+    <br><br>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                 <th>Civilité</th>
+                <th>Email</th> 
+                <th>Modifier</th>
+            <th>Afficher</th>
+            <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteur %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nom }}</td>
+                                <td>{{ auteur.prenom }}</td>
+<td>{{ auteur.civilite }}</td>
+                 <td>{{ auteur.email }}</td>  
+                <td>
+                    <a href="{{ path('modifierAuteur_index', {'id': auteur.id }) }}">Modifier</a>
+                </td>
+                    <td>
+                    <a href="{{ path('afficherAuteur_index', {'id': auteur.id}) }}">Afficher</a>
+                    </td>
+            <td>
+                    <a href="{{ path('supprimerAuteur_index', {'id': auteur.id}) }}">Supprimer</a>
+                    </td>
+                        </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'Utulisateurs</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

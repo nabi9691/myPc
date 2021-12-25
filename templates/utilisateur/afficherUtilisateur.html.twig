@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+afficher utilisateur :
+{% endblock %}
+
+{% block body %}
+    <h1>
+    Afficher utilisateur :
+    </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                 <th>Civilité</th>
+                 <th> Date de naissance</th> 
+                 <th>Adresse</th> 
+                 <th>Email</th> 
+</tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.civilite }}</td>
+                 <td>{{ utilisateur.datedenaissance ? utilisateur.datedenaissance   }}</td> 
+                <td>{{ utilisateur.adresse }}</td> 
+                 <td>{{ utilisateur.email }}</td>  
+        </tr>
+        </tbody>
+    </table>
+
+    {% endblock %}
