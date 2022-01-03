@@ -1,0 +1,7 @@
+partage des description des use-cases :
+
+Nabi : sinscrire, seconnecter, sedéconnecter, RechercherUnePersonne et demandermoyen
+tu fais aussi leur diagramme de classe
+
+Modou : AjouterDonnees, Demandermoyencontact, EnvoyerMailouTelephone, CreerCompte, modifierdonneessaisie, supprimerdonnéees, supprimerabone, Choisirnouveaumotdepasse
+faire aussi leur diagramme de classe

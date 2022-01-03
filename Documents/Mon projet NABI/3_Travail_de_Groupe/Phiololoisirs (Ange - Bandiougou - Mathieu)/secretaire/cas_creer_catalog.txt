@@ -1,0 +1,24 @@
+PROJET : 
+
+
+Cas d’utilisation	: Créer  (Catalogue des activités)
+
+Informations générales 
+Acteur principal	: secrétaire
+Acteur secondaire	: activités
+Objectif			: enregistrer des catalogues dans le système
+Pré-condition		: accéder à la page de création de catalogue
+Post-condition		: catalogue créé
+Déclencheur		: apparition de nouvelles activités
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / secrétaire / accède à la page de création de catalogue
+    2 / secrétaire / saisit les informations du nouveau catalogue
+    3 / secrétaire / valide la création
+….
+
+Scénari alternatifs
+Alternative 5a : 1. Secrétaire n'a pas accès à la création de catalogue. Retour au cas1.
+2. Les informations du nouveau catalogue ne sont pas complètes. Retour au cas1.
+Le cas d’utilisation se termine.

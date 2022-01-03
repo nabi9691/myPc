@@ -1,0 +1,22 @@
+PROJET : 
+
+
+Cas d’utilisation	: remplir (panier)
+
+Informations générales 
+Acteur principal	: internautes
+Acteur secondaire	: activités
+Objectif			: avoir la liste des activités chosies
+Pré-condition		: accéder à la page des activités
+Post-condition		: ajout d'activité au panier
+Déclencheur		: les activités sont choisies
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'internaute / choisit les activités
+    2 / l'internaute / les ajoutent au panier
+….
+
+Scénari alternatifs
+Alternative 5a : 1. rien n'est chosi. Retour au cas1.
+Le cas d’utilisation se termine.

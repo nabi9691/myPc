@@ -1,0 +1,28 @@
+scenario:
+use cas gérer règlements
+acteurs principal Comptable
+acteur secondaire aucun
+Objectif, gérer les règlements par chèque ou en ligne
+Pré-condition, serveur actif, authentification Comptable réussit.
+Post-condition, paiment gérer, redirection sur la page de gestion
+Déclencheur, aucun
+
+Scénario Principal 
+1. Le comptable clique sur le bouton gérer les règlements
+2. Redirection vers la page de gestion des paiments
+3. Le comptable entre les données du chèque et vérifie
+les paiments en ligne
+4. Le comptable choisit l'action de validation
+5. Revérification de l'authentification
+6. Le comptable valide l'action 
+
+Scénari alternatifs
+1. Erreur serveur, retour à page d'accueil
+2. Erreur authentification, redirection à la page d'accueil
+2. Déconnexion automatique en cas d'essai à l'accès
+à la page de gestion par d'autre profil, redirection à la
+page d'accueil
+3. Paiment refusé , message au secrétariat
+communiquant des infos du profil de l'utilisateur pour
+le recontacter 
+6. Erreur de validation retour au cas 1

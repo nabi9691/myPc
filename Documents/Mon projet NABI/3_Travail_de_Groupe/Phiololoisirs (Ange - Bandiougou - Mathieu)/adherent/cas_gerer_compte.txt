@@ -1,0 +1,23 @@
+PROJET : 
+
+
+Cas d’utilisation	: gérer (son compte)
+
+Informations générales 
+Acteur principal	: adhérent
+Acteur secondaire	: aucun
+Objectif			: modifier ses informations personnelles
+Pré-condition	: être connecté
+Post-condition		: connexion établie
+Déclencheur		: néant
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'adhérent / se connecte
+    2 / l'adhérent / gère ce qu'il veut dans son compte
+    3 / l'adhérent / valide ses modifications
+….
+
+Scénari alternatifs
+Alternative 5a : 1. le serveur ne répond pas. Retour au cas1.
+Le cas d’utilisation se termine.

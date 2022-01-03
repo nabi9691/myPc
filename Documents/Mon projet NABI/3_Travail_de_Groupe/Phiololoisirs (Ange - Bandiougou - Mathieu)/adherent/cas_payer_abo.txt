@@ -1,0 +1,22 @@
+PROJET : 
+
+
+Cas d’utilisation	: payer (abonnement en ligne, par chèques, par courrier, )
+
+Informations générales 
+Acteur principal	: adhérent
+Acteur secondaire	: activités
+Objectif			: avoir des abonnement
+Pré-condition	: avoir des abonnmeents dans son panier
+Post-condition		: paiement validé
+Déclencheur		: moyen de paiement sélectionné
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'adhérent / choisit son moyen de paiement
+    2 / l'adhérent / valide son paiement
+….
+
+Scénari alternatifs
+Alternative 5a : 1. le moyen de paiement n'est pas valide. Retour au cas1.
+Le cas d’utilisation se termine.

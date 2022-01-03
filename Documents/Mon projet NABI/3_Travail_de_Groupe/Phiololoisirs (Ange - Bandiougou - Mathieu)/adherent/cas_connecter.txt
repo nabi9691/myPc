@@ -1,0 +1,22 @@
+PROJET : 
+
+
+Cas d’utilisation	: se connecter
+
+Informations générales 
+Acteur principal	: adhérent
+Acteur secondaire	: aucun
+Objectif			: accéder à son compte
+Pré-condition		: être inscript
+Post-condition		: être dans son compte
+Déclencheur		: néant
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'internaute / saisit son login et son mot de passe
+    2 / l'internaute / valide pour accéder son compte
+….
+
+Scénari alternatifs
+Alternative 5a : 1. les identifiants sont invalides. Retour au cas1.
+Le cas d’utilisation se termine.

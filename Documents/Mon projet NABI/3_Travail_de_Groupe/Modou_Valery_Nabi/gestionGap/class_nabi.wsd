@@ -1,0 +1,61 @@
+@startuml
+
+class internaute{
+-IdInternaute: string
+-nomInternaute: string
+-prenomInternaute: string
++getIdInternaute():string
++getInscription(): string
+}
+
+class Abonnes{
+-IdAbonnes: string
+-nomAbonnes: string
+-prenomAbonnes: string
++getIdAbonnes():string
++getConnexion(): string
++getDeconnexion(): string
+getMotDePasse(motDePasse:string): void
+setMotDePasse(): string
+}
+
+class Recherche{
+-numero: string
+-nomRechercher: string
+-dateRechercher: date time
++getIdRechercher(): string
++getNomRechercher(): string
+}
+
+class GestionDesAbonnes{
++afficherAbonnes()
++ajouterAbonnes()
++supprimerAbonnes()
++modifierAbonnes()
++consulterHistorique
+}
+
+class GestionAuthentification{
++verifierMotDePasse(motDePasseSaisis:int, motDePasseCripter:int): boolean
++autoriserConnexion (loginAbonnes)
+}
+
+class Personne{
+-IdPersonne: string
+-nomPersonne: string
+-prenomPersonne: string
++getIdPersonne():string
++getPersonne(): string
+}
+
+Internaute"1" - "1..1"Compte: ouvrir
+compte"1..1" - "1"Abonnes: appartenir"
+Rechercher"1" - "1..#": conserne
+Rechercher <|-- Personne
+GestionRechercher ..> Rechercher: use
+GestionAuthentification ..> Abonnes: use
+GestionAbonnes ..> Abonnes: use
+
+
+
+@enduml

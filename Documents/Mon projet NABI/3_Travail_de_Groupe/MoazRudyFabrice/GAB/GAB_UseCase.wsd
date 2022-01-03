@@ -1,0 +1,50 @@
+@startuml
+
+' left to right direction 
+skinparam actorStyle awesome
+
+Package PorteurCarte {
+    actor :porteur de carte: as PC 
+    actor Client
+}
+
+
+actor Gabiste
+[Gab] as GAB #EAA 
+[Lecteur Carte] as LC #EAA
+[Systeme automatique de Distribution] as SAD #EAA
+[Systeme de Banque] as SB #EAA 
+
+Rectangle BNP #3F5 {
+    ("Retirer de l'argent") as RA 
+    ("s'authentifier") as AUT
+    ("Deposer de l'argent") as DA 
+    ("Autoriser transaction") as AT
+    ("Consulter compte") as CC
+    ("Recharger le GAB") as RG
+    ("Deposer Cash") as DCASH 
+    ("Deposer cheque") as DCHEQUE 
+    ("Editer RIB") as ER
+    ("Consulter details compte") as CDC
+}
+
+Client -> PC 
+PC ---  RA 
+PC --- AUT  
+Client --- DA 
+Client --- CC 
+Gabiste --- RG 
+DCASH ------> DA  
+DCHEQUE ----> DA
+ER .> CC : Extend
+ER ...> CDC : Extend 
+CDC ..> CC  : Extend
+DA ..> AUT   
+RA ..> AUT : Includ
+CC --> AUT : Includ
+AUT ..> AT : Includ  
+RA -- GAB
+AUT -- LC  
+AT -- SAD 
+CC -right- SB 
+@enduml

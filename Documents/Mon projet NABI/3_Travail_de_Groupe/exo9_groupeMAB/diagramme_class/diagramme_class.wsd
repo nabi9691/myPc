@@ -1,0 +1,53 @@
+@startuml
+
+class Client {
+    -nomClient : string
+    -prenomClient : string
+    -idClient : string
+    +getidClient() : string
+}
+class Compte {
+    -numeroCompte : string
+    -soldeCompte : float
+}
+class Carte {
+    -numeroCarte : string
+    -codeCarte : string
+    -validCarte : date
+    +getnumeroCarte() : string
+    +getnumeroCarte(numero: string) : void
+    +getcodeCarte() : string
+    +setcodeCarte(codeCarte: string) : void
+}
+
+class Bank {
+    -nomBank : string
+    -villeBank : string
+}
+
+class Virement {
+    -virementCredit : string
+    -virementDebit : string
+}
+class Transaction {
+    -dateTransaction : datetime
+    -numeroTransaction : string
+    -montantTransaction : string
+}
+class Depot {
+    -typeDepot : string
+}
+class Retrait {
+    -autorisation : string
+}
+
+
+Client"1"-"*"Compte : posseder
+
+Client"1"--"*"Carte : avoir
+
+Carte"1"---"*"Transaction : effectuer
+
+Retrait o---- Transaction
+
+@enduml

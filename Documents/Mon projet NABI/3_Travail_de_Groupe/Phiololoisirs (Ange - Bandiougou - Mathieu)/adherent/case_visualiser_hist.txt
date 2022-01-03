@@ -1,0 +1,22 @@
+PROJET : PhiloloisirsPhiloloisirs
+
+
+Cas d’utilisation	: visualiser (son historique)
+
+Informations générales 
+Acteur principal	: adhérent
+Acteur secondaire	: aucun
+Objectif			: accéder à ses anciens abonnements
+Pré-condition	: s'être déjà abonné à quelques activités
+Post-condition		: les anciennes activités sont affichées
+Déclencheur		: néant
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'adhérent / va sur sa page historique
+    2 / l'adhérent / consulte son historique
+….
+
+Scénari alternatifs
+Alternative 5a : 1. l'adhérent ne s'est pas encore abonné à aucune activité. Retour au cas1.
+Le cas d’utilisation se termine.

@@ -1,0 +1,38 @@
+@startuml
+
+left to right direction
+actor PCNC
+
+actor PCC
+
+actor ADM
+
+rectangle Besoin{
+    (Deposer Argent) as (Depot)
+    (Consultation) as (Consulter)
+    (Retirer Argent) as (Retrait)
+    (s'Authentifier) as (Authentification)
+    (Autoriser Transaction) as (AutoTransaction)
+    (Deposer chèque) as (DepotChec)
+    (Deposer cash) as (DepotCash)
+    (Editer RIB) as (EditRIB)
+    (Consulter Compte) as (ConsulCompte)
+    (Consulter Détail Compte) as (ConsulDetCompte)
+    (Recharger Caisse) as (Recharger)
+}
+
+PCC -* PCNC
+
+PCNC --> Retrait
+
+PCNC --> Authentification
+
+ADM --> Recharger
+
+DepotChec .> Depot : extends
+DepotCash .> Depot : extends
+
+ConsulCompte .> Consulter : extends
+ConsulDetCompte .> Consulter : extends
+
+@enduml

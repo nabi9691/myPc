@@ -1,0 +1,31 @@
+@startuml
+
+left to right direction
+actor Usine
+
+actor :Usines Montage: as UsineMontage
+
+actor Client
+
+actor :Direction Commerciale: as DirComm
+
+actor :Gestion Stock: as GestionStock
+
+actor Fournisseur
+
+rectangle BesoinEntreprise{
+    (Fabriquer Moteur) as (FabricMoteur)
+    (Passer commande) as (PassCom)
+    (Facturation) as (Fact)
+    (Approvisionnement) as (ApproComm) 
+    (Monter Moteur) as (MontMoteur) 
+}
+
+Client --> PassCom
+DirComm --> Fact
+Usine --> FabricMoteur
+UsineMontage --> MontMoteur
+GestionStock --> ApproComm
+Fournisseur -right-->ApproComm
+
+@enduml

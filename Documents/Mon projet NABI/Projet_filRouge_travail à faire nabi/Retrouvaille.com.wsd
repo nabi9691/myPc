@@ -1,0 +1,81 @@
+@startuml
+
+left to right direction
+
+
+rectangle gestionSiteRetrouvaille{
+(S'inscrire sur le site) as SinscriSit
+(Préciser quelle année on a été à l'école) as PreciserAnneeEcol 
+(Recevoir un mail de confirmation) as RecevoirMailConfirmation
+(se connecter) as Seconnecter
+(Choisir un nouveau mot de passe) as ChoisirNouveauMotDePasse
+(Confirmer le mot de passe) as ConfirmerMotDePasse
+(Valider les données saisies) as ValiderDonneeSaisies
+(Modifier les données saisies) as ModifierDonneeSaisies
+(se déconnecter) as SeDeconnecter
+(Rechercher une personne ) as RechercherUnePersonne 
+(Lister les abonnés) as ListerAbonnes
+(Supprimer des données) as SupprimerDonnee
+(Ajouter des données) as AjouterDonnee
+(Accéder à l'espace personnel) as AccéderEspacePersonnel
+(Demander mail / téléphone) as DemanderMailOuTelephone
+(Envoyer un mail) as EnvoyerMail
+(Renvoyer à l'écran d'accueil) as RenvoyerEcranAccueil
+}
+ 
+Internaute -> SinscriSit
+Internaute -> PreciserAnneeEcol 
+Internaute -> RecevoirMailConfirmation
+abonner -> Seconnecter
+abonner -> ChoisirNouveauMotDePasse
+abonner -> ConfirmerMotDePasse
+Internaute -> ValiderDonneeSaisies
+abonner -> ModifierDonneeSaisies
+abonner -> SeDeconnecter
+abonner -> RechercherUnePersonne 
+Admine -> ListerAbonnes
+Admine -> SupprimerDonnee
+Admine -> AjouterDonnee
+abonner -> AccéderEspacePersonnel
+abonner -> DemanderMailOuTelephone
+abonner -> EnvoyerMail
+Internaute -> RenvoyerEcranAccueil
+
+
+' acteurs humains
+:Internaute:
+:abonner:
+:Admine:
+
+' acteurs non humains
+rectangle System{
+
+}
+
+' les relations
+
+SinscriSit -- ValiderDonneeSaisies
+
+Seconnecter -- RecevoirMailConfirmation
+Seconnecter -- ChoisirNouveauMotDePasse
+Seconnecter  -- ConfirmerMotDePasse
+Seconnecter -- ValiderDonneeSaisies
+Seconnecter  -- AccéderEspacePersonnel
+Seconnecter -- RechercherUnePersonne 
+Seconnecter -- PreciserAnneeEcol 
+
+SeDeconnecter -- RenvoyerEcranAccueil
+
+
+
+ModifierDonneeSaisies
+ListerAbonnes
+SupprimerDonnee
+AjouterDonnee
+DemanderMailOuTelephone
+EnvoyerMail
+
+
+
+
+@enduml

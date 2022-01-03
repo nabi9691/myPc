@@ -1,0 +1,17 @@
+scenario:
+use cas choisir
+acteurs principal tout utilisateur
+acteur secondaire aucun
+Objectif, mettre dans le panier une activité ou un abonnement disponible
+Pré-condition, serveur actif, utilisateur connecter
+Post-condition, activités ou abonnements choisis 
+Déclencheur, néant
+
+Scénario Principal 
+1. L'utilisateur clique sur le bouton séléctionnant
+un abonnement ou une activité
+2. Affichage des activités ou des abonnements
+3. Sélectionner case à cocher pour des activités ou abonnements voulus (mise dans panier).
+
+Scénari alternatifs
+1. Erreur serveur, retour a la page d'accueil 

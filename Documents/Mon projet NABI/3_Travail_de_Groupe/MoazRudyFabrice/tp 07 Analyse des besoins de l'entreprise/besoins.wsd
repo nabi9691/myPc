@@ -1,0 +1,42 @@
+@startuml "besoins d'entreprise"
+
+left to right direction
+skinparam actorStyle Hollow
+ 
+actor :Directeur Commercial: as DC
+actor :Client:
+actor :Service de Gestion de Stocks: as SGS
+actor :Usine: 
+actor :Usine de Montage: as UM
+actor :Fournisseur: 
+[Ordinateur]
+
+Rectangle FabricationDeMoteurs {
+    usecase "Passer commande" as PasCom
+    usecase "Traiter les Demandes" as TraDem
+    usecase "Gérer les Commandes de Clients" as GerComCli
+    usecase "Gérer la Livraison" as GerLiv
+    usecase "Imprimer les Listes de Composants" as ImpLisCom
+    usecase "Introduire la Commande" as IntCom
+    usecase "Suivre la Facturation" as SuiFac
+    usecase "Fournir les Piéces" as FouPie
+    usecase "Monter les Moteurs" as MonMot
+    usecase "Gérer les Stocks" as GerSto
+    usecase "Commande Piéces" as ComPie
+    usecase "Catégoriser les Besoins" as CatBes
+}
+
+Client --> PasCom
+Usine --> TraDem 
+Usine --> GerLiv
+UM --> MonMot
+DC --> GerComCli
+DC --> ImpLisCom
+DC --> IntCom
+DC --> SuiFac
+DC --> ComPie 
+SGS --> GerSto
+Fournisseur --> FouPie
+Ordinateur --> CatBes
+
+@enduml

@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <meta name="robots" content="index, follow, all">
+        <meta name="Author" content="Symfony">
+                <meta name="Keywords" content="symfony3, symfony2, symfony, project, framework, php, php5, php7, open-source, components, symphony, symfony framework, symfony tutorial">
+        
+                <style type="text/css" data-tippy-stylesheet="">.tippy-iOS{cursor:pointer!important;-webkit-tap-highlight-color:transparent}.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 8px);pointer-events:none;outline:0}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-7px;bottom:-6.5px;-webkit-transform-origin:50% 0;transform-origin:50% 0;margin:0 3px}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 3px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%)}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px);transform:perspective(700px) translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(60deg);transform:perspective(700px) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-7px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%;margin:0 3px}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 3px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%)}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px);transform:perspective(700px) translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateX(-60deg);transform:perspective(700px) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-12px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%;margin:3px 0}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px);transform:perspective(700px) translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(-60deg);transform:perspective(700px) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-12px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%;margin:3px 0}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px);transform:perspective(700px) translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) rotateY(60deg);transform:perspective(700px) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0}.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:.25rem;font-size:.875rem;padding:.3125rem .5625rem;line-height:1.4;text-align:center;background-color:#333}.tippy-tooltip[data-size=small]{padding:.1875rem .375rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.375rem .75rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:initial}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] .tippy-roundarrow path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:18px;height:7px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:"";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}</style><link rel="search" type="application/opensearchdescription+xml" href="https://symfony.com/opensearch/documentation.xml" title="Symfony documentation">
+
+                <link rel="stylesheet" href="./chapitre doctrine_files/sln.css"><title>            Chapitre 11 - Intégration avec Doctrine
+        (1_4)
+</title>
+
+        <link rel="preconnect" href="https://www.google-analytics.com/">
+        <link rel="preconnect" href="https://connect.symfony.com/">
+
+        <link rel="stylesheet" href="./chapitre doctrine_files/app.63c9daa6.css">
+        <link rel="stylesheet" href="./chapitre doctrine_files/search.35bd67e5.css">
+            
+
+    <link rel="stylesheet" href="./chapitre doctrine_files/doc.8cf2f6e9.css">
+
+    <style>
+        pre, pre code {
+            background: #1e2125 !important;
+            color: #fafafa !important;
+        }
+
+                .php .imp {font-weight: bold; color: red}
+        .php .st_h {color: #56DB3A}
+        .php .kw1 {color: #FF8400}
+        .php .kw2 {color: #FFFFFF}
+        .php .kw3 {color: #E2392D}
+        .php .kw4 {color: #1299DA}
+        .php .sy0 {color: #E0882F}
+        .php .co1 {color: #B729D9; font-style: italic}
+        .php .co2 {color: #BD48B3; font-style: italic}
+        .php .co4 {color: #ccc; font-style: italic}
+        .php .coMULTI {color: #BD48B3; font-style: italic}
+        .php .es0 {color: #ddd}
+        .php .br0 {color: #fff}
+        .php .st0 {color: #99FF00}
+        .php .nu0 {color: #1299DA}
+        .php .me1 {color: #FFFFFF}
+        .php .me2 {color: #FFFFFF}
+        .php .re0 {color: #FFFFFF}
+        .php a {text-decoration: none}
+
+        .xml .imp {font-weight: bold; color: red}
+        .xml .coMULTI {color: #BD48B3; font-style: italic}
+        .xml .sc-1 {color: #B729D9}
+        .xml .es0 {color: #0000aa; font-weight: bold}
+        .xml .br0 {color: #66cc66}
+        .xml .st0 {color: #99FF00}
+        .xml .nu0 {color: #cc66cc}
+        .xml .sc0 {color: #00bbdd}
+        .xml .sc1 {color: #ddbb00}
+        .xml .sc2 {color: #339933}
+        .xml .sc3 {color: #fff}
+        .xml .re0 {color: #FFFFFF}
+        .xml .re1 {color: #FFFFFF}
+        .xml .re2 {color: #FFFFFF}
+
+        .css .imp {font-weight: bold; color: red}
+        .css .kw1 {color: #fff}
+        .css .kw2 {color: #993333}
+        .css .co1 {color: #a1a100}
+        .css .coMULTI {color: #808080; font-style: italic}
+        .css .es0 {color: #000099; font-weight: bold}
+        .css .br0 {color: #66cc66}
+        .css .st0 {color: #ff0000}
+        .css .nu0 {color: #cc66cc}
+        .css .re0 {color: #cc00cc}
+        .css .re1 {color: #6666ff}
+        .css .re2 {color: #3333ff}
+
+        .javascript .imp {font-weight: bold; color: red}
+        .javascript .kw1 {color: #FF8400}
+        .javascript .kw2 {color: #FFCC66}
+        .javascript .kw3 {color: #07DFFC}
+        .javascript .co1 {color: #BD48B3; font-style: italic}
+        .javascript .coMULTI {color: #BD48B3; font-style: italic}
+        .javascript .es0 {color: #000099}
+        .javascript .br0 {color: #fff}
+        .javascript .st0 {color: #99FF00}
+        .javascript .nu0 {color: #66CC66}
+        .javascript .me1 {color: #FFCC66}
+        .javascript .re0 {color: #fff}
+    </style>
+
+        <script type="text/javascript" async="" src="./chapitre doctrine_files/ga.js.téléchargement"></script><script src="./chapitre doctrine_files/sln.js.téléchargement" id="sln_bar" defer=""></script><script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-89393-6', 'auto');
+            ga('send', 'pageview');
+            ga('set', 'anonymizeIp', true);
+        </script>
+        <script async="" src="./chapitre doctrine_files/analytics.js.téléchargement"></script>
+            
+    <script src="./chapitre doctrine_files/runtime.8a677fde.js.téléchargement"></script><script src="./chapitre doctrine_files/104.d1fd0980.js.téléchargement"></script><script src="./chapitre doctrine_files/doc.419013fb.js.téléchargement"></script>
+
+        <link rel="shortcut icon" type="image/svg+xml" href="https://symfony.com/favicons/favicon.svg">
+        <link rel="alternate icon" type="image/png" sizes="16x16" href="https://symfony.com/favicons/favicon-16x16.png">
+        <link rel="mask-icon" href="https://symfony.com/favicons/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://symfony.com/favicons/apple-touch-icon.png">
+        <link rel="manifest" href="https://symfony.com/static/webmanifest.json">
+        <meta name="msapplication-config" content="/static/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="apple-mobile-web-app-title" content="Symfony">
+
+                <meta name="twitter:site" content="@symfony">
+
+                <meta property="fb:pages" content="211720082183067">
+
+                            <meta property="og:type" content="website">
+            <meta property="og:title" content="            Chapitre 11 - Intégration avec Doctrine
+        (1_4)
+">
+            <meta property="og:image" content="https://symfony.com/images/opengraph/symfony.png">
+
+                    
+                <meta name="msapplication-TileColor" content="#222222">
+        <meta name="application-name" content="Symfony">
+        <meta name="msapplication-tooltip" content="Official Symfony website">
+
+                <meta name="theme-color" content="#222222">
+
+            <script id="_carbonads_projs" type="text/javascript" src="./chapitre doctrine_files/CKYILK3J.json"></script></head>
+
+    <body class="dark-theme windows">
+        <script>
+            if (null === localStorage.getItem('themeName') || 'dynamic-theme' === localStorage.getItem('themeName')) {
+                document.body.classList.add(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-theme' : 'light-theme');
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    document.body.classList.remove('light-theme', 'dark-theme');
+                    document.body.classList.add(e.matches ? 'dark-theme' : 'light-theme');
+                });
+            } else {
+                document.body.classList.add(localStorage.getItem('themeName'));
+            }
+
+            document.body.classList.add(
+                (navigator.appVersion.indexOf('Win') !== -1) ? 'windows' : (navigator.appVersion.indexOf('Mac') !== -1) ? 'macos' : 'linux'
+            );
+        </script>
+
+        <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"WebSite","name":"Symfony","url":"https:\/\/symfony.com","potentialAction":{"@type":"SearchAction","target":"https:\/\/symfony.com\/search?q={query}","query-input":"required name=query"}}</script>
+        <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/symfony.com","name":"Symfony","logo":"\/images\/logos\/sf-positive.svg","sameAs":["https:\/\/github.com\/symfony","https:\/\/stackoverflow.com\/questions\/tagged\/symfony","https:\/\/twitter.com\/symfony","https:\/\/www.facebook.com\/SymfonyFramework","https:\/\/www.youtube.com\/user\/SensioLabs"]}</script>
+        <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Event","eventAttendanceMode":"OnlineEventAttendanceMode","eventStatus":"https:\/\/schema.org\/EventScheduled","name":"SymfonyWorld 2021 Winter ","image":"\/images\/conferences\/sfcon.svg","organizer":{"@type":"Organization","name":"Symfony","url":"https:\/\/live.symfony.com"},"location":{"@type":"VirtualLocation","url":"https:\/\/live.symfony.com\/2021-world-winter\/"},"url":"https:\/\/live.symfony.com\/2021-world-winter\/","startDate":"2021-12-09","endDate":"2021-12-10","offers":[{"@type":"Offer","price":79,"priceCurrency":"EUR","url":"https:\/\/live.symfony.com\/2021-world-winter\/registration\/","validFrom":"2021-05-27T00:00:00+02:00","availability":"https:\/\/schema.org\/SoldOut"},{"@type":"Offer","price":119,"priceCurrency":"EUR","url":"https:\/\/live.symfony.com\/2021-world-winter\/registration\/","validFrom":"2021-07-06T00:00:00+02:00","availability":"https:\/\/schema.org\/InStock"},{"@type":"Offer","price":119,"priceCurrency":"EUR","url":"https:\/\/live.symfony.com\/2021-world-winter\/registration\/","validFrom":"2021-12-11T00:00:00+01:00","availability":"https:\/\/schema.org\/InStock"}]}</script>
+
+
+        <div id="sln"><div class="sln-bar">
+    <div class="sln-bar-inner">
+        <div class="sln-network">
+            <a href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#" title="Toggle Symfony menu" class="sln-hidden-phone">Symfony<span>Hub</span></a>
+            <a href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#" title="Toggle Symfony menu" class="sln-visible-phone">SF<span>H</span></a>
+        </div> <div class="sln-ad">
+    <a href="https://symfony.com/book" data-ga="book" class="sln-visible-phone"><img src="./chapitre doctrine_files/9dcfe3b7-4ac7-4fd7-bdaa-d690f48b40da.png" alt="Learn Symfony 5 today icon" width="30" height="30">Learn Symfony 5 today</a>
+    <a href="https://symfony.com/book" data-ga="book" class="sln-visible-tablet"><img src="./chapitre doctrine_files/9dcfe3b7-4ac7-4fd7-bdaa-d690f48b40da.png" alt="Learn Symfony 5 today icon" width="30" height="30">"Symfony5: The Fast Track", a new book to learn Symfony 5</a>
+    <a href="https://symfony.com/book" data-ga="book" class="sln-visible-desktop"><img src="./chapitre doctrine_files/9dcfe3b7-4ac7-4fd7-bdaa-d690f48b40da.png" alt="Learn Symfony 5 today icon" width="30" height="30">"Symfony5: The Fast Track", a new book to learn Symfony 5</a>
+</div>
+ <div class="sln-search">
+    <div class="sln-search-deactivated"><a href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#" title="Search"><img loading="eager" alt="Search icon" src="./chapitre doctrine_files/search.57cabb3d.png"></a></div>
+    <div class="sln-search-activated sln-hidden">
+        <a href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#" title="Search"><img loading="lazy" alt="Search icon" src="./chapitre doctrine_files/search-alt.6545f012.png"></a>
+        <form method="GET" action="https://symfony.com/search">
+            <input name="q" id="sln-autocomplete" autocomplete="off" type="text" title="Search terms" aria-label="Search terms" placeholder="Search">
+            <button class="sr-only">Search</button>
+        </form>
+    </div>
+</div>
+ <div class="sln-user">     <a href="https://symfony.com/connect/login?target=https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration" class="sln-connect"> Connect </a>
+ </div>
+
+    </div>
+    <div class="sln-dropdown-network sln-dropdown sln-hidden">
+    <div class="sln-container">
+        <div class="sln-row">
+            <div class="sln-span6">
+                <div class="sln-row">
+                    <div class="sln-span3">
+                        <img loading="lazy" src="./chapitre doctrine_files/sensiolabs.3449a069.png" alt="SensioLabs">
+                        <p>Since 1998, SensioLabs has been promoting the Open-Source software movement by providing quality and performant web application development products, trainings,  and consulting. SensioLabs also supports multiple important Open-Source projects.</p>
+                        <ul class="sln-websites">
+                            <li><a data-ga="sln_sl_international" href="https://sensiolabs.com/en">International</a></li>
+                            <li><a data-ga="sln_sl_FR" href="https://sensiolabs.com/fr">France</a></li>
+                        </ul>
+                    </div>
+                    <div class="sln-span3 sln-ads">
+                        <h2>In the Spotlight</h2>
+                        <div>
+                            <a data-ga="sln_insight_thumb" href="https://insight.symfony.com/" alt="SymfonyInsight, PHP Project Quality Done Right">
+                                <img loading="lazy" src="./chapitre doctrine_files/symfonyinsight.a9eeeb57.png" alt="SymfonyInsight" style="width: 226px">
+                            </a>
+                        </div>
+                        <div>
+                            <a data-ga="sln_blackfire_thumb" href="https://blackfire.io/?utm_source=symfony&amp;utm_medium=banner&amp;utm_campaign=profiler" alt="Blackfire, Fire up your PHP App Performance">
+                                <img loading="lazy" src="./chapitre doctrine_files/blackfire.71eb8f63.png" alt="Blackfire">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sln-span6 sln-products-listing sln-right-box">
+                <div class="sln-row">
+                    <div class="sln-span3">
+                        <h2>Open Source</h2>
+                        <ul>
+                            <li><a data-ga="sln_sf" href="https://symfony.com/">Symfony - Web framework</a></li>
+                            <li><a data-ga="sln_twig" href="https://twig.symfony.com/" alt="Twig, The flexible, fast, and secure template engine for PHP">Twig - Templating</a></li>
+                            <li><a data-ga="sln_polyfill" href="https://github.com/symfony/polyfill" alt="Polyfills for common PHP extensions">PHP Polyfills</a></li>
+                        </ul>
+                    </div>
+                    <div class="sln-span3">
+                        <h2>Products</h2>
+                        <ul>
+                            <li><a data-ga="sln_insight" href="https://insight.symfony.com/" alt="SymfonyInsight, PHP Project Quality Done Right">Insight: PHP Quality</a></li>
+                            <li><a data-ga="sln_profiler" href="https://blackfire.io/?utm_source=symfony&amp;utm_medium=banner&amp;utm_campaign=profiler" alt="Blackfire, Fire up your PHP App Performance">Blackfire: Web App performance</a></li>
+                            <li><a data-ga="sln_symfonycloud" href="https://symfony.com/cloud" alt="SymfonyCloud, Describe your infrastructure and deploy continuously">SymfonyCloud: PaaS for Symfony</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sln-row">
+                    <div class="sln-span3">
+                        <h2>Solutions &amp; Services</h2>
+                        <ul>
+                            <li><a data-ga="sln_training" href="https://training.sensiolabs.com/">Training</a></li>
+                            <li><a data-ga="sln_certification" href="https://certification.symfony.com/">Certification</a></li>
+                            <li><a data-ga="sln_services" href="https://sensiolabs.com/solutions">Technical Solutions</a></li>
+                            <li><a data-ga="sln_university" href="https://university.sensiolabs.com/">SensioLabs University</a></li>
+                            <li><a data-ga="sln_experts" href="https://expert.sensiolabs.com/">Experts</a></li>
+                        </ul>
+                    </div>
+                    <div class="sln-span3">
+                        <h2>Community</h2>
+                        <ul>
+                            <li><a data-ga="sln_connect" href="https://connect.symfony.com/">Community</a></li>
+                            <li><a data-ga="sln_live" href="https://live.symfony.com/">Conferences</a></li>
+                            <li><a data-ga="sln_youtube" href="https://www.youtube.com/symfonytv">Videos</a></li>
+                            <li><a data-ga="sln_partners" href="https://network.sensiolabs.com/en/">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sln-right-box sln-our-blogs">
+                <div class="sln-row ">
+                    <div class="sln-span5">
+                        <h2>Blogs</h2>&nbsp;&nbsp;&nbsp;
+                        <a href="https://symfony.com/blog/">Symfony</a>,
+                        <a href="https://blog.sensiolabs.com/">SensioLabs</a>,
+                        <a href="https://blog.insight.symfony.com/">Insight</a>,
+                        and <a href="https://blog.blackfire.io/?utm_source=symfony&amp;utm_medium=banner&amp;utm_campaign=profiler">Blackfire</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+</div>
+</div>
+
+                <div id="content_wrapper">
+            <header>
+                <section class="header__top">
+                    <div class="container">
+                        <div class="header__logo">
+                            <a href="https://symfony.com/">
+                                <img loading="eager" height="41" width="160" src="./chapitre doctrine_files/header-logo.svg" alt="Symfony">
+                            </a>
+                        </div>
+                        <div class="sensiolabs-sponsor hidden-xs">
+                            <span class="sponsored-by text-muted text-small block">sponsored by</span>
+                            <a class="logo-sensiolabs" target="_blank" rel="external noopener noreferrer" href="https://sensiolabs.com/" title="SensioLabs, PHP services and software solutions for enterprise and community.">
+                                Sensio<span>Labs</span>
+                            </a>
+                        </div>
+                        <div class="visible-xs">
+                            <button class="header__toggle__menu" type="button" name="toggle" aria-label="Toggle menu" title="Toggle menu">
+                                <i class="icon icon--large icon--white"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 1344v128q0 26-19 45t-45 19H192q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H192q-26 0-45-19t-19-45V832q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H192q-26 0-45-19t-19-45V320q0-26 19-45t45-19h1408q26 0 45 19t19 45z"></path></svg></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="header__bottom affix" data-spy="affix" data-offset-top="90">
+                    <div class="container">
+                        <nav class="header__nav">
+                            <ul>
+                                <li class="header__logo--responsive">
+                                    <a loading="lazy" href="https://symfony.com/"><img alt="Symfony logo" src="./chapitre doctrine_files/sf-positive.svg"></a>
+                                </li>
+
+                                
+        <li id="menu-what-is-symfony" class="selected">
+        <a href="https://symfony.com/what-is-symfony">
+                        About
+        </a>
+    </li>
+            <li id="menu-learn">
+        <a href="https://symfony.com/doc/current/index.html">
+                        Documentation
+        </a>
+    </li>
+            <li id="menu-screencasts">
+        <a href="https://symfonycasts.com/">
+                        Screencasts
+        </a>
+    </li>
+            <li id="menu-cloud">
+        <a href="https://symfony.com/cloud/">
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z"></path></svg>
+            Cloud
+        </a>
+    </li>
+            <li id="menu-certification">
+        <a href="https://certification.symfony.com/">
+                        Certification
+        </a>
+    </li>
+            <li id="menu-community">
+        <a href="https://symfony.com/community">
+                        Community
+        </a>
+    </li>
+            <li id="menu-services">
+        <a href="https://sensiolabs.com/">
+                        Businesses
+        </a>
+    </li>
+            <li id="menu-news">
+        <a href="https://symfony.com/blog/">
+                        News
+        </a>
+    </li>
+    
+                                <li class="hidden-xs header__download">
+                                    <a href="https://symfony.com/download">Download</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </section>
+            </header>
+
+                            <div class="highlight-top-horizontal">
+                                            <style>
+    .conference-highlights {
+        background: rgb(88, 66, 145);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 16px;
+        position: relative;
+        width: 100%;
+    }
+    .conference-highlights:hover { background: rgb(105, 79, 171); }
+    .conference-highlights a::after { content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 100%; }
+    .conference-highlight { align-items: center; display: flex; flex-wrap: nowrap; padding: 12px 0; }
+    a.conference-name, a.conference-name:hover { color: #fbbf24; font-weight: 600; }
+    .conference-data { color: #ddd6fe; display: none; font-size: 14px; margin-left: 30px; }
+
+    @media (min-width: 768px) {
+        .conference-data { display: block; margin-left: 20px; }
+    }
+</style>
+
+<div class="conference-highlights">
+    <div class="container-xxl">
+        <div class="conference-highlight">
+            <a class="conference-name" href="https://live.symfony.com/2021-world-winter/">
+                SymfonyWorld Online 2021 Winter Edition
+            </a>
+
+            <span class="conference-data">
+                December 9 – 10, 2021
+            </span>
+
+            <span class="conference-data">
+                100% Online
+            </span>
+
+            <span class="conference-data">
+                +20 talks and workshops
+            </span>
+        </div>
+    </div>
+</div>
+
+                                    </div>
+            
+                        <div class="container">
+                    <div class="box box--small box--warning m-b-30 text-center">
+        <b>Caution</b>: You are browsing the legacy <b>symfony 1.x</b> part of this website.
+    </div>
+
+                        <div class="row">
+                        <aside class="col-sm-3 ">
+                                                                                                                                        <div class="submenu">
+                                            
+                                            <ul class="submenu__nav">
+                                                    
+<li class="first "><a href="https://symfony.com/legacy">Legacy homepage</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/getting-started">Getting started</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/jobeet?orm=Propel">Jobeet</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/gentle-introduction">A gentle Intro to symfony</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/more-with-symfony">More with Symfony</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/reference">The Reference Book</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/tutorial">Tutorials</a></li>
+<li class="selected"><a href="https://symfony.com/legacy/doc/forms">Forms</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/cookbook/1_2">Cookbook (&lt;= 1.2)</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/book/1_0">The definitive Guide (1.0)</a></li>
+<li class=""><a href="https://symfony.com/legacy/doc/askeet/1_0">Askeet (1.0)</a></li>
+
+
+                                            </ul>
+                                        </div>
+                                                                    
+                                                        <div class="doc__toc">
+                <h4 class="text-accent">Table of Contents</h4>
+                <div class="box box--small">
+                    <ul><li><ul><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_avant_de_commencer">Avant de commencer :</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_generer_les_classes_de_formulaires">Générer les classes de formulaires</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_le_generateur_crud">Le générateur CRUD</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_personnalisation_des_formulaires_generes">Personnalisation des formulaires générés</a><ul><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_configuration_des_validateurs_et_des_widgets">Configuration des validateurs et des widgets</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_changer_les_validateurs">Changer les validateurs</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_ajouter_un_validateur">Ajouter un validateur</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_changer_un_widget">Changer un widget</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_supprimer_un_champ">Supprimer un champ</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_resume">Résumé</a></li></ul></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_serialisation_des_formulaires">Sérialisation des formulaires</a><ul><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_valeurs_par_defaut">Valeurs par défaut</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_gestion_du_cycle_de_vie">Gestion du cycle de vie</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_creer_et_modifier_un_objet_doctrine">Créer et modifier un objet Doctrine</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_la_methode_save">La méthode <code>save()</code></a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_gestion_des_envois_de_fichiers">Gestion des envois de fichiers</a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_personnalisation_de_la_methode_save">Personnalisation de la méthode <code>save()</code></a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_personnalisation_de_la_methode_dosave">Personnalisation de la méthode <code>doSave()</code></a></li><li><a class="reference internal" href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#chapter_11_sub_personnalisation_de_la_methode_updateobject">Personnalisation de la méthode <code>updateObject()</code></a></li></ul></li></ul></li></ul>
+                </div>
+            </div>
+
+                        <style>
+                .doc__toc .box > ul:first-child {
+                    margin-left: 0;
+                }
+                .doc__toc .box > ul:first-child > li:first-child {
+                    list-style: none;
+                }
+                .doc__toc .box > ul:first-child > li:first-child > ul {
+                    margin-top: 0;
+                }
+            </style>
+            
+    <div class="m-t-30">
+    <p class="text-muted">
+        This work is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported License license.
+    </p>
+</div>
+
+                                
+
+
+
+<div class="highlights">
+    <div class="highlight-carbon highlight-hidden" style="min-height: 195px;">
+        <script defer="" type="text/javascript" src="./chapitre doctrine_files/carbon.js.téléchargement" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JICAYICK7YFTBLYKQNCKSDL27YCKSDTZ3JCY7I5K3MF6YDL2JKC6BDT237CYBDVK3YCABDL53LCEADT27WHEYIKK7UC6BDCKJECTNCYBZ52K?segment=placement:symfonycom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./chapitre doctrine_files/1634310636-Twilio_Carbon_dev_awareness_260x200_Fr.png" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JICAYICK7YFTBLYKQNCKSDL27YCKSDTZ3JCY7I5K3MF6YDL2JKC6BDT237CYBDVK3YCABDL53LCEADT27WHEYIKK7UC6BDCKJECTNCYBZ52K?segment=placement:symfonycom;" class="carbon-text" target="_blank" rel="noopener sponsored">SMS, WhatsApp, email, voix et plus encore. Des API pour tous les canaux de communication.</a></span><a href="http://carbonads.net/?utm_source=symfonycom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a><img src="./chapitre doctrine_files/saved_resource" border="0" height="1" width="1" alt="ads via Carbon" style="display: none;"></span></div>
+    </div>
+
+                        
+        <div class="highlight-symfony highlight-visible" style="font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif; line-height: 1.5; margin-bottom: 1.5em; padding-right: 1em;">
+            <a href="https://blackfire.io/profiler?utm_source=symfony&amp;utm_medium=ad_red_logo&amp;utm_campaign=profiler" data-tracked="" data-category="Ads" data-action="sidebar" data-label="blackfire" style="margin-bottom: 8px">
+                <img loading="lazy" src="./chapitre doctrine_files/blackfire_02.png" height="100" width="130" style="margin-bottom: 8px" class="img-responsive" alt="Symfony Code Performance Profiling">
+            </a>
+            <p class="highlight-text" style="margin-bottom: 0">
+                <a href="https://blackfire.io/profiler?utm_source=symfony&amp;utm_medium=ad_red_logo&amp;utm_campaign=profiler" style="color: inherit; margin-bottom: 20px; text-decoration: none">Symfony Code Performance Profiling</a>
+            </p>
+        </div>
+                    
+        <div class="highlight-symfony highlight-hidden" style="font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &#39;Helvetica Neue&#39;, sans-serif; line-height: 1.5; margin-bottom: 1.5em; padding-right: 1em;">
+            <a href="https://training.sensiolabs.com/en/?utm_source=AdSF&amp;utm_medium=banner&amp;utm_campaign=training_EN&amp;utm_content=certification" data-tracked="" data-category="Ads" data-action="sidebar" data-label="sensiolabs" style="margin-bottom: 8px">
+                <img loading="lazy" src="./chapitre doctrine_files/sltraining_01.png" height="100" width="130" style="margin-bottom: 8px" class="img-responsive" alt="Get ready for the Symfony certification exam.">
+            </a>
+            <p class="highlight-text" style="margin-bottom: 0">
+                <a href="https://training.sensiolabs.com/en/?utm_source=AdSF&amp;utm_medium=banner&amp;utm_campaign=training_EN&amp;utm_content=certification" style="color: inherit; margin-bottom: 20px; text-decoration: none">Get ready for the Symfony certification exam.</a>
+            </p>
+        </div>
+    </div>
+
+                                                    </aside>
+
+                        <main class="col-sm-9">
+                                                                                                                                    <ol class="breadcrumb">
+                                                                                    <li class="">
+                                                                                                <a href="https://symfony.com/">Home</a>
+                                            </li>
+                                                                                    <li class="">
+                                                                                                <a href="https://symfony.com/legacy">symfony 1.x</a>
+                                            </li>
+                                                                                    <li class="">
+                                                                                                <a href="https://symfony.com/legacy/doc">Legacy Documentation</a>
+                                            </li>
+                                                                                    <li class="active">
+                                                                                                <a href="https://symfony.com/legacy/doc/forms/1_4/fr/11-doctrine-integration#">Forms</a>
+                                            </li>
+                                                                            </ol>
+
+                                    <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"\/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"\/legacy","name":"symfony 1.x"}},{"@type":"ListItem","position":3,"item":{"@id":"\/legacy\/doc","name":"Legacy Documentation"}},{"@type":"ListItem","position":4,"item":{"@id":"\/legacy\/doc\/forms\/1_4\/fr\/11-doctrine-integration","name":"Forms"}}]}</script>
+                                
+                                
+                                                                    <h1>            Chapitre 11 - Intégration avec Doctrine
+    </h1>
+                                
+                                    <style>
+        .version__list + strong {
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+    <div class="doc__tools clearfix">
+        <div class="doc__version">
+            <div class="version__current">
+                1.4
+                <i class="pull-right icon icon--small icon--white"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19L403 749q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z"></path></svg></i>
+            </div>
+
+            <div class="version__all p-15">
+                                    <strong>Symfony version</strong>
+                    <div class="version__list">
+                                                                                    <a href="https://symfony.com/legacy/doc/forms/1_1/fr/11-doctrine-integration">1.1</a>
+                                                                                                                <a href="https://symfony.com/legacy/doc/forms/1_2/fr/11-doctrine-integration">1.2</a>
+                                                                        </div>
+                
+                                    <strong>Language</strong>
+                    <div class="version__list">
+                                                                                    <a href="https://symfony.com/legacy/doc/forms/1_4/en/11-doctrine-integration">English</a>
+                                                                                                                <a href="https://symfony.com/legacy/doc/forms/1_4/it/11-doctrine-integration">Italian</a>
+                                                                                                                <a href="https://symfony.com/legacy/doc/forms/1_4/ja/11-doctrine-integration">Japanese</a>
+                                                                        </div>
+                
+                            </div>
+        </div>
+    </div>
+
+
+    <div class="box_article doc_page">
+                    <p>Dans un projet web, la plupart des formulaires sont utilisés pour créer ou modifier des
+objets du modèle. Ces objets sont généralement sérialisés dans une base de données grâce
+à un ORM. Le système de formulaires de Symfony offre une couche supplémentaire pour
+l'interfaçage avec Doctrine, l'ORM intégré à symfony, rendant l'implémentation de formulaires
+basés sur ces objets modèles plus aisée.</p>
+
+<p>Ce chapitre détaille comment intégrer des formulaires avec les modèles objet Doctrine.
+Il est hautement recommandé d'être déjà familier avec Doctrine et son intégration dans
+symfony. Si ce n'est pas le cas, référez-vous au
+livre "<a href="http://www.symfony-project.org/doctrine/1_2/">The symfony and Doctrine book</a>".</p>
+
+<h2><a name="chapter_11_avant_de_commencer">Avant de commencer :</a></h2>
+
+<p>Dans ce chapitre, nous allons créer un système de gestion d'articles. Commençons avec le schéma de base de données. Il est composé de cinq tables : <code>article</code>, <code>author</code>, <code>category</code>, <code>tag</code>, et <code>article_tag</code>, comme le montre le Listing 4-1 :</p>
+
+<p class="figure">Listing 4-1 - Schéma de base de données</p>
+
+<pre>// config/doctrine/schema.yml
+Article:
+  actAs: [Sluggable, Timestampable]
+  columns:
+    title:
+      type: string(255)
+      notnull: true
+    content:
+      type: clob
+    status: string(255)
+    author_id: integer
+    category_id: integer
+    published_at: timestamp
+  relations:
+    Author:
+      foreignAlias: Articles
+    Category:
+      foreignAlias: Articles
+    Tags:
+      class: Tag
+      refClass: ArticleTag
+      foreignAlias: Articles
+Author:
+  columns:
+    first_name: string(20)
+    last_name: string(20)
+    email: string(255)
+    active: boolean
+Category:
+  columns:
+    name: string(255)
+Tag:
+  columns:
+    name: string(255)
+ArticleTag:
+  columns:
+    article_id:
+      type: integer
+      primary: true
+    tag_id:
+      type: integer
+      primary: true
+  relations:
+    Article:
+      onDelete: CASCADE
+    Tag:
+      onDelete: CASCADE</pre>
+
+<p>Voici les relations entre les tables :</p>
+
+<ul>
+<li>relation 1-n entre les tables <code>article</code> et <code>author</code> : un article est écrit par un et un seul auteur</li>
+<li>relation 1-n entre les tables <code>article</code> et <code>category</code> : un article appartient à zéro ou plusieurs catégories</li>
+<li>relation n-n entre les tables <code>article</code> et <code>tag</code></li>
+</ul>
+
+<h2><a name="chapter_11_generer_les_classes_de_formulaires">Générer les classes de formulaires</a></h2>
+
+<p>Nous voulons éditer les informations des tables <code>article</code>, <code>author</code>, <code>category</code>, et <code>tag</code>. Pour cela, nous devons créer des formulaires liés à chacune de ces tables et configurer les widgets et les validateurs en relation avec le schéma de base de données. Même s'il est possible de créer ces formulaires manuellement, c'est une tâche longue et ennuyeuse, et de plus, cela force à répéter le même genre d'informations dans plusieurs fichiers (nom de colonne et de champ, taille maximale, ...). De plus, chaque fois que nous changerons le modèle, nous devrons également changer les formulaires adéquats. Heureusement, le plugin Doctrine a une tâche intégrée, <code>doctrine:build-forms</code>, qui automatise le processus de génération des formulaires liés au modèle :</p>
+
+<pre class="command-line"><code>$ ./symfony doctrine:build-forms
+</code></pre>
+
+<p>Durant la génération des formulaires, la tâche crée une classe par table avec des validateurs et des widgets pour chaque colonne en utilisant l'introspection du modèle, et en prenant en compte les relations entre les tables.</p>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  Les tâches <code>doctrine:build-all</code> et <code>doctrine:build-all-load</code> mettent également à jour les classes des formulaires, en exécutant automatiquement la tâche <code>doctrine:build-forms</code>.</p>
+
+                </div>
+            </div>
+
+<p>Après l'exécution de ces tâches, une arborescence de fichiers est créée dans le répertoire <code>lib/form/</code>. Voici les fichiers créés pour notre modèle d'exemple :</p>
+
+<pre><code>lib/
+  form/
+    doctrine/
+      ArticleForm.class.php
+      ArticleTagForm.class.php
+      AuthorForm.class.php
+      CategoryForm.class.php
+      TagForm.class.php
+      base/
+        BaseArticleForm.class.php
+        BaseArticleTagForm.class.php
+        BaseAuthorForm.class.php
+        BaseCategoryForm.class.php
+        BaseFormDoctrine.class.php
+        BaseTagForm.class.php
+</code></pre>
+
+<p>La tâche <code>doctrine:build-forms</code> génère deux classes pour chaque table du schéma, une classe de base dans le répertoire <code>lib/form/base</code> et une autre dans <code>lib/form/</code>. Par exemple, pour la table <code>author</code>, deux classes <code>BaseAuthorForm</code> et <code>AuthorForm</code> ont été créées dans les fichiers <code>lib/form/base/BaseAuthorForm.class.php</code> et <code>lib/form/AuthorForm.class.php</code>.</p>
+
+<p>La table ci-dessous résume la hiérarchie entre les différentes classes impliquées dans la définition du formulaire <code>AuthorForm</code>.</p>
+
+<table cellspacing="0" class="doc_table">
+<thead>
+<tr>
+  <th><strong>Classe</strong></th>
+  <th><strong>Package</strong></th>
+  <th><strong>Pour</strong></th>
+  <th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>AuthorForm</td>
+  <td>projet</td>
+  <td>developpeur</td>
+  <td>Redéfinit le formulaire généré</td>
+</tr>
+<tr>
+  <td>BaseAuthorForm</td>
+  <td>projet</td>
+  <td>symfony</td>
+  <td>Basée sur le schéma et réécrite à chaque exécution de <code>doctrine:build-forms</code></td>
+</tr>
+<tr>
+  <td>BaseFormDoctrine</td>
+  <td>projet</td>
+  <td>developpeur</td>
+  <td>Permet la personnalisation globale des formulaires Doctrine</td>
+</tr>
+<tr>
+  <td>sfFormDoctrine</td>
+  <td>plugin Doctrine</td>
+  <td>symfony</td>
+  <td>Base des formulaires Doctrine</td>
+</tr>
+<tr>
+  <td>sfForm</td>
+  <td>symfony</td>
+  <td>symfony</td>
+  <td>Base des formulaires symfony</td>
+</tr>
+</tbody>
+</table>
+
+<p>Afin de créer ou d'éditer un objet de la classe <code>Author</code>, nous allons utiliser la classe <code>AuthorForm</code>, décrite dans le Listing 4-2. Comme vous pouvez le constater, cette classe ne contient aucune méthode, car elle hérite de <code>BaseAuthorForm</code> qui est générée d'après la configuration. La classe <code>AuthorForm</code> est celle que nous allons utiliser pour personnaliser et surcharger la configuration du formulaire.</p>
+
+<p class="figure">Listing 4-2 - La classe <code>AuthorForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> AuthorForm <span class="kw2">extends</span> BaseAuthorForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Le Listing 4-3 montre la classe <code>BaseAuthorForm</code> avec les validateurs et les widgets générés par introspection du modèle pour la table <code>author</code>.</p>
+
+<p class="figure">Listing 4-3 - La classe <code>BaseAuthorForm</code> représentant le formulaire de la table <code>author</code></p>
+
+<pre class="php"><span class="kw2">class</span> BaseAuthorForm <span class="kw2">extends</span> BaseFormDoctrine
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> setup<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">setWidgets</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span>
+      <span class="st0">'id'</span>         =&gt; <span class="kw2">new</span> sfWidgetFormInputHidden<span class="br0">(</span><span class="br0">)</span>,
+      <span class="st0">'first_name'</span> =&gt; <span class="kw2">new</span> sfWidgetFormInputText<span class="br0">(</span><span class="br0">)</span>,
+      <span class="st0">'last_name'</span>  =&gt; <span class="kw2">new</span> sfWidgetFormInputText<span class="br0">(</span><span class="br0">)</span>,
+      <span class="st0">'email'</span>      =&gt; <span class="kw2">new</span> sfWidgetFormInputText<span class="br0">(</span><span class="br0">)</span>,
+    <span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">setValidators</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span>
+      <span class="st0">'id'</span>         =&gt; <span class="kw2">new</span> sfValidatorDoctrineChoice<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'model'</span> =&gt; <span class="st0">'Author'</span>, <span class="st0">'column'</span> =&gt; <span class="st0">'id'</span>, <span class="st0">'required'</span> =&gt; <span class="kw2">false</span><span class="br0">)</span><span class="br0">)</span>,
+      <span class="st0">'first_name'</span> =&gt; <span class="kw2">new</span> sfValidatorString<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'max_length'</span> =&gt; <span class="nu0">20</span>, <span class="st0">'required'</span> =&gt; <span class="kw2">false</span><span class="br0">)</span><span class="br0">)</span>,
+      <span class="st0">'last_name'</span>  =&gt; <span class="kw2">new</span> sfValidatorString<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'max_length'</span> =&gt; <span class="nu0">20</span>, <span class="st0">'required'</span> =&gt; <span class="kw2">false</span><span class="br0">)</span><span class="br0">)</span>,
+      <span class="st0">'email'</span>      =&gt; <span class="kw2">new</span> sfValidatorString<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'max_length'</span> =&gt; <span class="nu0">255</span><span class="br0">)</span><span class="br0">)</span>,
+    <span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span>-&gt;<span class="me1">setNameFormat</span><span class="br0">(</span><span class="st0">'author[%s]'</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">errorSchema</span> = <span class="kw2">new</span> sfValidatorErrorSchema<span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">)</span>;
+&nbsp;
+    parent::<span class="me2">setup</span><span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> getModelName<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="st0">'Author'</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>La classe générée ressemble beaucoup aux formulaires que nous avons déjà créés dans les précédents chapitres, hormis le fait que :</p>
+
+<ul>
+<li>La classe de base est <code>BaseFormDoctrine</code> au lieu de <code>sfForm</code></li>
+<li>La configuration des validateurs et des widgets se fait dans la méthode <code>setup()</code> plutôt que dans <code>configure()</code></li>
+<li>La méthode <code>getModelName()</code> retourne la classe Doctrine associée à ce formulaire</li>
+</ul>
+
+            <div class="admonition-wrapper">
+                <div class="sidebar"></div>
+                <div class="admonition admonition-sidebar">
+                    <p class="first admonition-title">sidebar</p>
+                    <p class="title">Personnalisation globale des formulaires Doctrine</p>
+  
+  <p>En plus des classes générées pour chaque table, <code>doctrine:build-forms</code> génère également une classe <code>BaseFormDoctrine</code>. Cette classe vide est la classe de base de toutes les autres classes générées dans le répertoire <code>lib/form/base/</code>, elle permet de configurer globalement le comportement de chaque formulaire Doctrine. Par exemple, il est possible de changer facilement le formateur par défaut pour tous les formulaires Doctrine :</p>
+
+<pre class="php">abstract <span class="kw2">class</span> BaseFormDoctrine <span class="kw2">extends</span> sfFormDoctrine
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> setup<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    sfWidgetFormSchema::<span class="me2">setDefaultFormFormatterName</span><span class="br0">(</span><span class="st0">'div'</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+  
+  <p>Notez que la classe <code>BaseFormDoctrine</code> hérite de <code>sfFormDoctrine</code>.
+  Cette classe contient des fonctionnalités spécifiques à Doctrine, entre autres choses elle s'occupe de la sérialisation des objets dans la base de données à partir des valeurs soumises dans le formulaire.</p>
+  
+  <p><strong>TIP</strong>
+  Les classes de base utilisent la méthode <code>setup()</code> pour la configuration, au lieu de <code>configure()</code>. Cela permet au développeur de surcharger la configuration des classes vides générées sans avoir à appeler <code>parent::configure()</code> à chaque fois.</p>
+
+                </div>
+            </div>
+
+<p>Le nom des champs du formulaire sont identiques aux noms de colonnes spécifiés dans le schéma : <code>id</code>, <code>first_name</code>, <code>last_name</code>, et <code>email</code>.</p>
+
+<p>Pour chaque colonne de la tableau <code>author</code>, la tâche <code>doctrine:build-forms</code> génère un widget et un validateur en accord avec la définition du schéma. La tâche génère toujours le validateur le plus sécurisé possible. Prenons par exemple le champ <code>id</code>. Nous pourrions simplement vérifier que sa valeur est un entier valide. Au lieu de ça, le validateur généré ici nous permet de valider aussi le fait que l'identifiant existe bel et bien (pour éditer un objet existant), ou bien qu'il soit vide (pour pouvoir créer un nouvel objet). C'est une validation plus forte.</p>
+
+<p>Les formulaires générés peuvent être utilisés immédiatement. Ajoutez une déclaration <code>&lt;?php echo $form ?&gt;</code> dans votre template, et vous obtiendrez un formulaire fonctionnel avec validation <strong>sans avoir écrit une seule ligne de code</strong>.</p>
+
+<p>Outre la possibilité de créer rapidement des prototypes, les formulaires générés sont faciles à étendre sans avoir à modifier les classes générées. Ceci est possible grâce au mécanisme d'héritage des classes de base et de formulaires.</p>
+
+<p>Enfin, à chaque évolution du schéma de base de données, la tâche permet de générer à nouveau les formulaires pour prendre en compte les modifications du schéma, sans surcharger les personnalisations que vous auriez pu faire.</p>
+
+<h2><a name="chapter_11_le_generateur_crud">Le générateur CRUD</a></h2>
+
+<p>Maintenant qu'il y a des classes de formulaires générées, voyons comment il est facilement possible de créer un module symfony pour gérer les objets depuis un navigateur. Nous souhaitons créer, modifier et supprimer des objets des classes <code>Article</code>, <code>Author</code>, <code>Category</code>, et <code>Tag</code>.
+Commençons par la création pour la classe <code>Author</code>. Même si nous pouvons créer manuellement un module, le plugin Doctrine fournit la tâche <code>doctrine:generate-module</code> qui génère un module CRUD basé sur une classe du modèle objet Doctrine, utilisant le formulaire généré dans la section précédente :</p>
+
+<pre class="command-line"><code>$ ./symfony doctrine:generate-module frontend author Author
+</code></pre>
+
+<p><code>doctrine:generate-module</code> prend trois arguments :</p>
+
+<ul>
+<li><code>frontend</code> : nom de l'application où vous voulez créer un module</li>
+<li><code>author</code>  : nom du module à créer</li>
+<li><code>Author</code>  : nom de la classe du modèle pour laquelle vous voulez créer un module</li>
+</ul>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  CRUD signifie Creation / Retrieval / Update / Deletion (Création / Récupération / Mise à jour / Suppression) et résume les quatre opérations basiques que l'on peut effectuer sur les données du modèle.</p>
+
+                </div>
+            </div>
+
+<p>Dans le Listing 4-4, nous voyons que la tâche a généré cinq actions nous permettant
+de lister (<code>index</code>), créer (<code>create</code>), modifier (<code>edit</code>), enregistrer (<code>update</code>) et
+supprimer (<code>delete</code>) les objets de la classe <code>Author</code>.</p>
+
+<p class="figure">Listing 4-4 - La classe <code>authorActions</code> générée par la tâche</p>
+
+<pre class="php"><span class="co1">// apps/frontend/modules/author/actions/actions.class.php</span>
+<span class="kw2">class</span> authorActions <span class="kw2">extends</span> sfActions
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> executeIndex<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">author_list</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>
+      -&gt;<span class="me1">createQuery</span><span class="br0">(</span><span class="st0">'a'</span><span class="br0">)</span>
+      -&gt;<span class="me1">execute</span><span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeNew<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeCreate<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">processForm</span><span class="br0">(</span><span class="re0">$request</span>, <span class="re0">$this</span>-&gt;<span class="me1">form</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">setTemplate</span><span class="br0">(</span><span class="st0">'new'</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeEdit<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>, <span class="kw3">sprintf</span><span class="br0">(</span><span class="st0">'Object author does not exist (%s).'</span>, <span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeUpdate<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span> || <span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'put'</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>, <span class="kw3">sprintf</span><span class="br0">(</span><span class="st0">'Object author does not exist (%s).'</span>, <span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">processForm</span><span class="br0">(</span><span class="re0">$request</span>, <span class="re0">$this</span>-&gt;<span class="me1">form</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">setTemplate</span><span class="br0">(</span><span class="st0">'edit'</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeDelete<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$request</span>-&gt;<span class="me1">checkCSRFProtection</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>, <span class="kw3">sprintf</span><span class="br0">(</span><span class="st0">'Object author does not exist (%s).'</span>, <span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$author</span>-&gt;<span class="me1">delete</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'author/index'</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  protected <span class="kw2">function</span> processForm<span class="br0">(</span>sfWebRequest <span class="re0">$request</span>, sfForm <span class="re0">$form</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$form</span>-&gt;<span class="me1">bind</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">getName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">isValid</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$author</span> = <span class="re0">$form</span>-&gt;<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+      <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'author/edit?id='</span>.<span class="re0">$author</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Dans ce module, le cycle de vie du formulaire est géré par trois méthodes : <code>create</code>,
+<code>edit</code>, <code>update</code> et <code>processForm</code>. Il est aussi possible de faire cela d'une manière
+moins longue en déplaçant ces 4 tâches dans une seule méthode, le listing 4-5 montre
+un exemple simplifié de ceci.</p>
+
+<p class="figure">Listing 4-5 - Le cycle de vie du formulaire de la classe <code>authorActions</code> après quelques
+refactorisation</p>
+
+<pre class="php"><span class="co1">// In authorActions, replacing the create, edit, update and processForm methods</span>
+<span class="kw2">public</span> <span class="kw2">function</span> executeEdit<span class="br0">(</span><span class="re0">$request</span><span class="br0">)</span>
+<span class="br0">{</span>
+  <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span>Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">bind</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'author'</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">isValid</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$author</span> = <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;
+      <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'author/edit?id='</span>.<span class="re0">$author</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  Les exemples qui suivent utilisent la valeur par défaut, le style plus verbeux donc vous aurez
+  besoin de faire des ajustements en conséquence si vous souhaitez suivre l'approche dans le Listing
+  4-5. Par exemple, dans votre modèle de formulaire, vous n'aurez besoin que de faire pointer le
+  formulaire sur l'action edit indépendamment du fait que l'objet est nouveau ou ancien.</p>
+
+                </div>
+            </div>
+
+<p>La tâche génère également trois templates et un partial, <code>indexSuccess</code>,
+<code>editSuccess</code>, <code>newSuccess</code> et <code>_form</code>. Le template <code>_form</code> a été généré
+sans la déclaration <code>&lt;?php echo $form ?&gt;</code>. Nous pouvons modifier ce comportement,
+en utilisant <code>--non-verbose-templates</code> :</p>
+
+<pre class="command-line"><code>$ ./symfony doctrine:generate-module frontend author Author --non-verbose-templates
+</code></pre>
+
+<p>Cette option est utile lors de la phase de prototypage, comme le montre le Listing 4-6.</p>
+
+<p class="figure">Listing 4-6 - Le template <code>_form</code></p>
+
+<pre class="php"><span class="co1">// apps/frontend/modules/author/templates/_form.php</span>
+<span class="kw2">&lt;?php</span> include_stylesheets_for_form<span class="br0">(</span><span class="re0">$form</span><span class="br0">)</span> <span class="kw2">?&gt;</span>
+<span class="kw2">&lt;?php</span> include_javascripts_for_form<span class="br0">(</span><span class="re0">$form</span><span class="br0">)</span> <span class="kw2">?&gt;</span>
+&nbsp;
+&lt;form action=<span class="st0">"&lt;?php echo url_for('author/'.($form-&gt;getObject()-&gt;isNew() ? 'create' : 'update').(!$form-&gt;getObject()-&gt;isNew() ? '?id='.$form-&gt;getObject()-&gt;getId() : '')) ?&gt;"</span> method=<span class="st0">"post"</span> <span class="kw2">&lt;?php</span> <span class="re0">$form</span>-&gt;<span class="me1">isMultipart</span><span class="br0">(</span><span class="br0">)</span> and <span class="kw3">print</span> <span class="st0">'enctype="multipart/form-data" '</span> ?&gt;&gt;
+<span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">(</span>!<span class="re0">$form</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">isNew</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>: <span class="kw2">?&gt;</span>
+&lt;input type=<span class="st0">"hidden"</span> name=<span class="st0">"sf_method"</span> value=<span class="st0">"put"</span> /&gt;
+<span class="kw2">&lt;?php</span> <span class="kw1">endif</span>; <span class="kw2">?&gt;</span>
+  &lt;table&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;td colspan=<span class="st0">"2"</span>&gt;
+          &amp;nbsp;&lt;a href=<span class="st0">"&lt;?php echo url_for('author/index') ?&gt;"</span>&gt;Cancel&lt;/a&gt;
+          <span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">(</span>!<span class="re0">$form</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">isNew</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>: <span class="kw2">?&gt;</span>
+            &amp;nbsp;&lt;?php <span class="kw3">echo</span> link_to<span class="br0">(</span><span class="st0">'Delete'</span>, <span class="st0">'author/delete?id='</span>.<span class="re0">$form</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span>, <span class="kw3">array</span><span class="br0">(</span><span class="st0">'method'</span> =&gt; <span class="st0">'delete'</span>, <span class="st0">'confirm'</span> =&gt; <span class="st0">'Are you sure?'</span><span class="br0">)</span><span class="br0">)</span> <span class="kw2">?&gt;</span>
+          <span class="kw2">&lt;?php</span> <span class="kw1">endif</span>; <span class="kw2">?&gt;</span>
+          &lt;input type=<span class="st0">"submit"</span> value=<span class="st0">"Save"</span> /&gt;
+        &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+      <span class="kw2">&lt;?php</span> <span class="kw3">echo</span> <span class="re0">$form</span> <span class="kw2">?&gt;</span>
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;/form&gt;</pre>
+
+            <div class="admonition-wrapper">
+                <div class="tip"></div>
+                <div class="admonition admonition-tip">
+                    <p class="first admonition-title">tip</p>
+                    <p>
+  L'option <code>--with-show</code> nous permet de générer une action et un template utilisables pour
+  voir un objet (en lecture seule).</p>
+
+                </div>
+            </div>
+
+<p>Vous pouvez maintenant ouvrir l'URL <code>/frontend_dev.php/author</code> dans un navigateur pour voir le
+module généré (Figure 4-1 et Figure 4-2). Prenez le temps de jouer avec l'interface. Grâce au
+module généré, vous pouvez lister les auteurs, en ajouter un nouveau, éditer, modifier et
+éventuellement supprimer. Vous remarquerez également que les règles de validation sont
+opérationnelles. Notez que dans les figures suivantes, nous avons choisi de supprimer
+le champ "actif".</p>
+
+<p class="figure">Figure 4-1 - Liste d'auteurs</p>
+
+<p><img src="./chapitre doctrine_files/04_01.png" alt="Authors List" title="Authors List"></p>
+
+<p class="figure">Figure 4-2 - Édition d'un auteur avec erreurs de validation</p>
+
+<p><img src="./chapitre doctrine_files/04_02.png" alt="Editing an Author with Validation Errors" title="Editing an Author with Validation Errors"></p>
+
+<p>Nous pouvons maintenant répéter l'opération avec la classe <code>Article</code> :</p>
+
+<pre class="command-line"><code>$ ./symfony doctrine:generate-module frontend article Article --non-verbose-templates
+</code></pre>
+
+<p>Le formulaire <code>ArticleForm</code> utilise le widget <code>sfWidgetFormDoctrineSelect</code> pour représenter
+la relation entre l'objet <code>Article</code> et l'objet <code>Author</code>. Ce widget crée une liste déroulante
+avec les auteurs. Durant l'affichage, les objets auteur sont convertis en chaîne de caractères
+grâce à la méthode magique <code>__toString()</code>, qui doit être définie dans la classe <code>Author</code>,
+comme montré en Listing 4-7.</p>
+
+<p class="figure">Listing 4-7 - Implementation de <code>__toString()</code> pour la classe <code>Author</code></p>
+
+<pre class="php"><span class="kw2">class</span> Author <span class="kw2">extends</span> BaseAuthor
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> __toString<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">return</span> <span class="re0">$this</span>-&gt;<span class="me1">getFirstName</span><span class="br0">(</span><span class="br0">)</span>.<span class="st0">' '</span>.<span class="re0">$this</span>-&gt;<span class="me1">getLastName</span><span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Tout comme pour la classe <code>Author</code>, vous pouvez créer la méthode <code>__toString()</code> pour les autres
+classes du modèle : <code>Article</code>, <code>Category</code>, et <code>Tag</code>.</p>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  sfDoctrineRecord va essayer de deviner la valeur de __toString() si vous ne la
+  spécifiez pas vous-même. Elle regarde les colonnes nommées 'name', 'title', 'description',
+  'subject', 'keywords' et enfin 'id' pour les utiliser comme représentation de chaîne. Si
+  l'un de ces champs n'est pas trouvé, Doctrine retournera une chaîne d'alerte par défaut.</p>
+
+                </div>
+            </div>
+
+
+
+            <div class="admonition-wrapper">
+                <div class="tip"></div>
+                <div class="admonition admonition-tip">
+                    <p class="first admonition-title">tip</p>
+                    <p>
+  L'option <code>method</code> du widget <code>sfWidgetFormDoctrineSelect</code> change la méthode
+  utilisée pour représenter un objet au format texte.</p>
+
+                </div>
+            </div>
+
+<p>La Figure 4-4 montre comment créer un article après avoir implémenté la méthode
+<code>__toString()</code>.</p>
+
+<p class="figure">Figure 4-4 - Création d'un article</p>
+
+<p><img src="./chapitre doctrine_files/04_04.png" alt="Creating an Article" title="Creating an Article"></p>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  Dans la figure 4-4, vous remarquerez que certains champs ne figurent pas sur le formulaire,
+  par exemple <code>created_at</code> et <code>updated_at</code>. C'est parce que nous avons personnalisé la classe du
+  formulaire. Vous allez apprendre à faire cela dans la section suivante.</p>
+
+                </div>
+            </div>
+
+<h2><a name="chapter_11_personnalisation_des_formulaires_generes">Personnalisation des formulaires générés</a></h2>
+
+<p>Les tâches <code>doctrine:build-forms</code> et <code>doctrine:generate-module</code> permettent de créer des modules symfony fonctionnels pour lister, créer, éditer et supprimer des objets modèle. Ces modules prennent en compte non seulement les règles de validation du modèle, mais également les relations entre les tables. Tout ceci se produit sans écrire la moindre ligne de code !</p>
+
+<p>Le temps est maintenant venu de personnaliser le code généré. Si les classes de formulaires prennent déjà en considération beaucoup d'éléments, certains aspects devront être personnalisés.</p>
+
+<h3><a name="chapter_11_sub_configuration_des_validateurs_et_des_widgets">Configuration des validateurs et des widgets</a></h3>
+
+<p>Commençons par configurer les validateurs et les widgets générés par défaut.</p>
+
+<p>Le formulaire <code>ArticleForm</code> a un champ <code>slug</code>. Le slug est une chaine de caractères qui représente de manière unique l'article dans l'URL. Par exemple, le slug d'un article dont le titre est "Optimiser le développement avec symfony" est <code>12-optimiser-le-developpement-avec-symfony</code>, <code>12</code> étant l'<code>id</code> de l'article. Ce champ est généralement calculé automatiquement lorsque l'objet est enregistré, en fonction de <code>title</code>, mais il a le potentiel d'être explicitement redéfini par l'utilisateur. Même si ce champ est requis dans le schéma, il ne peut pas être obligatoire dans le formulaire. C'est pourquoi nous modifions le validateur et le rendons optionnel, comme dans le Listing 4-8. Nous allons aussi modifier le champ <code>content</code> en augmentant sa taille et en forçant l'utilisateur à entrer au moins cinq caractères.</p>
+
+<p class="figure">Listing 4-8 - Personnalisation des validateurs et des widgets</p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'slug'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'required'</span>, <span class="kw2">false</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'content'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'min_length'</span>, <span class="nu0">5</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'content'</span><span class="br0">]</span>-&gt;<span class="me1">setAttributes</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'rows'</span> =&gt; <span class="nu0">10</span>, <span class="st0">'cols'</span> =&gt; <span class="nu0">40</span><span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Nous utilisons ici les objets <code>validatorSchema</code> et <code>widgetSchema</code> comme des tableaux PHP. Ces tableaux prennent un nom de champ en clé et retournent respectivement les objets validateur et widget asociés. Nous pouvons alors personnaliser individuellement les champs et les widgets.</p>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  Afin de permettre l'utilisation d'objets en tant que tableaux PHP, les classes <code>sfValidatorSchema</code> et <code>sfWidgetFormSchema</code> implémentent l'interface <code>ArrayAccess</code>, disponible depuis la version 5 de PHP.</p>
+
+                </div>
+            </div>
+
+<p>Pour être sûr que deux articles ne peuvent avoir le même <code>slug</code>, une contrainte d'unicité a été ajoutée dans la définition du schéma. La contrainte au niveau de la base de données est utilisée dans le formulaire <code>ArticleForm</code> en utilisant le validateur <code>sfValidatorDoctrineUnique</code>. Ce validateur peut vérifier l'unicité de n'importe quel champ du formulaire. Il est utile entre autres choses pour vérifier l'unicité d'une adresse courriel ou d'un login par exemple. Le Listing 4-9 montre comment l'utiliser dans <code>ArticleForm</code>.</p>
+
+<p class="figure">Listing 4-9 - Utilisation du validateur <code>sfValidatorDoctrineUnique</code> pour vérifier l'unicité d'un champ</p>
+
+<pre class="php"><span class="kw2">class</span> BaseArticleForm <span class="kw2">extends</span> BaseFormDoctrine
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> setup<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span>-&gt;<span class="me1">setPostValidator</span><span class="br0">(</span>
+      <span class="kw2">new</span> sfValidatorDoctrineUnique<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'model'</span> =&gt; <span class="st0">'Article'</span>, <span class="st0">'column'</span> =&gt; <span class="kw3">array</span><span class="br0">(</span><span class="st0">'slug'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Le validateur <code>sfValidatorDoctrineUnique</code> est un <code>postValidator</code> s'exécutant sur toutes
+les données après les validations individuelles des champs. Afin de valider l'unicité de
+<code>slug</code>, le validateur doit être capable d'accéder non seulement à la valeur de <code>slug</code>, mais
+également à la valeur de(s) clé(s) primaire(s). Les règles de validation sont ainsi
+différentes entre la création et l'édition, puisque le slug peut rester le même lors
+de la mise à jour d'un article.</p>
+
+<p>Personnalisons maintenant le champ <code>active</code> de la table <code>author</code>, utilisé pour savoir
+si un auteur est actif. Le Listing 4-10 montre comment exclure les auteurs inactifs
+du formulaire <code>ArticleForm</code>, en modifiant l'option <code>query</code> du widget <code>FormDoctrineSelect</code>
+connecté au champ <code>author_id</code>. L'option <code>query</code> accepte un objet Doctrine Query,
+permettant de réduire les options disponibles dans la
+liste déroulante.</p>
+
+<p class="figure">Listing 4-10 - Personnalisation du widget <code>sfWidgetFormDoctrineSelect</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$query</span> = Doctrine_Query::<span class="me2">create</span><span class="br0">(</span><span class="br0">)</span>
+      -&gt;<span class="me1">from</span><span class="br0">(</span><span class="st0">'Author a'</span><span class="br0">)</span>
+      -&gt;<span class="me1">where</span><span class="br0">(</span><span class="st0">'a.active = ?'</span>, <span class="kw2">true</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$query</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Même si la personnalisation du widget peut nous permettre de réduire la liste des options disponibles, nous ne devons pas oublier de reporter cette réduction au niveau du validateur, comme montré dans le Listing 4-11. Comme le widget <code>sfWidgetProperSelect</code>, le validateur <code>sfValidatorDoctrineChoice</code> accepte une option <code>query</code> pour cibler les options valides pour un champ.</p>
+
+<p class="figure">Listing 4-11 - Personnalisation du validateur <code>sfValidatorDoctrineChoice</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$query</span> = Doctrine_Query::<span class="me2">create</span><span class="br0">(</span><span class="br0">)</span>
+      -&gt;<span class="me1">from</span><span class="br0">(</span><span class="st0">'Author a'</span><span class="br0">)</span>
+      -&gt;<span class="me1">where</span><span class="br0">(</span><span class="st0">'a.active = ?'</span>, <span class="kw2">true</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$query</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$query</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Dans le précédent exemple, nous avons défini un objet <code>Query</code> directement dans la méthode <code>configure()</code>. Dans notre projet, cette requête sera certainement utile en d'autres circonstances, il est donc préférable de créer une méthode <code>getActiveAuthorsQuery()</code> dans la classe <code>AuthorTable</code> et d'appeler cette méthode depuis <code>ArticleForm</code> comme le montre le Listing 4-12.</p>
+
+<p class="figure">Listing 4-12 - Refactorisation de <code>Query</code> dans le modèle</p>
+
+<pre class="php"><span class="kw2">class</span> AuthorTable <span class="kw2">extends</span> Doctrine_Table
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> getActiveAuthorsQuery<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$query</span> = Doctrine_Query::<span class="me2">create</span><span class="br0">(</span><span class="br0">)</span>
+      -&gt;<span class="me1">from</span><span class="br0">(</span><span class="st0">'Author a'</span><span class="br0">)</span>
+      -&gt;<span class="me1">where</span><span class="br0">(</span><span class="st0">'a.active = ?'</span>, <span class="kw2">true</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw1">return</span> <span class="re0">$query</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span>
+&nbsp;
+<span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$authorQuery</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">getActiveAuthorsQuery</span><span class="br0">(</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$authorQuery</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$authorQuery</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<h3><a name="chapter_11_sub_changer_les_validateurs">Changer les validateurs</a></h3>
+
+<p>L'<code>email</code> étant défini comme un <code>string(255)</code> dans le schéma, symfony a créé
+un validateur <code>sfValidatorString()</code> restreignant la longueur maximale à 255
+caractères. Ce champ est aussi supposé contenir des adresses email valides, le Listing
+4-13 remplace le validateur généré par un validateur <code>sfValidatorEmail</code>.</p>
+
+<p class="figure">Listing 4-13 - Changement du validateur du champ <code>email</code> de la classe <code>AuthorForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> AuthorForm <span class="kw2">extends</span> BaseAuthorForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorEmail<span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<h3><a name="chapter_11_sub_ajouter_un_validateur">Ajouter un validateur</a></h3>
+
+<p>Nous avons vu dans la précédente partie comment modifier le validateur généré. Mais
+dans le cas du champ <code>email</code>, il serait utile de garder la validation de longueur maximale.
+Dans le Listing 4-14, nous utilisons le validateur <code>sfValidatorAnd</code> pour garantir la
+validité de l'email et vérifier la taille maximale possible pour le champ.</p>
+
+<p class="figure">Listing 4-14 - Utilisation d'un validateur multiple</p>
+
+<pre class="php"><span class="kw2">class</span> AuthorForm <span class="kw2">extends</span> BaseAuthorForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorAnd<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span>
+      <span class="kw2">new</span> sfValidatorString<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'max_length'</span> =&gt; <span class="nu0">255</span><span class="br0">)</span><span class="br0">)</span>,
+      <span class="kw2">new</span> sfValidatorEmail<span class="br0">(</span><span class="br0">)</span>,
+    <span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>L'exemple précédent n'est pas parfait, car si nous décidons de modifier par la suite la longueur
+du champ <code>email</code> dans le schéma de base de données, nous devrons penser à le faire
+également dans le formulaire. Au lieu de remplacer le validateur généré, il est
+préférable d'en ajouter un, comme le montre le Listing 4-15.</p>
+
+<p class="figure">Listing 4-15 - Ajout d'un validateur</p>
+
+<pre class="php"><span class="kw2">class</span> AuthorForm <span class="kw2">extends</span> BaseAuthorForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorAnd<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span>
+      <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span>,
+      <span class="kw2">new</span> sfValidatorEmail<span class="br0">(</span><span class="br0">)</span>,
+    <span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<h3><a name="chapter_11_sub_changer_un_widget">Changer un widget</a></h3>
+
+<p>Dans le schéma de base de données, le champ <code>status</code> de la table <code>article</code> stocke les
+statuts d'articles dans une chaine de caractères. Les valeurs possibles ont été définies
+dans la classe <code>ArticleTable</code>, comme montré dans le Listing 4-16.</p>
+
+<p class="figure">Listing 4-16 - Définition des statuts possibles dans la classe <code>ArticleTable</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleTable <span class="kw2">extends</span> Doctrine_Table
+<span class="br0">{</span>
+  <span class="kw3">static</span> protected <span class="re0">$statuses</span> = <span class="kw3">array</span><span class="br0">(</span><span class="st0">'draft'</span>, <span class="st0">'online'</span>, <span class="st0">'offline'</span><span class="br0">)</span>;
+&nbsp;
+  <span class="kw3">static</span> <span class="kw2">public</span> <span class="kw2">function</span> getStatuses<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">return</span> self::<span class="re0">$statuses</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="co1">// ...</span>
+<span class="br0">}</span></pre>
+
+<p>Lors de l'édition d'un article, le champ <code>status</code> doit être représenté comme une liste déroulante
+au lieu d'un champ texte. Pour ce faire, changeons le widget utilisé, comme
+le montre le Listing 4-17.</p>
+
+<p class="figure">Listing 4-17 - Changement du widget pour le champ <code>status</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'status'</span><span class="br0">]</span> = <span class="kw2">new</span> sfWidgetFormSelect<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'choices'</span> =&gt; ArticleTable::<span class="me2">getStatuses</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Pour être exhaustifs, nous devons également changer le validateur pour être sûrs que le statut
+choisi est bien présent dans la liste des options possibles (Listing 4-18).</p>
+
+<p class="figure">Listing 4-18 - Modification du validateur du champ <code>status</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$statuses</span> = ArticleTable::<span class="me2">getStatuses</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'status'</span><span class="br0">]</span>    = <span class="kw2">new</span> sfWidgetFormSelect<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'choices'</span> =&gt; <span class="re0">$statuses</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'status'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorChoice<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'choices'</span> =&gt; <span class="kw3">array_keys</span><span class="br0">(</span><span class="re0">$statuses</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<h3><a name="chapter_11_sub_supprimer_un_champ">Supprimer un champ</a></h3>
+
+<p>La table <code>article</code> a trois colonnes spéciales, <code>created_at</code>, <code>updated_at</code>
+et <code>published_at</code>. Les deux premiers sont automatiquement gérée par Doctrine comme
+un comportement <code>timestampable</code>, le troisième que nous traiterons plus tard dans notre
+propre code. Nous devons donc les supprimer du formulaire comme le montre le Listing 4-19,
+pour éviter que les utilisateurs les modifient.</p>
+
+<p class="figure">Listing 4-19 - Suppression d'un champ</p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'created_at'</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'created_at'</span><span class="br0">]</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'updated_at'</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'updated_at'</span><span class="br0">]</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'published_at'</span><span class="br0">]</span><span class="br0">)</span>;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'published_at'</span><span class="br0">]</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Afin de supprimer un champ, il est nécessaire de supprimer son validateur et son
+widget. Le Listing 4-20 montre comment il est possible de les supprimer tous les
+deux en une action, en utilisant le formulaire comme un tableau PHP.</p>
+
+<p class="figure">Listing 4-20 - Suppression d'un champ en utilisant le formulaire comme un tableau PHP</p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span><span class="br0">[</span><span class="st0">'created_at'</span><span class="br0">]</span>, <span class="re0">$this</span><span class="br0">[</span><span class="st0">'updated_at'</span><span class="br0">]</span>, <span class="re0">$this</span><span class="br0">[</span><span class="st0">'published_at'</span><span class="br0">]</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<h3><a name="chapter_11_sub_resume">Résumé</a></h3>
+
+<p>Pour résumer, le Listing 4-21 et le Listing 4-22 montrent les formulaires <code>ArticleForm</code> et
+<code>AuthorForm</code> personnalisés.</p>
+
+<p class="figure">Listing 4-21 - Formulaire <code>ArticleForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$authorQuery</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">getActiveAuthorsQuery</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="co1">// widgets</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'content'</span><span class="br0">]</span>-&gt;<span class="me1">setAttributes</span><span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'rows'</span> =&gt; <span class="nu0">10</span>, <span class="st0">'cols'</span> =&gt; <span class="nu0">40</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'status'</span><span class="br0">]</span> = <span class="kw2">new</span> sfWidgetFormSelect<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'choices'</span> =&gt; ArticleTable::<span class="me2">getStatuses</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$authorQuery</span><span class="br0">)</span>;
+&nbsp;
+    <span class="co1">// validators</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'slug'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'required'</span>, <span class="kw2">false</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'content'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'min_length'</span>, <span class="nu0">5</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'status'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorChoice<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span><span class="st0">'choices'</span> =&gt; <span class="kw3">array_keys</span><span class="br0">(</span>ArticleTable::<span class="me2">getStatuses</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'author_id'</span><span class="br0">]</span>-&gt;<span class="me1">setOption</span><span class="br0">(</span><span class="st0">'query'</span>, <span class="re0">$authorQuery</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw3">unset</span><span class="br0">(</span><span class="re0">$this</span><span class="br0">[</span><span class="st0">'created_at'</span><span class="br0">]</span>, <span class="re0">$this</span><span class="br0">[</span><span class="st0">'updated_at'</span><span class="br0">]</span>, <span class="re0">$this</span><span class="br0">[</span><span class="st0">'published_at'</span><span class="br0">]</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p class="figure">Listing 4-22 - Formulaire <code>AuthorForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> AuthorForm <span class="kw2">extends</span> BaseAuthorForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorAnd<span class="br0">(</span><span class="kw3">array</span><span class="br0">(</span>
+      <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'email'</span><span class="br0">]</span>,
+      <span class="kw2">new</span> sfValidatorEmail<span class="br0">(</span><span class="br0">)</span>,
+    <span class="br0">)</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Utiliser la tâche <code>doctrine:build-forms</code> permet de générer la plupart
+des éléments en introspectant le modèle objet. Cette automatisation
+est utile pour plusieurs raisons :</p>
+
+<ul>
+<li><p>Cela rend la vie plus facile au développeur, lui épargnant un travail répétitif et
+redondant. Il peut alors se concentrer sur la personnalisation des validateurs et des
+widgets en fonction des règles métier spécifiques au projet.</p></li>
+<li><p>De plus, lorsque le schéma de base de données est mis à jour, les formulaires
+générés seront automatiquement mis à jour. Le développeur aura juste à adapter
+ses personnalisations.</p></li>
+</ul>
+
+<p>La prochaine section décrira la personnalisation des actions et des templates
+générés par la tâche <code>doctrine:generate-module</code>.</p>
+
+<h2><a name="chapter_11_serialisation_des_formulaires">Sérialisation des formulaires</a></h2>
+
+<p>La précédente section nous montre comment personnaliser les formulaires générés par la tâche
+<code>doctrine:build-forms</code>. Dans la section courante, nous allons personnaliser le cycle
+de vie des formulaires, en commençant par le code généré par
+<code>doctrine:generate-module</code>.</p>
+
+<h3><a name="chapter_11_sub_valeurs_par_defaut">Valeurs par défaut</a></h3>
+
+<p><strong>Une instance de formulaire Doctrine est toujours reliée à un objet Doctrine</strong>.
+L'objet Doctrine lié appartient toujours à la classe retournée par la méthode
+<code>getModelName()</code>. Par exemple, le formulaire <code>AuthorForm</code> peut seulement être
+lié à des objets appartenant à la classe <code>Author</code>. Ces objets sont soit
+des objets vides (une instance vide de la classe <code>Author</code>), soit les objets passés
+en premier argument au constructeur. Alors que le constructeur d'un formulaire
+« normal » prend un tableau de valeurs en premier argument, le constructeur
+d'un formulaire Doctrine prend un objet Doctrine. Cet objet est utilisé pour définir
+la valeur par défaut de chaque champ du fomulaire. La méthode <code>getObject()</code> retourne
+l'objet relié à l'instance courante, et la méthode <code>isNew()</code> permet de savoir si
+l'objet a été créé par le constructeur :</p>
+
+<pre class="php"><span class="co1">// création d'un nouvel objet</span>
+<span class="re0">$authorForm</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+<span class="kw3">print</span> <span class="re0">$authorForm</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">// affiche null</span>
+<span class="kw3">print</span> <span class="re0">$authorForm</span>-&gt;<span class="me1">isNew</span><span class="br0">(</span><span class="br0">)</span>;              <span class="co1">// affiche true</span>
+&nbsp;
+<span class="co1">// modification d'un objet existant</span>
+<span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="nu0">1</span><span class="br0">)</span>;
+<span class="re0">$authorForm</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;
+&nbsp;
+<span class="kw3">print</span> <span class="re0">$authorForm</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span>; <span class="co1">// affiche 1</span>
+<span class="kw3">print</span> <span class="re0">$authorForm</span>-&gt;<span class="me1">isNew</span><span class="br0">(</span><span class="br0">)</span>;              <span class="co1">// affiche false</span></pre>
+
+<h3><a name="chapter_11_sub_gestion_du_cycle_de_vie">Gestion du cycle de vie</a></h3>
+
+<p>Comme nous l'avons observé au début de ce chapitre, les actions <code>new</code>, <code>edit</code> et
+<code>create</code>, montrée dans le listing 4-23, gèrent le cycle de vie du formulaire.</p>
+
+<p class="figure">Listing 4-23 - Les méthodes <code>executeNew</code>, <code>executeEdit</code>, <code>executeCreate</code> et
+<code>processForm</code> du module <code>author</code></p>
+
+<pre class="php"><span class="co1">// apps/frontend/modules/author/actions/actions.class.php</span>
+<span class="kw2">class</span> authorActions <span class="kw2">extends</span> sfActions
+<span class="br0">{</span>
+  <span class="co1">// ...</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> executeNew<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeCreate<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">processForm</span><span class="br0">(</span><span class="re0">$request</span>, <span class="re0">$this</span>-&gt;<span class="me1">form</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">setTemplate</span><span class="br0">(</span><span class="st0">'new'</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> executeEdit<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">forward404Unless</span><span class="br0">(</span><span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>, <span class="kw3">sprintf</span><span class="br0">(</span><span class="st0">'Object author does not exist (%s).'</span>, <span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  protected <span class="kw2">function</span> processForm<span class="br0">(</span>sfWebRequest <span class="re0">$request</span>, sfForm <span class="re0">$form</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$form</span>-&gt;<span class="me1">bind</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">getName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">isValid</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$author</span> = <span class="re0">$form</span>-&gt;<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+      <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'author/edit?id='</span>.<span class="re0">$author</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Même si l'action <code>edit</code> ressemble aux actions que nous avons pu décrire dans
+les chapitres précédents, nous pouvons remarquer quelques différences :</p>
+
+<ul>
+<li><p>Un objet Doctrine de la classe <code>Author</code> est passé en premier paramètre du constructeur du formulaire :</p>
+
+<pre class="php"><span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>;
+<span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> AuthorForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;</pre></li>
+<li><p>Le format des attributs <code>name</code> des widgets est automatiquement défini de manière à
+récupérer les données soumises dans un tableau PHP nommé d'après la table liée (<code>author</code>) :</p>
+
+<pre class="php"><span class="re0">$form</span>-&gt;<span class="me1">bind</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">getName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;</pre></li>
+<li><p>Lorsque le formulaire est valide, un appel à la méthode <code>save()</code> crée ou met à jour
+les objets Doctrine reliés au formulaire :</p>
+
+<pre class="php"><span class="re0">$author</span> = <span class="re0">$form</span>-&gt;<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;</pre></li>
+</ul>
+
+<h3><a name="chapter_11_sub_creer_et_modifier_un_objet_doctrine">Créer et modifier un objet Doctrine</a></h3>
+
+<p>Le code du Listing 4-23 gère en une seule méthode la création et la modification d'objets de la
+classe <code>Author</code> :</p>
+
+<ul>
+<li><p>Création d'un nouvel objet <code>Author</code> :</p>
+
+<ul>
+<li><p>L'action <code>create</code> est appelée</p></li>
+<li><p>L'objet <code>form</code> est alors lié à un objet Doctrine <code>Author</code> vide</p></li>
+<li><p>L'appel à <code>$form-&gt;save()</code> crée un nouvel objet <code>Author</code> en conséquence
+quand un formulaire valide est soumis</p></li>
+</ul></li>
+<li><p>Modification d'un objet Author` existant :</p>
+
+<ul>
+<li><p>L'action <code>update</code> est appelée avec un paramètre <code>id</code>
+(<code>$request-&gt;getParameter('id')</code> représentant la clé primaire de
+l'objet <code>Author</code> à modifier)</p></li>
+<li><p>L'appel à la méthode <code>find()</code> retourne l'objet <code>Author</code> associé à
+la clé primaire</p></li>
+<li><p>L'objet <code>form</code> est donc lié à l'objet précédemment trouvé</p></li>
+<li><p>L'appel à <code>$form-&gt;save()</code> met à jour l'objet <code>Author</code> quand un formulaire valide
+est soumis</p></li>
+</ul></li>
+</ul>
+
+<h3><a name="chapter_11_sub_la_methode_save">La méthode <code>save()</code></a></h3>
+
+<p>Quand un formulaire Doctrine est valide, la méthode <code>save()</code> met à jour l'objet associé et l'enregistre dans la base de données. Cette méthode enregistre en fait non seulement l'objet principal, mais aussi les objets potentiellement reliés. Par exemple, le formulaire <code>ArticleForm</code> met à jour les tags connectés à un article. La relation entre les tables <code>article</code> et <code>tag</code> étant n-n, les tags reliés à un article sont stockés dans la table <code>article_tag</code> (en utilisant la méthode <code>saveArticleTagList()</code> générée).</p>
+
+<p>Afin de certifier une sérialisation consistante, la méthode <code>save()</code> inclut toutes les mises à jour dans une transaction.</p>
+
+            <div class="admonition-wrapper">
+                <div class="note"></div>
+                <div class="admonition admonition-note">
+                    <p class="first admonition-title">note</p>
+                    <p>
+  Nous verrons dans le chapitre 9 que la méthode <code>save()</code> met aussi automatiquement à jour les tables internationalisées.</p>
+
+                </div>
+            </div>
+
+
+
+            <div class="admonition-wrapper">
+                <div class="sidebar"></div>
+                <div class="admonition admonition-sidebar">
+                    <p class="first admonition-title">sidebar</p>
+                    <p class="title">Utiliser la méthode <code>bindAndSave()</code></p>
+  
+  <p>La méthode <code>bindAndSave()</code> lie les données soumises en entrée par l'utilisateur avec le formulaire, le valide et met à jour l'objet associé dans la base de données, le tout en une opération :</p>
+
+<pre class="php"><span class="kw2">class</span> articleActions <span class="kw2">extends</span> sfActions
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> executeCreate<span class="br0">(</span>sfWebRequest <span class="re0">$request</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> ArticleForm<span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span> &amp;&amp; <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">bindAndSave</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'article'</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'article/created'</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+                </div>
+            </div>
+
+<h3><a name="chapter_11_sub_gestion_des_envois_de_fichiers">Gestion des envois de fichiers</a></h3>
+
+<p>La méthode <code>save()</code> met automatiquement à jour les objets Doctrine, mais ne peut pas
+gérer les autres éléments tels que les envois de fichiers.</p>
+
+<p>Voyons comment attacher un fichier à chaque article. Les fichiers sont enregistrés dans
+le répertoire <code>web/uploads</code> et une référence vers le fichier est gardée dans le champ
+<code>file</code> de la table <code>article</code>, comme le montre le Listing 4-24.</p>
+
+<p class="figure">Listing 4-24 - Schéma pour la table <code>article</code> avec le fichier associé</p>
+
+<pre>// config/doctrine/schema.yml
+Article:
+  // ...
+  file: string(255)</pre>
+
+<p>Après chaque mise à jour du schéma, vous devez mettre à jour le modèle objet, la base de données et les formulaires associés :</p>
+
+<pre class="command-line"><code>$ ./symfony doctrine:build-all
+</code></pre>
+
+            <div class="admonition-wrapper">
+                <div class="caution"></div>
+                <div class="admonition admonition-caution">
+                    <p class="first admonition-title">caution</p>
+                    <p>
+  Soyez conscients que la tâche <code>doctrine:build-all</code> supprime toutes les tables du schéma
+  et les recrée. Les données dans les tables sont donc réécrites. C'est pourquoi il est
+  important de créer des données de test (<code>fixtures</code>) qui pourront être rechargées à
+  chaque modification du modèle.</p>
+
+                </div>
+            </div>
+
+<p>Le Listing 4-25 montre comment modifier la classe <code>ArticleForm</code> afin de relier un widget et un validateur au champ <code>file</code>.</p>
+
+<p class="figure">Listing 4-25 - Modification du champ <code>file</code> du formulaire <code>ArticleForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseArticleForm
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> configure<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+&nbsp;
+    <span class="re0">$this</span>-&gt;<span class="me1">widgetSchema</span><span class="br0">[</span><span class="st0">'file'</span><span class="br0">]</span> = <span class="kw2">new</span> sfWidgetFormInputFile<span class="br0">(</span><span class="br0">)</span>;
+    <span class="re0">$this</span>-&gt;<span class="me1">validatorSchema</span><span class="br0">[</span><span class="st0">'file'</span><span class="br0">]</span> = <span class="kw2">new</span> sfValidatorFile<span class="br0">(</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Comme pour chaque formulaire permettant l'envoi d'un fichier, n'oubliez pas d'ajouter
+l'attribut <code>enctype</code> à la balise <code>form</code> dans le template (voyez le Chapitre 2 pour
+plus d'informations concernant la gestion d'envois de fichiers).</p>
+
+            <div class="admonition-wrapper">
+                <div class="tip"></div>
+                <div class="admonition admonition-tip">
+                    <p class="first admonition-title">tip</p>
+                    <p>
+  Lorsque vous créez votre modèle de formulaire, vous pouvez vérifier si le formulaire
+  contient des champs de fichier, et ajouter l'attribut <code>enctype</code> automatiquement :</p>
+
+<pre class="php"><span class="kw2">&lt;?php</span> <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$form</span>-&gt;<span class="me1">isMultipart</span><span class="br0">(</span><span class="br0">)</span> <span class="kw3">echo</span> <span class="st0">'enctype="multipart/form-data" '</span>; <span class="kw2">?&gt;</span></pre>
+  
+  <p>Ce code est automatiquement ajoutée lorsque votre formulaire est créé par la tâche generate-module.</p>
+
+                </div>
+            </div>
+
+<p>Le Listing 4-26 montre les modifications à appliquer lors de l'enregistrement du formulaire pour enregistrer le fichier sur le serveur et stocker son chemin dans l'objet <code>article</code>.</p>
+
+<p class="figure">Listing 4-26 - Enregistrement de l'objet <code>article</code> et du fichier envoyé dans une action</p>
+
+<pre class="php"><span class="kw2">public</span> <span class="kw2">function</span> executeEdit<span class="br0">(</span><span class="re0">$request</span><span class="br0">)</span>
+<span class="br0">{</span>
+  <span class="re0">$author</span> = Doctrine::<span class="me2">getTable</span><span class="br0">(</span><span class="st0">'Author'</span><span class="br0">)</span>-&gt;<span class="me1">find</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'id'</span><span class="br0">)</span><span class="br0">)</span>;
+  <span class="re0">$this</span>-&gt;<span class="me1">form</span> = <span class="kw2">new</span> ArticleForm<span class="br0">(</span><span class="re0">$author</span><span class="br0">)</span>;
+&nbsp;
+  <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">isMethod</span><span class="br0">(</span><span class="st0">'post'</span><span class="br0">)</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">bind</span><span class="br0">(</span><span class="re0">$request</span>-&gt;<span class="me1">getParameter</span><span class="br0">(</span><span class="st0">'article'</span><span class="br0">)</span>, <span class="re0">$request</span>-&gt;<span class="me1">getFiles</span><span class="br0">(</span><span class="st0">'article'</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="kw1">if</span> <span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">isValid</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$file</span> = <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">getValue</span><span class="br0">(</span><span class="st0">'file'</span><span class="br0">)</span>;
+      <span class="re0">$filename</span> = <span class="kw3">sha1</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="re0">$file</span>-&gt;<span class="me1">getExtension</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalExtension</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+      <span class="re0">$file</span>-&gt;<span class="me1">save</span><span class="br0">(</span>sfConfig::<span class="me2">get</span><span class="br0">(</span><span class="st0">'sf_upload_dir'</span><span class="br0">)</span>.<span class="st0">'/'</span>.<span class="re0">$filename</span><span class="br0">)</span>;
+&nbsp;
+      <span class="re0">$article</span> = <span class="re0">$this</span>-&gt;<span class="me1">form</span>-&gt;<span class="me1">save</span><span class="br0">(</span><span class="br0">)</span>;
+&nbsp;
+      <span class="re0">$this</span>-&gt;<span class="me1">redirect</span><span class="br0">(</span><span class="st0">'article/edit?id='</span>.<span class="re0">$article</span>-&gt;<span class="me1">getId</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Enregistrer le fichier envoyé sur le système de fichiers permet à l'objet <code>sfValidatedFile</code> de connaître le chemin absolu du fichier. Pendant l'appel à <code>save()</code>, les valeurs des champs sont utilisées pour mettre à jour l'objet associé et, comme pour le champ <code>file</code>, l'objet <code>sfValidatedFile</code> est converti en chaine de caractères grâce à la méthode <code>__toString()</code>, renvoyant le chemin absolu du fichier. La colonne <code>file</code> de la table <code>article</code> stocke ce chemin absolu.</p>
+
+            <div class="admonition-wrapper">
+                <div class="tip"></div>
+                <div class="admonition admonition-tip">
+                    <p class="first admonition-title">tip</p>
+                    <p>
+  Si vous désirez stocker le chemin relatif au répertoire <code>sfConfig::get('sf_upload_dir')</code>, vous devez créer une classe héritant de <code>sfValidatedFile</code> et utiliser l'option <code>validated_file_class</code> pour passer au validateur <code>sfValidatorFile</code> le nom de la nouvelle classe. Le validateur retournera alors une instance de votre classe. Nous verrons dans le reste de ce chapitre une autre approche, consistant à modifier la valeur de la colonne <code>file</code> avant d'enregistrer l'objet dans la base de données.</p>
+
+                </div>
+            </div>
+
+<h3><a name="chapter_11_sub_personnalisation_de_la_methode_save">Personnalisation de la méthode <code>save()</code></a></h3>
+
+<p>Nous avons vu dans la section précédente comment enregistrer le fichier envoyé dans l'action <code>edit</code>. Un des principes de la programmation orientée objet est la réutilisabilité du code, grâce à son encapsulation dans des classes. Au lieu de dupliquer le code utilisé pour enregistrer le fichier dans chaque action utilisant le formulaire <code>ArticleForm</code>, il est préférable de le déplacer dans la classe <code>ArticleForm</code>. Le Listing 4-27 montre comment surcharger la méthode <code>save()</code> afin d'enregistrer aussi le fichier et éventuellement de supprimer un fichier existant.</p>
+
+<p class="figure">Listing 4-27 - Surcharge de la méthode <code>save()</code> de la classe <code>ArticleForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseFormDoctrine
+<span class="br0">{</span>
+  <span class="co1">// ...</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">(</span><span class="re0">$con</span> = <span class="kw2">null</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="kw3">file_exists</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getFile</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="kw3">unlink</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getFile</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+&nbsp;
+    <span class="re0">$file</span> = <span class="re0">$this</span>-&gt;<span class="me1">getValue</span><span class="br0">(</span><span class="st0">'file'</span><span class="br0">)</span>;
+    <span class="re0">$filename</span> = <span class="kw3">sha1</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="re0">$file</span>-&gt;<span class="me1">getExtension</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalExtension</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$file</span>-&gt;<span class="me1">save</span><span class="br0">(</span>sfConfig::<span class="me2">get</span><span class="br0">(</span><span class="st0">'sf_upload_dir'</span><span class="br0">)</span>.<span class="st0">'/'</span>.<span class="re0">$filename</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw1">return</span> parent::<span class="me2">save</span><span class="br0">(</span><span class="re0">$con</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>Après avoir déplacé le code dans le formulaire, l'action <code>edit</code> est identique au code généré par <code>doctrine:generate-module</code>.</p>
+
+            <div class="admonition-wrapper">
+                <div class="sidebar"></div>
+                <div class="admonition admonition-sidebar">
+                    <p class="first admonition-title">sidebar</p>
+                    <p class="title">Refactoriser le code dans le modèle ou dans le formulaire</p>
+  
+  <p>Les actions générées par la tâche <code>doctrine:generate-module</code> ne devraient généralement pas être modifiées.</p>
+  
+  <p>La logique que vous pourriez ajouter dans l'action <code>edit</code>, particulièrement durant la sérialisation du
+  formulaire, doit souvent être déplacée dans les classes du modèle ou dans les classes du formulaire.</p>
+  
+  <p>Nous avons juste vu un exemple de refactorisation dans la classe formulaire afin
+  d'effectuer un stockage de fichier. Prenons un autre exemple lié au modèle. Le
+  formulaire <code>ArticleForm</code> a un champ <code>slug</code>. Nous avons vu que ce champ devrait
+  être calculé automatiquement à partir du champ <code>title</code>, et qu'il pourrait
+  éventuellement être spécifié par l'utilisateur. Cette logique ne dépend pas du
+  formulaire. Elle appartient donc au modèle, comme le montre le code suivant :</p>
+
+<pre class="php"><span class="kw2">class</span> Article <span class="kw2">extends</span> BaseArticle
+<span class="br0">{</span>
+  <span class="kw2">public</span> <span class="kw2">function</span> save<span class="br0">(</span><span class="re0">$con</span> = <span class="kw2">null</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span>!<span class="re0">$this</span>-&gt;<span class="me1">getSlug</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="re0">$this</span>-&gt;<span class="me1">setSlugFromTitle</span><span class="br0">(</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+&nbsp;
+    <span class="kw1">return</span> parent::<span class="me2">save</span><span class="br0">(</span><span class="re0">$con</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+&nbsp;
+  protected <span class="kw2">function</span> setSlugFromTitle<span class="br0">(</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="co1">// ...</span>
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+  
+  <p>Le but principal de ces refactorisations est de respecter la séparation dans les couches applicatives,
+  particulièrement la réutilisation du code.</p>
+
+                </div>
+            </div>
+
+<h3><a name="chapter_11_sub_personnalisation_de_la_methode_dosave">Personnalisation de la méthode <code>doSave()</code></a></h3>
+
+<p>Nous avons vu que l'enregistrement d'un objet était fait dans une transaction afin de garantir que chaque opération liée à l'enregistrement soit exécutée correctement. Lorsque la méthode <code>save()</code> est surchargée comme nous l'avons fait dans la section précédente pour enregistrer le fichier envoyé, le code exécuté est indépendant de cette transaction.</p>
+
+<p>Le Listing 4-28 nous montre comment utiliser la méthode <code>doSave()</code> pour insérer dans la transaction globale le code enregistrant le fichier envoyé.</p>
+
+<p class="figure">Listing 4-28 - Surcharge de la méthode <code>doSave()</code> dans le formulaire <code>ArticleForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseFormDoctrine
+<span class="br0">{</span>
+  <span class="co1">// ...</span>
+&nbsp;
+  protected <span class="kw2">function</span> doSave<span class="br0">(</span><span class="re0">$con</span> = <span class="kw2">null</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="kw1">if</span> <span class="br0">(</span><span class="kw3">file_exists</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getFile</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+    <span class="br0">{</span>
+      <span class="kw3">unlink</span><span class="br0">(</span><span class="re0">$this</span>-&gt;<span class="me1">getObject</span><span class="br0">(</span><span class="br0">)</span>-&gt;<span class="me1">getFile</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="br0">}</span>
+&nbsp;
+    <span class="re0">$file</span> = <span class="re0">$this</span>-&gt;<span class="me1">getValue</span><span class="br0">(</span><span class="st0">'file'</span><span class="br0">)</span>;
+    <span class="re0">$filename</span> = <span class="kw3">sha1</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalName</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>.<span class="re0">$file</span>-&gt;<span class="me1">getExtension</span><span class="br0">(</span><span class="re0">$file</span>-&gt;<span class="me1">getOriginalExtension</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span>;
+    <span class="re0">$file</span>-&gt;<span class="me1">save</span><span class="br0">(</span>sfConfig::<span class="me2">get</span><span class="br0">(</span><span class="st0">'sf_upload_dir'</span><span class="br0">)</span>.<span class="st0">'/'</span>.<span class="re0">$filename</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw1">return</span> parent::<span class="me2">doSave</span><span class="br0">(</span><span class="re0">$con</span><span class="br0">)</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>La méthode <code>doSave()</code> étant appelée dans la transaction créé par la méthode <code>save()</code>, si l'appel à la méthode <code>save()</code> de l'objet <code>file()</code> lance une exception, l'objet ne sera pas enregistré.</p>
+
+<h3><a name="chapter_11_sub_personnalisation_de_la_methode_updateobject">Personnalisation de la méthode <code>updateObject()</code></a></h3>
+
+<p>Il est parfois nécessaire de modifier l'objet connecté au formulaire entre la mise à jour et l'enregistrement en base de données.</p>
+
+<p>Dans l'exemple d'envoi de fichier, au lieu de stocker le chemin absolu du fichier envoyé dans la colonne <code>file</code>, nous voulons enregistrer le chemin relatif au répertoire <code>sfConfig::get('sf_upload_dir')</code>.</p>
+
+<p>Le Listing 4-29 montre comment redéfinir la méthode <code>updateObject()</code> du formulaire <code>ArticleForm</code> afin de changer la valeur de la colonne <code>file</code> après la mise à jour automatique, mais avant qu'elle soit enregistrée.</p>
+
+<p class="figure">Listing 4-29 - Redéfinition de la méthode <code>updateObject()</code> de la classe <code>ArticleForm</code></p>
+
+<pre class="php"><span class="kw2">class</span> ArticleForm <span class="kw2">extends</span> BaseFormDoctrine
+<span class="br0">{</span>
+  <span class="co1">// ...</span>
+&nbsp;
+  <span class="kw2">public</span> <span class="kw2">function</span> updateObject<span class="br0">(</span><span class="re0">$values</span> = <span class="kw2">null</span><span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="re0">$object</span> = parent::<span class="me2">updateObject</span><span class="br0">(</span><span class="re0">$values</span><span class="br0">)</span>;
+&nbsp;
+    <span class="re0">$object</span>-&gt;<span class="me1">setFile</span><span class="br0">(</span><span class="kw3">str_replace</span><span class="br0">(</span>sfConfig::<span class="me2">get</span><span class="br0">(</span><span class="st0">'sf_upload_dir'</span><span class="br0">)</span>.<span class="st0">'/'</span>, <span class="st0">''</span>, <span class="re0">$object</span>-&gt;<span class="me1">getFile</span><span class="br0">(</span><span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>;
+&nbsp;
+    <span class="kw1">return</span> <span class="re0">$object</span>;
+  <span class="br0">}</span>
+<span class="br0">}</span></pre>
+
+<p>La méthode <code>updateObject()</code> est appelée par la méthode <code>doSave()</code> avant d'enregistrer l'objet dans la base de données.</p>
+
+            </div>
+
+                                                        </main>
+                    </div>
+                
+            </div>
+            
+                            <footer>
+                                            <section class="promos">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 m-b-30">
+                <h4 class="m-b-15">Latest from the Symfony Blog</h4>
+
+                <ul class="list--unstyled list--border m-b-30">
+                                            <li>
+                            <a href="https://symfony.com/blog/announcing-the-final-schedule-of-symfonyworld-online-2021-winter-conference">Announcing the Final Schedule of SymfonyWorld Online 2021 Winter Conference</a>
+                            <span class="metadata block m-b-0">November 16, 2021</span>
+                        </li>
+                                            <li>
+                            <a href="https://symfony.com/blog/new-in-symfony-5-4-redesigned-profiler-logs">New in Symfony 5.4: Redesigned Profiler Logs</a>
+                            <span class="metadata block m-b-0">November 17, 2021</span>
+                        </li>
+                                    </ul>
+            </div>
+
+            <div class="col-sm-4 m-b-30">
+                                    <h4 class="m-b-15">They Help Us Make Symfony</h4>
+                                        <div class="box box--small box--white box--shadow">
+                            <div class="d-flex ">
+        <img loading="lazy" class="m-r-15 avatar avatar--large " width="40" height="40" alt="Avatar of Pedro Junior, a Symfony contributor" src="./chapitre doctrine_files/01db9caa1c8ead863a2cfd140e236aba.jpeg">
+
+        <div class="">
+            
+            Thanks <strong>
+                            <a class="" href="https://connect.symfony.com/profile/vjnrv">Pedro Junior</a>
+
+            
+            </strong> for being a <a class="link-muted" title="List of all Symfony contributors" href="https://symfony.com/contributors">Symfony contributor</a>.
+            <small class="block m-t-5 text-muted">
+                                                
+                                    <strong title="2 commits">2</strong> commits
+                                · <strong title="12 lines of code/doc changed">12</strong> lines
+            </small>
+        </div>
+    </div>
+
+                    </div>
+                            </div>
+
+            <div class="col-sm-4 m-b-30">
+                <h4 class="m-b-15">Get Involved in the Community</h4>
+                <p>
+                    A passionate group of over 600,000 developers from more than
+                    120 countries, all committed to helping PHP surpass the impossible.
+                </p>
+
+                <p class="m-b-5">
+                    <a class="read-more" href="https://symfony.com/community">Getting involved</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+                    
+                    <section>
+                        <div class="container">
+                            <div class="footer-content">
+                                <section>
+                                    <p>
+                                        <b>Symfony</b>™ is a trademark of Symfony SAS. <a href="https://symfony.com/trademark">All rights reserved</a>.
+                                    </p>
+
+                                    <ul class="sitemap ">
+    <li>
+        <h6><a href="https://symfony.com/what-is-symfony">What is Symfony?</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+            
+        <li id="menu-at-a-glance">
+        <a href="https://symfony.com/at-a-glance">
+                        Symfony at a Glance
+        </a>
+    </li>
+            <li id="menu-components">
+        <a href="https://symfony.com/components">
+                        Symfony Components
+        </a>
+    </li>
+            <li id="menu-case-studies">
+        <a href="https://symfony.com/blog/category/case-studies">
+                        Case Studies
+        </a>
+    </li>
+            <li id="menu-symfony-releases">
+        <a href="https://symfony.com/releases">
+                        Symfony Releases
+        </a>
+    </li>
+            <li id="menu-security-policy">
+        <a href="https://symfony.com/doc/current/contributing/code/security.html">
+                        Security Policy
+        </a>
+    </li>
+            <li id="menu-logo">
+        <a href="https://symfony.com/logo">
+                        Logo &amp; Screenshots
+        </a>
+    </li>
+            <li id="menu-license">
+        <a href="https://symfony.com/license">
+                        Trademark &amp; Licenses
+        </a>
+    </li>
+            <li id="menu-symfony-legacy">
+        <a href="https://symfony.com/legacy">
+                        symfony1 Legacy
+        </a>
+    </li>
+    
+        </ul>
+    </li>
+
+    <li>
+        <h6><a href="https://symfony.com/doc/current/index.html">Learn Symfony</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+                
+    
+
+
+    <li class="">
+        <a href="https://symfony.com/doc/current/setup.html">Getting Started</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/doc/current/components/index.html">Components</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/doc/current/best_practices/index.html">Best Practices</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/bundles">Bundles</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/doc/current/reference/index.html">Reference</a>
+    </li>
+    <li class="">
+        <a href="https://training.sensiolabs.com/en/">Training</a>
+    </li>
+    <li class="">
+        <a href="https://university.sensiolabs.com/e-learning-platform">eLearning Platform</a>
+    </li>
+    <li class="">
+        <a href="https://certification.symfony.com/">Certification</a>
+    </li>
+
+        </ul>
+    </li>
+
+    <li>
+        <h6><a href="https://symfonycasts.com/">Screencasts</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+            <li><a href="https://symfonycasts.com/tracks/symfony">Learn Symfony</a></li>
+            <li><a href="https://symfonycasts.com/tracks/php">Learn PHP</a></li>
+            <li><a href="https://symfonycasts.com/tracks/javascript">Learn JavaScript</a></li>
+            <li><a href="https://symfonycasts.com/tracks/drupal">Learn Drupal</a></li>
+            <li><a href="https://symfonycasts.com/tracks/rest">Learn RESTful APIs</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <h6><a href="https://symfony.com/community">Community</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+            
+        <li id="menu-symfony-connect">
+        <a href="https://connect.symfony.com/">
+                        SymfonyConnect
+        </a>
+    </li>
+            <li id="menu-support">
+        <a href="https://symfony.com/support">
+                        Support
+        </a>
+    </li>
+            <li id="menu-how-to-be-involved">
+        <a href="https://symfony.com/doc/current/contributing/index.html">
+                        How to be Involved
+        </a>
+    </li>
+            <li id="menu-code-of-conduct">
+        <a href="https://symfony.com/doc/current/contributing/code_of_conduct/code_of_conduct.html">
+                        Code of Conduct
+        </a>
+    </li>
+            <li id="menu-events">
+        <a href="https://symfony.com/events/">
+                        Events &amp; Meetups
+        </a>
+    </li>
+            <li id="menu-projects">
+        <a href="https://symfony.com/projects">
+                        Projects using Symfony
+        </a>
+    </li>
+            <li id="menu-downloads_stats">
+        <a href="https://symfony.com/stats/downloads">
+                        Downloads Stats
+        </a>
+    </li>
+            <li id="menu-contributors">
+        <a href="https://symfony.com/contributors">
+                        Contributors
+        </a>
+    </li>
+            <li id="menu-backers">
+        <a href="https://symfony.com/backers">
+                        Backers
+        </a>
+    </li>
+    
+        </ul>
+    </li>
+
+    <li>
+        <h6><a href="https://symfony.com/blog/">Blog</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+            <li>
+    <a href="https://symfony.com/events">Events &amp; Meetups</a>
+</li>
+
+
+    <li class="">
+        <a href="https://symfony.com/blog/category/a-week-of-symfony">A week of symfony</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/case-studies">Case studies</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/cloud">Cloud</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/community">Community</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/conferences">Conferences</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/diversity">Diversity</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/documentation">Documentation</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/living-on-the-edge">Living on the edge</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/releases">Releases</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/security-advisories">Security Advisories</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/symfony-insight">SymfonyInsight</a>
+    </li>
+    <li class="">
+        <a href="https://symfony.com/blog/category/twig">Twig</a>
+    </li>
+
+<li style="margin-bottom: 20px">
+    <a href="https://blog.sensiolabs.com/">SensioLabs</a>
+</li>
+
+        </ul>
+    </li>
+
+    <li>
+        <h6><a href="https://sensiolabs.com/">Services</a></h6>
+        <ul class="list_menu_footer list-unstyled">
+            <li><a href="https://sensiolabs.com/">SensioLabs services</a></li>
+            <li><a href="https://training.sensiolabs.com/en">Train developers</a></li>
+            <li><a href="https://insight.symfony.com/">Manage your project quality</a></li>
+            <li><a href="https://blackfire.io/?utm_source=symfony&amp;utm_medium=symfonycom_footer&amp;utm_campaign=profiler">Improve your project performance</a></li>
+            <li><a href="https://symfony.com/cloud/">Host Symfony projects</a></li>
+        </ul>
+
+                    <div class="m-t-30">
+                <h6><span>Deployed on</span></h6>
+                <a href="https://symfony.com/cloud/" class="block m-t-10" title="SymfonyCloud, a Platform-as-a-Service built and optimized for Symfony developers">
+                    <svg width="170" viewBox="0 0 1830 300" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path fill="none" d="M0 0h1830v300H0z"></path><g serif:id="sfcloud-large-white"><path d="M300 30c0-16.557-13.443-30-30-30H30C13.443 0 0 13.443 0 30v240c0 16.557 13.443 30 30 30h240c16.557 0 30-13.443 30-30V30z" fill="#fff"></path><path d="M225.973 38.889c-16.691.571-31.263 9.785-42.109 22.497-12.009 13.961-19.996 30.505-25.759 47.404-10.292-8.444-18.229-19.369-34.756-24.121-12.768-3.671-26.177-2.162-38.512 7.029-5.842 4.362-9.867 10.951-11.78 17.165-4.957 16.111 5.206 30.458 9.826 35.603l10.102 10.814c2.077 2.124 7.093 7.658 4.638 15.586-2.64 8.634-13.041 14.206-23.708 10.931-4.767-1.462-11.611-5.01-10.075-9.999.627-2.048 2.092-3.589 2.883-5.336.714-1.526 1.063-2.66 1.28-3.339 1.948-6.355-.718-14.632-7.53-16.738-6.36-1.951-12.864-.405-15.387 7.778-2.859 9.299 1.591 26.178 25.434 33.523 27.932 8.596 51.555-6.619 54.906-26.447 2.113-12.42-3.501-21.654-13.772-33.52l-8.377-9.267c-5.068-5.065-6.811-13.702-1.564-20.338 4.433-5.605 10.735-7.987 21.074-5.18 15.085 4.09 21.803 14.558 33.018 23.002-4.623 15.193-7.655 30.443-10.392 44.116l-1.681 10.202c-8.016 42.045-14.139 65.143-30.045 78.4-3.208 2.283-7.788 5.696-14.69 5.939-3.627.111-4.796-2.385-4.846-3.475-.082-2.534 2.057-3.7 3.478-4.84 2.13-1.163 5.344-3.085 5.124-9.246-.232-7.281-6.261-13.591-14.98-13.301-6.528.22-16.48 6.357-16.102 17.608.384 11.622 11.212 20.329 27.543 19.776 8.728-.293 28.222-3.844 47.427-26.673 22.357-26.18 28.609-56.181 33.311-78.143l5.253-28.999c2.913.352 6.033.589 9.426.668 27.847.589 41.766-13.828 41.983-24.323.141-6.349-4.163-12.604-10.192-12.454-4.307.12-9.727 2.997-11.022 8.956-1.278 5.845 8.856 11.127.937 16.269-5.625 3.639-15.709 6.199-29.913 4.122l2.581-14.274c5.271-27.065 11.772-60.353 36.438-61.167 1.799-.085 8.37.076 8.523 4.429.044 1.445-.32 1.826-2.016 5.145-1.734 2.59-2.388 4.805-2.303 7.336.238 6.906 5.491 11.453 13.099 11.189 10.172-.343 13.093-10.242 12.926-15.334-.416-11.965-13.022-19.524-29.699-18.973z" fill="#18171b" fill-rule="nonzero"></path><path d="M612.349 103.388l-46.356 128.475c-8.638 24.154-17.761 52.023-48.319 52.023-7.401 0-11.61-.991-15.792-1.728l.62-8.025c.894-5.684 4.879-9.376 10.163-9.089.507.04 1.03.09 1.542.09 20.716 0 27.621-28.594 27.621-31.059 0-2.707-2.96-9.117-4.446-13.315L494.73 103.388h16.162c.04 0 .068.028.124.028 4.908 0 9.652 3.383 11.689 7.947l31.2 96.082h.495l31.898-96.133c2.06-4.541 6.793-7.896 11.678-7.896.056 0 .067-.028.123-.028h14.25zm686.164 0l-46.356 128.475c-8.638 24.154-17.772 52.023-48.336 52.023-7.389 0-11.599-.991-15.791-1.728l.63-8.025c.895-5.684 4.885-9.376 10.152-9.089.524.04 1.036.09 1.542.09 20.716 0 27.632-28.594 27.632-31.059 0-2.707-2.971-9.117-4.457-13.315l-42.652-117.372h16.163c.039 0 .067.028.112.028 4.907 0 9.668 3.383 11.7 7.947l31.2 96.082h.507l31.886-96.133c2.049-4.541 6.793-7.896 11.678-7.896.056 0 .084-.028.123-.028h14.267zm-324.415-2.954c38.223 0 63.846 27.621 63.846 65.833 0 36-26.118 65.827-63.846 65.827-37.965 0-64.1-29.827-64.1-65.827 0-38.212 25.623-65.833 64.1-65.833zm462.491-39.078c-8.823-4.656-29.165-6.372-39.214-6.372-52.939 0-86.271 36.518-86.271 88.477 0 52.939 32.352 88.476 86.271 88.476 10.784 0 29.901-1.715 39.214-7.352v-.001a11.024 11.024 0 0 0-13.549-9.992c-8.629 2.026-18.376 2.64-25.665 2.64-45.096 0-69.36-30.636-69.36-73.771 0-42.4 24.999-73.772 69.36-73.772 7.51 0 16.362.671 24.578 2.553a11.942 11.942 0 0 0 14.631-10.884l.005-.002zm46.344 105.143c0 34.067 17.891 65.438 58.331 65.438 40.439 0 58.331-31.371 58.331-65.438 0-34.067-17.892-65.438-58.331-65.438-40.44 0-58.331 31.371-58.331 65.438zm227.107-62.497h-2.737a12.703 12.703 0 0 0-12.703 12.704v56.41c0 20.833-8.824 45.587-37.009 45.587-21.322 0-29.655-15.196-29.655-38.724v-63.273a12.704 12.704 0 0 0-12.704-12.704h-2.737V183.9c0 27.45 11.764 48.037 42.645 48.037 25.98 0 35.293-13.97 40.44-25.244h.49v22.303h1.401a12.704 12.704 0 0 0 12.704-12.719l-.135-112.275zm104.029 21.077V45.181h2.736a12.7 12.7 0 0 1 8.983 3.721 12.7 12.7 0 0 1 3.721 8.983v158.408a12.703 12.703 0 0 1-12.704 12.703h-2.736v-19.852h-.491c-8.333 15.931-21.077 22.793-38.968 22.793-34.313 0-51.469-28.43-51.469-65.438 0-37.989 14.705-65.438 51.469-65.438 24.508 0 36.763 17.891 38.968 24.018h.491zM424.419 231.835h-.147c-11.733 0-23.411-3.213-34.801-6.894l.697-6.781c.665-6.061 4.925-10.642 10.125-9.792 8.284 2.616 18.115 4.879 27.182 4.907 15.487-.028 37.964-8.622 38.077-31.909-.18-22.325-21.256-29.956-40.486-39.203-19.601-9.488-37.824-19.978-37.88-47.025.084-30.935 24.002-47.149 56.232-47.346 8.841 0 18.993 1.221 28.707 3.636l-.428 7.603c-.63 5.233-5.076 9.387-10.383 8.998-.084 0-.084.079-.141.079-5.031-1.103-10.175-1.739-16.613-1.739-.028 0-.095 0-.152.011-14.829-.022-34.042 5.476-34.115 26.406.372 19.702 21.307 26.354 40.458 36.146 19.517 9.916 37.863 22.027 37.919 50.869-.107 37.374-28.155 51.775-64.251 52.034zm647.074-2.696h-12.736V103.388h11.801c.04 0 .051.028.107.028 5.808 0 10.513 4.705 10.513 10.53 0 .022.022.022.022.034v9.398h.484c6.917-14.306 23.671-22.944 41.184-22.944 32.545 0 47.098 20.226 47.098 54.003v64.668c-.264 5.577-4.817 10.029-10.456 10.029-.028 0-.028.005-.039.005h-12.697v-65.09c0-29.348-6.381-43.643-26.619-44.869-26.382 0-38.223 21.205-38.223 51.775v48.499c-.428 5.408-4.896 9.68-10.411 9.68-.027 0-.028.005-.028.005zm-208.378 0h-12.763V122.14h-19.151c-.028 0-.051-.028-.079-.028-5.284 0-9.618-3.895-10.372-8.954v-9.77h29.602v-9.983c0-30.581 7.895-50.554 42.157-50.554 5.903 0 10.856.737 15.532 1.48l-.399 7.592c-.321 5.538-4.924 10.051-10.468 9.646-.056 0-.045.062-.084.062-.383-.017-.771-.045-1.142-.045-19.956 0-22.421 12.836-22.421 29.843v11.959h33.288v8.751c-.259 5.454-4.649 9.821-10.108 10.001h-23.18v97.905c-.715 5.11-5.06 9.089-10.372 9.089-.028 0-.011.005-.04.005zm-219.48 0h-12.556V103.388h11.087c.039 0 .068.028.113.028 5.774 0 10.422 4.649 10.506 10.4v7.829h.496c8.858-14.554 21.441-21.211 39.928-21.211 14.554 0 29.096 7.4 35.764 24.413 8.628-17.992 27.61-24.413 38.944-24.413 32.072 0 43.643 20.715 43.643 48.089v72.411c-1.058 4.699-5.228 8.2-10.231 8.2-.017 0-.017.005-.028.005h-12.905V154.19c0-15.538-3.714-35.01-22.449-35.01-23.658 0-33.04 23.18-33.04 46.603v53.784c-.495 5.357-4.924 9.567-10.4 9.567-.028 0-.028.005-.039.005h-12.724V154.19c0-15.538-3.715-35.01-22.449-35.01-23.671 0-33.041 23.18-33.041 46.603V218.3c-.028.102-.078.164-.078.321 0 5.802-4.705 10.513-10.513 10.513-.011 0-.027.005-.028.005zm810.039-.143h2.737a12.706 12.706 0 0 0 12.704-12.703V57.885a12.704 12.704 0 0 0-12.704-12.704h-2.737v183.815zm46.166-62.497c0-28.92 14.46-52.204 41.42-52.204 26.959 0 41.42 23.284 41.42 52.204s-14.461 52.204-41.42 52.204c-26.96 0-41.42-23.284-41.42-52.204zm240.208 0c0-24.264 7.598-52.204 37.008-52.204 27.45 0 37.009 29.411 37.009 52.204s-9.559 52.204-37.009 52.204c-29.41 0-37.008-27.94-37.008-52.204zm-765.954 46.877c27.109 0 39.186-24.66 39.186-47.109 0-23.907-14.537-47.087-39.186-47.087-24.897 0-39.45 23.18-39.45 47.087 0 22.449 12.077 47.109 39.45 47.109z" fill="#fff"></path></g></svg>
+
+                </a>
+            </div>
+            </li>
+</ul>
+
+
+                                    <div class="icons">
+                                        <h6>Follow Symfony</h6>
+                                        <a href="https://github.com/symfony" target="_blank" rel="external noopener noreferrer" title="Symfony on GitHub">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0a8 8 0 0 0-8 8 8 8 0 0 0 5.47 7.59c.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82a7.67 7.67 0 0 1 2-.27 7.67 7.67 0 0 1 2 .27c1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117a3.1 3.1 0 0 1 .82 2.147c0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38A7.972 7.972 0 0 0 16 8a8 8 0 0 0-8-8"></path></svg>
+</i>
+                                        </a>
+                                        <a href="https://symfony.com/slack" target="_blank" rel="external noopener noreferrer" title="Symfony on Slack">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z"></path><path d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312z"></path><path d="M15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"></path></svg>
+</i>
+                                        </a>
+                                        <a href="https://twitter.com/symfony" target="_blank" rel="external noopener noreferrer" title="Symfony on Twitter">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038a6.62 6.62 0 0 1-1.885.517 3.299 3.299 0 0 0 1.443-1.816c-.634.37-1.337.64-2.085.79a3.282 3.282 0 0 0-5.593 2.99 9.307 9.307 0 0 1-6.766-3.42A3.222 3.222 0 0 0 .67 3.75c0 1.14.58 2.143 1.46 2.732a3.278 3.278 0 0 1-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22a3.336 3.336 0 0 1-1.475.056 3.29 3.29 0 0 0 3.07 2.28 6.578 6.578 0 0 1-4.85 1.359 9.332 9.332 0 0 0 5.04 1.474c6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42a6.63 6.63 0 0 0 1.64-1.7z" fill-rule="nonzero"></path></svg>
+</i>
+                                        </a>
+                                        <a href="https://www.facebook.com/SymfonyFramework" target="_blank" rel="external noopener noreferrer" title="Symfony on Facebook">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M15.117 0H.883A.883.883 0 0 0 0 .883v14.234c0 .488.395.883.883.883h7.663V9.804H6.46V7.39h2.086V5.607c0-2.066 1.262-3.19 3.106-3.19.883 0 1.642.064 1.863.094v2.16h-1.28c-1 0-1.195.48-1.195 1.18v1.54h2.39l-.31 2.42h-2.08V16h4.077a.883.883 0 0 0 .883-.883V.883A.883.883 0 0 0 15.117 0" fill-rule="nonzero"></path></svg>
+</i>
+                                        </a>
+                                        <a href="https://www.youtube.com/user/SensioLabs" target="_blank" rel="external noopener noreferrer" title="Symfony on YouTube">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M0 7.345c0-1.294.16-2.59.16-2.59s.156-1.1.636-1.587c.608-.637 1.408-.617 1.764-.684C3.84 2.36 8 2.324 8 2.324s3.362.004 5.6.166c.314.038.996.04 1.604.678.48.486.636 1.588.636 1.588S16 6.05 16 7.346v1.258c0 1.296-.16 2.59-.16 2.59s-.156 1.102-.636 1.588c-.608.638-1.29.64-1.604.678-2.238.162-5.6.166-5.6.166s-4.16-.037-5.44-.16c-.356-.067-1.156-.047-1.764-.684-.48-.487-.636-1.587-.636-1.587S0 9.9 0 8.605v-1.26zm6.348 2.73V5.58l4.323 2.255-4.32 2.24z"></path></svg>
+</i>
+                                        </a>
+                                        <a href="https://symfonycasts.com/" target="_blank" rel="external noopener noreferrer" title="Symfony Screencasts">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421"><path style="fill:none" d="M0 0h300v300H0z"></path><clippath id="a"><path d="M0 0h300v300H0z"></path></clippath><g clip-path="url(#a)"><path d="M300 30c0-16.557-13.443-30-30-30H30C13.443 0 0 13.443 0 30v240c0 16.557 13.443 30 30 30h240c16.557 0 30-13.443 30-30V30z" style="fill:#111827"></path><path d="M94.679 204.481c-4.374-1.925-9.01-2.625-13.734-2.625-18.632 0-32.278 12.51-32.278 31.317 0 19.42 12.859 31.841 32.191 31.841 3.587 0 9.272-.262 13.909-2.187l-.257-4.156a3.1 3.1 0 0 0-3.988-2.776c-2.99.903-6.622 1.421-9.577 1.421-12.684 0-23.006-9.534-23.006-23.881 0-13.733 9.36-23.881 23.444-23.881 3.038 0 5.994.528 8.787 1.582a3.098 3.098 0 0 0 4.178-2.646l.331-4.009zm13.522 19.85a3.1 3.1 0 0 0 4.404 2.615c2.741-1.268 5.876-1.996 8.866-1.996 8.223 0 11.022 3.937 11.022 11.635-3.237-.175-5.511-.175-8.748-.175-8.485 0-20.732 3.499-20.732 14.696 0 9.709 6.736 13.908 16.358 13.908 7.523 0 11.897-4.111 13.822-6.823h.175v5.774h4.352a3.098 3.098 0 0 0 3.093-3.296 125.34 125.34 0 0 1-.097-5.452v-18.458c0-12.159-5.161-18.457-17.933-18.457-5.686 0-10.585 1.75-14.696 4.199l.114 1.83zm44.173 38.234c3.761 2.012 8.048 2.449 12.247 2.449 7.96 0 15.57-4.373 15.57-13.908 0-14.259-19.332-11.635-19.332-20.732 0-3.674 3.674-5.424 7.873-5.424 1.107 0 3.2.377 5.127.913a3.097 3.097 0 0 0 3.926-2.68l.307-3.131c-3.237-.963-6.386-1.75-10.235-1.75-8.835 0-15.746 4.461-15.746 13.734 0 12.509 19.333 11.809 19.333 19.944 0 4.812-4.637 6.386-8.398 6.386-1.512 0-3.954-.43-6.366-1.29a3.097 3.097 0 0 0-4.141 2.732l-.165 2.757zm71.142 0c3.761 2.012 8.048 2.449 12.247 2.449 7.96 0 15.57-4.373 15.57-13.908 0-14.259-19.332-11.635-19.332-20.732 0-3.674 3.674-5.424 7.873-5.424 1.107 0 3.2.377 5.127.913a3.097 3.097 0 0 0 3.926-2.68l.307-3.131c-3.237-.963-6.386-1.75-10.235-1.75-8.835 0-15.746 4.461-15.746 13.734 0 12.509 19.333 11.809 19.333 19.944 0 4.812-4.637 6.386-8.398 6.386-1.512 0-3.954-.43-6.366-1.29a3.097 3.097 0 0 0-4.141 2.732l-.165 2.757zm-29.36-43.213v-12.947h5.123a3.1 3.1 0 0 1 3.099 3.1v9.847h11.81v3.548a3.1 3.1 0 0 1-3.1 3.1h-8.71v24.406c0 5.161 3.15 7.96 6.911 7.96.702 0 1.351-.06 1.947-.167a3.101 3.101 0 0 1 3.652 3.05v2.541c-1.837.525-4.374 1.224-6.999 1.224-8.485 0-13.733-4.024-13.733-12.946V226h-5.052a3.1 3.1 0 0 1-3.099-3.1v-3.548h8.151zm-61.663 27.292c0 6.649-4.286 11.722-12.422 11.722-3.761 0-8.31-2.537-8.31-7.26 0-7.873 11.022-8.573 15.483-8.573 1.75 0 3.499.175 5.249.175v3.936zm136.934-67.652H30.577c-.355-.024-.449-.012-.794-.109-1.164-.326-2.062-1.423-2.145-2.636a3.007 3.007 0 0 1 1.409-2.719c.344-.209.73-.346 1.129-.401.133-.019.268-.019.401-.028H53c-7.987-7.798-9.293-17.234-7.409-23.363 2.511-8.144 8.984-9.683 15.314-7.741 6.779 2.096 9.432 10.333 7.493 16.657-.216.677-.562 1.805-1.274 3.324-.787 1.738-2.245 3.272-2.869 5.31-.693 2.253.33 4.211 2.099 5.813h27.289c1.97-1.871 3.447-4.169 4.233-6.74 2.444-7.89-2.548-13.398-4.615-15.512l-10.054-10.762c-4.598-5.12-14.713-19.398-9.779-35.432 1.904-6.184 5.91-12.742 11.724-17.083 12.275-9.147 25.621-10.648 38.327-6.995 16.448 4.729 24.347 15.602 34.59 24.005 5.735-16.818 13.683-33.283 25.635-47.176 10.794-12.652 25.297-21.822 41.908-22.39 16.596-.548 29.142 6.974 29.556 18.882.167 5.068-2.74 14.92-12.864 15.261-7.572.262-12.8-4.263-13.036-11.135-.085-2.519.566-4.724 2.292-7.301 1.688-3.304 2.049-3.683 2.006-5.12-.152-4.333-6.692-4.493-8.482-4.409-24.548.811-31.018 33.939-36.263 60.875l-2.569 14.205c14.136 2.067 24.172-.481 29.77-4.102 7.881-5.117-2.205-10.374-.933-16.191 1.288-5.931 6.683-8.794 10.969-8.914 6-.148 10.283 6.077 10.144 12.395-.216 10.444-14.069 24.793-41.783 24.207a96.847 96.847 0 0 1-9.38-.665l-5.228 28.86c-1.387 6.478-2.91 13.66-4.945 21.237h94.561l.401.028c.132.027.265.045.394.082a3.005 3.005 0 0 1 2.09 2.237c.272 1.308-.46 2.759-1.711 3.302-.246.107-.506.18-.773.217-.132.018-.267.018-.401.027zm-127.085-5.893c.469-2.383.942-4.832 1.422-7.35l1.674-10.152c2.723-13.608 5.741-28.784 10.342-43.905-11.162-8.404-17.847-18.821-32.86-22.892-10.29-2.793-16.562-.423-20.973 5.155-5.222 6.604-3.488 15.2 1.557 20.241l8.336 9.223c10.222 11.808 15.809 20.999 13.707 33.359-1.024 6.057-3.949 11.682-8.315 16.321h25.11z" style="fill:#9ca3af"></path></g></svg>
+</i>
+                                        </a>
+                                        <a href="https://feeds.feedburner.com/symfony/blog" target="_blank" rel="external noopener noreferrer" title="Symfony Blog RSS">
+                                            <i class="icon"><svg width="16" height="16" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M576 1344q0 80-56 136t-136 56-136-56-56-136 56-136 136-56 136 56 56 136zm512 123q2 28-17 48-18 21-47 21H889q-25 0-43-16.5t-20-41.5q-22-229-184.5-391.5T250 902q-25-2-41.5-20T192 839V704q0-29 21-47 17-17 43-17h5q160 13 306 80.5T826 902q114 113 181.5 259t80.5 306zm512 2q2 27-18 47-18 20-46 20h-143q-26 0-44.5-17.5T1329 1476q-12-215-101-408.5t-231.5-336-336-231.5T252 398q-25-1-42.5-19.5T192 335V192q0-28 20-46 18-18 44-18h3q262 13 501.5 120T1186 542q187 186 294 425.5t120 501.5z"></path></svg>
+</i>
+                                        </a>
+                                    </div>
+
+                                    <div class="theme">
+                                        <form>
+                                            <label for="theme-switcher">
+                                                <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path></svg>
+</i>
+                                            </label>
+                                            <select id="theme-switcher">
+                                                <option value="light-theme">Light Theme</option>
+                                                <option value="dark-theme">Dark Theme</option>
+                                                <option value="dynamic-theme" selected="">Dynamic (same as OS)</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                    <script async="">
+                                        const availableThemes = ['light-theme', 'dark-theme', 'dynamic-theme'];
+                                        const themeSwitcher = document.getElementById('theme-switcher');
+                                        const currentTheme = localStorage.getItem('themeName');
+                                        if (availableThemes.includes(currentTheme)) {
+                                            themeSwitcher.value = currentTheme;
+                                        }
+
+                                        themeSwitcher.addEventListener('change', () => {
+                                            const newTheme = themeSwitcher.value;
+
+                                            document.body.classList.remove(...availableThemes);
+                                            document.body.classList.add(newTheme);
+                                            localStorage.setItem('themeName', newTheme);
+                                        });
+                                    </script>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+                </footer>
+                    </div>
+        
+
+        <div id="search-modal-backdrop" style="display: none">
+            <div role="dialog" aria-modal="true" id="search-modal-content" tabindex="-1">
+                <button aria-label="Close modal" id="search-modal-close-button">CLOSE</button>
+                <form id="form-search" onsubmit="return false">
+    <div class="form-group">
+        <label for="form-search-input" class="sr-only visually-hidden">Search Symfony Docs</label>
+                <input type="text" class="mousetrap form-control form-search-input" placeholder="Search Symfony Docs" aria-label="Search in Symfony documentation" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" onkeyup="Search.makeQuery(this.value, event.key)" onclick="event.stopPropagation()">
+    </div>
+    <button type="submit" class="sr-only visually-hidden">Search</button>
+</form>
+
+
+<div class="form-search-results-wrapper">
+    <div class="form-search-results"></div>
+    <div class="form-search-results-footer">
+        Search by <a target="_blank" href="https://algolia.com/?utm_source=symfony&amp;utm_medium=link&amp;utm_campaign=symfony_documentation">Algolia</a>
+    </div>
+</div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // load Connect bar
+            window.addEventListener('DOMContentLoaded', function () {
+                var js, fjs = document.getElementsByTagName('script')[0], load = function(url, id) {
+                    if (document.getElementById(id)) { return; }
+                    js = document.createElement('script'); js.src = url; js.id = id; js.defer = true;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+                load('https://connect.symfony.com/sln.js?customize_url=https://symfony.com/account/sln_customiser.js', 'sln_bar');
+
+                var s = document.createElement('link');
+                s.rel = 'stylesheet';
+                s.href = 'https://connect.symfony.com/css/sln.css';
+                var x = document.getElementsByTagName('title')[0];
+                x.parentNode.insertBefore(s, x);
+            });
+        </script>
+                    <script src="./chapitre doctrine_files/755.e8a40be3.js.téléchargement"></script><script src="./chapitre doctrine_files/app.27634896.js.téléchargement"></script>
+            <script src="./chapitre doctrine_files/468.e290d697.js.téléchargement"></script><script src="./chapitre doctrine_files/search.dc532e0f.js.téléchargement"></script>
+            
+
+</body></html>

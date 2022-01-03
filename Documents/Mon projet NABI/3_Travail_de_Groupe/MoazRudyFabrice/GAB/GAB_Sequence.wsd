@@ -1,0 +1,19 @@
+@startuml
+
+actor User 
+
+User -> CtrConsultation : Consulter Compte()
+activate CtrConsultation
+CtrConsultation -> Authentification : authentifier()
+Activate Authentification 
+Authentification --> CtrConsultation : Authentification Reussie avec N° Compte 
+deactivate Authentification 
+
+CtrConsultation -> Compte : Cunsulter(n° Compte) 
+activate Compte 
+Comte --> CtrConsultation : Consulter Reussi 
+destroy Compte 
+CtrConsultation --> User : Redirection sur la page de compte 
+
+
+@enduml

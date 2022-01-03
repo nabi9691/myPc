@@ -1,0 +1,63 @@
+@startuml Genial GAB
+
+left to right direction
+rectangle genialGAB{
+    (Retirerlargent)
+    (sauthentifier)
+    (déposerlargent)
+    (Autorisertransaction)
+    (déposercache)
+    (déposerchèque)
+    (editerRIB)
+    (consultercomptes)
+    (consulterdétailcomptes)
+    (rechargercaisse)
+}
+
+' acteurs humains
+:agent:
+:porteurCarte:
+:Client:
+
+' acteurs non humains
+rectangle Distributeur{
+
+}
+rectangle lecteurdeCarte{
+
+}
+rectangle SAD{
+    
+}
+rectangle SIB{
+
+}
+
+' les relations
+agent -> rechargercaisse
+Client -> consultercomptes
+Client -> déposerlargent
+porteurCarte <|-- Client
+porteurCarte -> Retirerlargent
+Distributeur -> Retirerlargent
+SAD -> Autorisertransaction
+SIB -> consultercomptes
+
+
+' Relation entre les cas d'utilisation
+Retirerlargent -|> sauthentifier: include
+déposerlargent -|> sauthentifier: include
+sauthentifier -|> Autorisertransaction: include
+consultercomptes -|> sauthentifier: include
+déposerlargent -|> déposerchèque
+déposerlargent -|> déposercache
+editerRIB <|- consultercomptes: Extend
+consulterdétailcomptes <|- consultercomptes: extend
+note right of (SIB)
+Système Informatique de Banque
+end note
+
+note right of (SAD)
+Système d'automatisation distant
+end note
+@enduml

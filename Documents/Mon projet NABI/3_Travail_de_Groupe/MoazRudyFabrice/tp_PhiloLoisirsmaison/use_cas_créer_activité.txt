@@ -1,0 +1,24 @@
+scenario:
+use cas créer activité
+acteurs principal Secrétaire
+acteur secondaire aucun 
+Objectif, créer une nouvelle activité
+(il faudra penser a pouvoir les supprimées)
+Pré-condition, serveur actif et accessible, authentification réussie  
+Post-condition, activitée créer
+Déclencheur, aucun
+
+Scénario Principal
+1. La secrétaire clique sur la page activité
+2. La secrétaire clique sur le bouton créer activité
+3. La secrétaire remplie les informations sur l'activité
+4. La secrétaire valide la création
+
+Scénari alternatifs
+1. Erreur serveur, retour à la page d'accueil
+2,3,4. La page ne se connecte pas car il y a un problème serveur
+retour au cas 1
+3. Problème car la secrétaire n'a pas rempli
+les champs obligatoires. Affichage du message 
+"Champ obligatoire non rempli"
+  

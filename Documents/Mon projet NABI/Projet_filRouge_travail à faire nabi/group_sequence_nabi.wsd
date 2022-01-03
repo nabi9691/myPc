@@ -1,0 +1,19 @@
+@startuml
+' diagramme séquenciel
+actor Abonnes
+Abonnes -> Compte: Authentification
+activate Compte
+ -> : Verification info Abonnes
+activate 
+ --> Identification: ok
+deactivate 
+Identification --> Abonnes: Code bon
+deactivate connexion
+activate 
+ -> Abonnes:
+Abonnes --> Compte: acceder a son compte -> SAD: demande d'autorisation de dépot d'argent
+destroy Abonnes
+destroy Connexion
+
+
+@enduml

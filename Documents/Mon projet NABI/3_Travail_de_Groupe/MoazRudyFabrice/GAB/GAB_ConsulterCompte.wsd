@@ -1,0 +1,12 @@
+@startuml "ConsulterCompte"
+
+actor User 
+
+User --> CtrConsulterCompte : consulter le Compte
+
+ref over CtrConsulterCompte : Authentification
+ref over CtrConsulterCompte : Verification de type d'utilisateur 
+ref over CtrConsulterCompte : Consulter le compte 
+CtrConsulterCompte -> User : Message Consultation Reussie 
+
+@enduml

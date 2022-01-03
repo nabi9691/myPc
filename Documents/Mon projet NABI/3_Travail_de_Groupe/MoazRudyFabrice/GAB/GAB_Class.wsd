@@ -1,0 +1,92 @@
+@startuml
+
+class Client {
+    - idClient : string 
+    - nomClient : string 
+    - prenomClient : string
+
+    + getIdClient() : string  
+}
+
+class Compte { 
+    - numCompte : string 
+    - solde : float 
+}
+
+class Carte {
+    - numeroCarte : string 
+    - codeSecretCarte : int 
+    - dateValiditeCarte : date 
+
+    + getNumeroCarte() : string 
+    + getCodeCarte() : string
+    + setNumeroCarte(numero) : void
+    + setCodeCarte(code) : void
+}
+
+class Virement {
+    - compteCredite : Compte
+    - compteDebite : Compte  
+    - 
+}
+
+class Depot {
+    - TypeDepot : string 
+}
+
+class Retrait {
+    - autorisation : string
+
+}
+
+class Transaction {
+    - date : datetime
+    - numero : string
+    - montant : float
+}
+
+class Banque { 
+    - nomBanque : string
+    - villeBanque : string
+}
+
+class ControlorGestionAuthentification #EAA {
+
+    + autoriserTransaction(numCarte : string) : bool
+    + verifierCode(codeSaisi : int) : bool
+}
+
+Class ControlorGestionConsultation #EAA {
+    + afficherCompte()
+    + afficherDetailCompte()
+    + editerRIB()
+    + imprimerHistorique()
+}
+
+class ControlorGestionRetrait #EAA {
+    + saisirMontant()
+    + verifierMontant(montant : float)
+    + imprimerTicket()
+}
+
+class ControlorGestionDepot #EAA {
+    + verifierBillet()
+    + enregistrerDepot()
+    + imprimerTicketDepot()
+}
+
+
+Compte "1,*"-Up-"1" Banque : Gerer
+Client "1"-up-"1,*" Compte : possede
+Compte "1"-up-"0,*" Transaction : concerne
+Client "1"-down-"1,*" Carte : possede 
+Carte "1"--"0,*" Transaction : Fait
+Retrait -right-> Transaction : est un type de 
+Virement -left-> Transaction : est un type de 
+Depot --> Transaction : est un type de
+ControlorGestionAuthentification ..> Carte : use
+ControlorGestionRetrait .> Retrait : use 
+ControlorGestionDepot .> Depot : use 
+ControlorGestionConsultation .> Carte : use
+
+@enduml

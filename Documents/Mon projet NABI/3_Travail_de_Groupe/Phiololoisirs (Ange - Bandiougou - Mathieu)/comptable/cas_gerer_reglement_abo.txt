@@ -1,0 +1,24 @@
+PROJET : 
+
+
+Cas d’utilisation	: gérer (les règlements des abonnements des adhérents aux activités remises de chèques, échéanciers, impayés…)
+
+Informations générales 
+Acteur principal	: comptable
+Acteur secondaire	: adhérents, abonnements, activités
+Objectif			: enregistrer tous les paiements
+Pré-condition		: avoir de nouveaux abonnements
+Post-condition		: tous les règlements sont pris en comptes
+Déclencheur		: accès à la gestion d'abonnement
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / comptable / accède à la page de gestion de paiements
+    2 / secrétaire / saisit les informations des paiements
+    3 / secrétaire / valide la saisit
+….
+
+Scénari alternatifs
+Alternative 5a : 1. comptable n'a pas accès à la gestion de paiements. Retour au cas1.
+2. Les informations de paiement sont erronées. Retour au cas1.
+Le cas d’utilisation se termine.

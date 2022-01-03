@@ -1,0 +1,89 @@
+@startuml
+
+class Client{
+-IdClient: string
+-nomClient: string
+-prenomClient: string
++getIdClieent():string
+}
+
+class Carte{
+-numero: string
+-codeSecret: string
+-dateValiditer: dateValiditer
++getNumero: string
++setNumero(numero:string): void
+getCodeSecret(codeSecret:string): void
+setCodeSecret(): string
+}
+
+class Transaction{
+-date: date time
+-numero: string
+-montant: float
+}
+
+class Banque{
+-nomBanque: string
+-villeBanque: string
+
+}
+
+class GestionDepot{
++verrifierBillets()
++enregistrerDepot()
++editerTicketDepot()
+
+}
+
+class Depot{
+-typeDepot: string
+
+}
+
+class Virement{
+-compteCrediter: string-compteDebiter
+
+}
+
+class GestionRetrait{
++saisirMontant()
++verifierMontant(parrametresMontant)
++imprimerTicket()
+
+
+}
+
+class GestionConsultation{
++afficherComptes()
++afficherDetailleComptes()
++editerRibe()
++imprimerHistorique
+}
+
+class GestionAuthentification{
++autoriserTransaction(numeroCarte):hasMap(autorisation, plafond)
++verifierMdp(mdpSaisis:int, mdpCripter:int): boolean
+}
+
+
+class Retrer{
+-authorisation: string
+}
+
+Banque"1" - "1..*"Compte: gerer
+compte"1..*" - "1"Client: pocede"
+compte"1" - "1..*"Transaction: conserne
+Transaction <|-- Depot
+Transaction <|-- Virement
+GestionDepot .... Depot
+Client"1" - "1..*"Carte: posede
+Carte"1" - "1..*"Transaction: transactions
+Retrer  -|> Transaction 
+GestionRetrait ..> Retrer: use
+GestionAuthentification ..> Carte: use
+GestionConsultation ..> Carte: use
+
+
+
+@enduml

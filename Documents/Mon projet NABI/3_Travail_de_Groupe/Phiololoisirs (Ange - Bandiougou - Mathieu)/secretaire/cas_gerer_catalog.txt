@@ -1,0 +1,24 @@
+PROJET : 
+
+
+Cas d’utilisation	: gérer  (Catalogue des activités)
+
+Informations générales 
+Acteur principal	: secrétaire
+Acteur secondaire	: activités
+Objectif			: modifier/spprimer des catalogues dans le système
+Pré-condition		: accéder à la page de gestion de catalogue
+Post-condition		: catalogue mis à jour
+Déclencheur		: nouvelles informations relatives aux activités
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / secrétaire / accède à la page de gestion de catalogue
+    2 / secrétaire / modifier les informations du catalogue
+    3 / secrétaire / valide la modification
+….
+
+Scénari alternatifs
+Alternative 5a : 1. Secrétaire n'a pas accès à la gestion de catalogue. Retour au cas1.
+2. Les informations du catalogue ne sont pas complètes. Retour au cas1.
+Le cas d’utilisation se termine.

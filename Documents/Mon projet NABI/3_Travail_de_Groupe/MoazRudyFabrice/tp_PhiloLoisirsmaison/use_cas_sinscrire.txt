@@ -1,0 +1,24 @@
+scenario:
+use cas s'inscrire
+acteurs principal, utilisateur anonyme
+acteur secondaire aucun 
+Objectif, créer un compte
+Pré-condition, serveur actif, utilisateur connecter
+Post-condition, compte créer, se connecter
+Déclencheur, aucun
+
+Scénario Principal 
+1. L'utilisateur doit cliquer sur bouton/lien s'inscrire
+2. L'utilisateur doit entrer un identifiant.
+    - Vérification si le login est déjà pris
+3. L'utilisateur doit entrer un mot de passe.
+4. Vérification du mot de passe.
+5. L'utilisateur valide son inscription.
+
+Scénari alternatifs
+1. Erreur serveur, retour à la page d'accueil
+2. Login déjà pris affichage d'un message "Changez de login svp !"
+4. Mot de passe non similaire affichage d'un message
+" Mot de passe différent ! Veuillez recommencer"
+5. Le compte ne valide pas car il y a un problème serveur
+retour au cas 1 

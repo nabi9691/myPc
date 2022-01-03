@@ -1,0 +1,24 @@
+scenario:
+use cas gerer activité
+acteurs principal secrétaire
+acteur secondaire 
+Objectif, créer , supprimer des activités
+Pré-condition, serveur actif, authentification secretaire
+Post-condition, retour au menu de gestion des activités
+envoyer un mail à tous les profil après une modification d'activité
+Déclencheur, néant
+
+Scénario Principal 
+1. La jolie secrétaire clique sur le bouton de gestion d'activité
+2. La jolie secrétaire choisit une activité dans le catalogue d'activité
+3. La jolie secrétaire choisit l'action (modifier, supprimer) pour l'activité
+4. La jolie secrétaire modifie et valide la modification des informations
+5. L'application envoie un mail automatique concernant les
+modifications d'activité à tous les utilisateurs
+
+Scénari alternatifs
+1. Erreur serveur, retour a la page d'accueil
+5. Mail non envoyé message à la secrétaire lui
+informant de l'échec de l'envoie du mail
+
+

@@ -1,0 +1,22 @@
+PROJET : 
+
+
+Cas d’utilisation	: valider (panier)
+
+Informations générales 
+Acteur principal	: adhérent
+Acteur secondaire	: activités
+Objectif			: s'abonner aux activités chosies
+Pré-condition	: être adhérent
+Post-condition		: profiter des activités
+Déclencheur		: payer
+
+Scénario Principal
+    Etape / Acteur / Description de l’action
+    1 / l'adhérent / paie
+    2 / l'adhérent / valide son panier
+….
+
+Scénari alternatifs
+Alternative 5a : 1. l'adhérent n'a de panier. Retour au cas1.
+Le cas d’utilisation se termine.
