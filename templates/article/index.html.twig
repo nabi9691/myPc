@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste des articles :
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Liste des articles :</h1>
+
+<lu>
+<li><a href=" {{ path('nouvelArticle_index') }}"> Nouvel article : </a></li>
+</lu>
+
+    <br><br>
+
+<table class="table">
+        <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                 <th>Status</th>
+                 <th>Contenu</th>
+                <th>Date</th> 
+                <th>Image</th>
+                
+                <th>Modifier</th>
+            <th>Afficher</th>
+            <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in article %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                                <td>{{ article.resume }}</td>
+<td>{{ article.status }}</td>
+<td>{{ article.contenu }}</td>
+                    <td>{{ article.date|date("d/m/Y") }}</td>  
+                    <td>{{ article.image }}</td>  
+                <td>
+                    <a href="{{ path('modifierArticle_index', {'id': article.id }) }}">Modifier</a>
+                </td>
+                    <td>
+                    <a href="{{ path('afficherArticle_index', {'id': article.id}) }}">Afficher</a>
+                    </td>
+            <td>
+                    <a href="{{ path('supprimerArticle_index', {'id': article.id}) }}">Supprimer</a>
+                    </td>
+                        </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'Utulisateurs</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste des catégories :
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>
+    Liste des catégories :</h1>
+
+<lu>
+<li><a href=" {{ path('nouvelleCategorie_index') }}"> Nouvelle catégorie : </a></li>
+
+</lu>
+
+    <br><br>
+
+<table class="table">
+        <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                 <th>Modifier</th>
+            <th>Afficher</th>
+            <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categorie %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.titre }}</td>
+                                <td>{{ categorie.resume }}</td>
+<td>
+                    <a href="{{ path('modifierCategorie_index', {'id': categorie.id }) }}">Modifier</a>
+                </td>
+                    <td>
+                    <a href="{{ path('afficherCategorie_index', {'id': categorie.id}) }}">Afficher</a>
+                    </td>
+            <td>
+                    <a href="{{ path('supprimerCategorie_index', {'id': categorie.id}) }}">Supprimer</a>
+                    </td>
+                        </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'Utulisateurs</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

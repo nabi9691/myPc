@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Modifier un auteur :
+{% endblock %}
+
+{% block body %}
+    
+    
+    <h1>
+        Modifier un auteur :
+        </h1>
+
+{{ form_start(formArticle) }}
+
+Titre: {{ form_widget(formArticle.titre) }}<br>
+Résumé: {{ form_widget(formArticle.resume) }} <br>
+Status: {{ form_widget(formArticle.status) }} <br>
+Contenu: {{ form_widget(formArticle.contenu) }} <br>
+Date: {{ form_widget(formArticle.date) }} <br>
+Image: {{ form_widget(formArticle.image) }} <br>
+
+<button type="submit" class="btn btn-success">envoyer</button>
+
+
+      
+    {{ form_end(formArticle) }}
+  {% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Liste des utilisateurs :
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1>Liste des utilisateurs :</h1>
+
+<lu>
+<li><a href=" {{ path('nouvelUtilisateur_index') }}"> Nouvel utilisateur : </a></li>
+</lu>
+
+    <br><br>
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                 <th>Civilité</th>
+                <th>Date de naissance</th> 
+                 <th>Adresse</th> 
+                 <th>Email</th> 
+                <th>Modifier</th>
+            <th>Afficher</th>
+            <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateur %}
+            <tr>
+                <td>{{ utilisateur.id }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                                <td>{{ utilisateur.prenom }}</td>
+<td>{{ utilisateur.civilite }}</td>
+                 <td>{{ utilisateur.datedenaissance  }} </td>
+<td>{{ utilisateur.adresse }}</td> 
+                 <td>{{ utilisateur.email }}</td>  
+                <td>
+                    <a href="{{ path('modifierUtilisateur_index', {'id': utilisateur.id }) }}">Modifier</a>
+                </td>
+                    <td>
+                    <a href="{{ path('afficherUtilisateur_index', {'id': utilisateur.id}) }}">Afficher</a>
+                    </td>
+            <td>
+                    <a href="{{ path('supprimerUtilisateur_index', {'id': utilisateur.id}) }}">Supprimer</a>
+                    </td>
+                        </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas d'Utulisateurs</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nouvelUtilisateur_index') }}">Enregistrement d'in nouvel utilisateur :</a>
+{% endblock %}

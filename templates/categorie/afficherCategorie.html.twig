@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+afficher catégorie :
+{% endblock %}
+
+{% block body %}
+    <h1>
+    Afficher catégorie :
+    </h1>
+<lu>
+<li><a href="{{ path('categorie_index') }}">Retoure à la page d'accueil</a></li> 
+</lu>
+    <br/>
+    <table class="table"><br/>
+<lu>
+<li><a href=" {{ path('categorie_index') }}"> Retoure à la page d'accueil : </a></li>
+</lu>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                 </tr>
+        </thead>
+        <tbody>
+            <tr>
+                                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.titre }}</td>
+                                <td>{{ categorie.resume }}</td>
+</tr>
+        </tbody>
+    </table>
+
+    {% endblock %}

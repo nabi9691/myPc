@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+ recherche d'un Utilisateurs
+ {% endblock %}
+
+{% block body %}
+ <br> <br>
+ 
+    <h1>
+    
+     recherche d'un utilisateurs 
+     </h1>
+
+    {{ include('utilisateur/formulaireUtilisateur.html.twig') }}<br>
+
+    <a href="{{ path('utilisateur_index') }}">Liste des Utilisateurs</a><br>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+ Recherche d'un auteur :
+ {% endblock %}
+
+{% block body %}
+ <br> <br>
+ 
+    <h1>
+    Recherche d'un auteur :
+     </h1>
+<div>
+    {{ include('auteur/formulaireAuteur.html.twig') }}<br>
+
+    <a href="{{ path('auteur_index') }}">Liste des auteurs :</a><br>
+</div>
+
+{% endblock %}

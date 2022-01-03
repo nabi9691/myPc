@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+ Enregistrement d'un article:
+ {% endblock %}
+
+{% block body %}
+ <br> <br>
+ 
+    <h1> Enregistrement d'un article :</h1>
+
+    {{ include('article/formulaireArticle.html.twig') }}<br>
+
+    <a href="{{ path('article_index') }}">Liste des auteur :</a><br>
+
+
+{% endblock %}

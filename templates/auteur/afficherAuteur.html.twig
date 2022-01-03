@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+afficher auteur :
+{% endblock %}
+
+{% block body %}
+    <h1>
+    Afficher auteur :
+    </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                 <th>Civilité</th>
+                                  <th>Email</th> 
+</tr>
+        </thead>
+        <tbody>
+            <tr>
+                                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nom }}</td>
+                                <td>{{ auteur.prenom }}</td>
+<td>{{ auteur.civilite }}</td>
+                 <td>{{ auteur.email }}</td>  
+</tr>
+        </tbody>
+    </table>
+
+    {% endblock %}
