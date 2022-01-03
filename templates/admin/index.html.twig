@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}
+Espace administrateur :
+{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +11,38 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>
+Espace administrateur :
+    
+    </h1>
+<lu>
+<li><a href=" {{ path('utilisateur_index')  }}">Liste des adhérent :</a></li>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/myMediateque/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/myMediateque/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
+<li><a href=" {{ path('auteur_index')  }}">Liste des abonnés :</a></li>
+
+
+<li><a href=" {{ path('article_index')  }}">Liste des contactes :</a></li>
+
+
+<li><a href=" {{ path('categorie_index')  }}">Liste des activitées :</a></li>
+</lu>
+
+
+<h3>A PROPOS ... </h3>
+<br/><br/>
+<hr/
+<br/><br/>
+<hr/
+<h3>CONTACTEZ NOUS AU NUMERO : +33  ... </h3>
+
+<div>
+    <br/><br/>
+<hr/>
+<br/>
+<h3>VEUILLEZ VOUS INSCRIRE !</h3>
+
+
+
+
 </div>
 {% endblock %}
