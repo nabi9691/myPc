@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-BIEN VENU A LA MEDIATHEQUE DU  savoir !
+BIEN VENU SUR LE SITE RETROUVAILLE.COM !
 {% endblock %}
     
 {% block body %}
@@ -19,7 +19,8 @@ padding: 2px 6px;
 </style>
 
 <h1>
-BIEN VENU A LA MEDIATHEQUE DU savoir !
+BIEN VENU SUR LE SITE RETROUVAILLE.COM !
+
 </h1>
 {#    accueil_name#}
 
@@ -29,13 +30,13 @@ BIEN VENU A LA MEDIATHEQUE DU savoir !
 
 
 <lu>
-<li><a href=" {{ path('utilisateur_index')  }}">Liste des utilisateurs :</a></li>
+<li><a href=" {{ path('utilisateur_index')  }}">Liste des adhérent :</a></li>
 
-<li><a href=" {{ path('auteur_index')  }}">Liste des auteurs :</a></li>
-<li><a href=" {{ path('article_index')  }}">Liste des articles :</a></li>
+<li><a href=" {{ path('auteur_index')  }}">Liste des abonnés :</a></li>
+<li><a href=" {{ path('article_index')  }}">Liste des contactes :</a></li>
 
 
-<li><a href=" {{ path('categorie_index')  }}">Liste des catégories :</a></li>
+<li><a href=" {{ path('categorie_index')  }}">Liste des activitées :</a></li>
 </lu>
 <div>
     <br/><br/>
@@ -43,9 +44,7 @@ BIEN VENU A LA MEDIATHEQUE DU savoir !
 <br/>
 
         
-    La bibliothèques est la richesse de notre culture 
-et de notre civilisation.
-
+Ce site vous permez de retrouver vos camarades d'enfance et de pouvoir discuter avec eux !
 </div>
 
 
